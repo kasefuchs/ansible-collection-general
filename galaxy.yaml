@@ -1,0 +1,24 @@
+---
+# --- Identity ---
+namespace: kasefuchs
+name: general
+version: 1.0.0
+
+# --- Metadata ---
+description: A collection of common Ansible roles used across my own projects.
+readme: README.md
+authors:
+  - kasefuchs
+license:
+  - MIT
+tags: []
+
+# --- Links ---
+repository: https://github.com/kasefuchs/ansible-collection-general
+homepage: https://github.com/kasefuchs/ansible-collection-general
+documentation: https://github.com/kasefuchs/ansible-collection-general
+issues: https://github.com/kasefuchs/ansible-collection-general/issues
+
+# --- Technical ---
+build_ignore: []
+dependencies: {}
