@@ -1,0 +1,5 @@
+---
+# Mapping from system architecture to download architecture naming.
+download_architecture_map:
+  x86_64: amd64
+  aarch64: arm64

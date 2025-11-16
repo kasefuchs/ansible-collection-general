@@ -1,0 +1,39 @@
+---
+- name: Link current version directory
+  block:
+    - name: Create version directory
+      ansible.builtin.file:
+        path: "{{ download_current_dir }}"
+        mode: "0755"
+        state: directory
+
+    - name: Link current version directory
+      ansible.builtin.file:
+        src: "{{ download_current_dir }}"
+        dest: "{{ download_current_dir_link }}"
+        state: link
+
+- name: Download files
+  block:
+    - name: Check if files already downloaded
+      loop: "{{ download_architecture_map | ansible.builtin.dict2items }}"
+      register: download_files
+      loop_control:
+        label: "{{ download_architecture.key }}"
+        loop_var: download_architecture
+      ansible.builtin.stat:
+        path: "{{ (download_current_dir_link, download_architecture.key) | ansible.builtin.path_join }}"
+
+    - name: Download files
+      when:
+        - not download_files.results[ansible_loop.index0].stat.exists
+        - download_architecture.key in common_unique_architectures
+      loop: "{{ download_architecture_map | ansible.builtin.dict2items }}"
+      loop_control:
+        label: "{{ download_architecture.key }}"
+        loop_var: download_architecture
+        extended: true
+      ansible.builtin.get_url:
+        url: "{{ download_url }}"
+        dest: "{{ (download_current_dir_link, download_architecture.key) | ansible.builtin.path_join }}"
+        mode: "0644"
