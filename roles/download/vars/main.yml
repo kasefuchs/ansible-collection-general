@@ -1,0 +1,6 @@
+---
+# Directory containing currently used version.
+download_current_dir: "{{ (download_dir, download_version) | ansible.builtin.path_join }}"
+
+# Symlink path pointing to the currently used version.
+download_current_dir_link: "{{ (download_dir, 'current') | ansible.builtin.path_join }}"
