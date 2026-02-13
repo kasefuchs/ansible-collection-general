@@ -1,0 +1,26 @@
+---
+- name: Get Tailscale status
+  register: tailscale_config_status_cmd
+  changed_when: false
+  ansible.builtin.command:
+    # language="sh"
+    cmd: "{{ tailscale_install_binary }} status --json"
+
+- name: Bring Tailscale up
+  when: not (tailscale_config_status_cmd.stdout | from_json).Self.Online
+  ansible.builtin.command:
+    # language="sh"
+    cmd: >-
+      {{ tailscale_install_binary }} up
+      --auth-key="{{ tailscale_config_auth_key }}"
+      --login-server="{{ tailscale_config_login_server }}"
+      --advertise-tags="{{ tailscale_config_advertise_tags | map('regex_replace', '^', 'tag:') | join(',') }}"
+
+- name: Configure Tailscale
+  when: tailscale_config_flags | length | ansible.builtin.bool
+  ansible.builtin.command:
+    argv: >-
+      {{
+        [tailscale_install_binary, 'set']
+        + tailscale_config_flags
+      }}

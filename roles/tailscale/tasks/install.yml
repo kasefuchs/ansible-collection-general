@@ -1,0 +1,34 @@
+---
+- name: Create Tailscale directories
+  loop:
+    - "{{ tailscale_install_dir }}"
+  ansible.builtin.file:
+    path: "{{ item }}"
+    mode: "0755"
+    state: directory
+    owner: root
+    group: root
+
+- name: Extract Tailscale archive
+  ansible.builtin.unarchive:
+    src: "{{ tailscale_download_local_file }}"
+    dest: "{{ tailscale_install_dir }}"
+    mode: "0755"
+    owner: root
+    group: root
+    include: "{{ tailscale_install_extract_include }}"
+    extra_opts: "{{ tailscale_install_extract_options }}"
+
+- name: Install Tailscale service
+  notify:
+    - Reload daemon
+    - Restart Tailscale service
+  block:
+    - name: Install Tailscale service (systemd)
+      when: ansible_facts.service_mgr == "systemd"
+      ansible.builtin.template:
+        src: tailscaled.service.j2
+        dest: /etc/systemd/system/tailscaled.service
+        owner: root
+        group: root
+        mode: "0644"

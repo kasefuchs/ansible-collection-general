@@ -1,0 +1,17 @@
+---
+# Version of Tailscale to download.
+tailscale_download_version: latest
+
+# GitHub user or organization that maintains the Tailscale repository.
+tailscale_download_github_user: tailscale
+
+# GitHub repository name for Tailscale.
+tailscale_download_github_repository: tailscale
+
+# Mapping from system architecture to Tailscale release architecture naming.
+tailscale_download_architecture_map:
+  x86_64: amd64
+  aarch64: arm64
+
+# URL to download the Tailscale archive.
+tailscale_download_url: "https://pkgs.tailscale.com/stable/tailscale_{{ download_version }}_{{ download_architecture.value }}.tgz"
