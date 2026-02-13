@@ -1,0 +1,26 @@
+---
+# Version of K3s to download.
+k3s_download_version: latest
+
+# GitHub user or organization that maintains the K3s repository.
+k3s_download_github_user: k3s-io
+
+# GitHub repository name for K3s.
+k3s_download_github_repository: k3s
+
+# Mapping from system architecture to K3s release architecture naming.
+k3s_download_architecture_map:
+  x86_64: amd64
+  aarch64: arm64
+
+# URL to download the K3s binary.
+k3s_download_binary_url: >
+  https://github.com/{{ k3s_download_github_user }}/{{ k3s_download_github_repository }}/releases/download/v{{ download_version }}/
+  {%- if download_architecture.key == 'x86_64' -%}
+  k3s
+  {%- else -%}
+  k3s-{{ download_architecture.value }}
+  {%- endif -%}
+
+# URL to download the K3s script.
+k3s_download_script_url: https://raw.githubusercontent.com/k3s-io/k3s/refs/heads/main/install.sh

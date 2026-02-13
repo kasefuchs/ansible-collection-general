@@ -14,10 +14,10 @@ license:
 tags: []
 
 # --- Links ---
-repository: https://github.com/kasefuchs/ansible-collection-general
-homepage: https://github.com/kasefuchs/ansible-collection-general
-documentation: https://github.com/kasefuchs/ansible-collection-general
-issues: https://github.com/kasefuchs/ansible-collection-general/issues
+repository: https://codeberg.org/kasefuchs/ansible-collection-general
+homepage: https://codeberg.org/kasefuchs/ansible-collection-general
+documentation: https://codeberg.org/kasefuchs/ansible-collection-general
+issues: https://codeberg.org/kasefuchs/ansible-collection-general/issues
 
 # --- Technical ---
 build_ignore: []
