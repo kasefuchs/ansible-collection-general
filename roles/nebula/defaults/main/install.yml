@@ -1,0 +1,6 @@
+---
+# Extra options for extracting the Nebula archive.
+nebula_install_extract_options: []
+
+# Files or directories to include when extracting.
+nebula_install_extract_include: [nebula, nebula-cert]

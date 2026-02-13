@@ -1,0 +1,17 @@
+---
+# Version of Nebula to download.
+nebula_download_version: latest
+
+# GitHub user or organization that maintains the Nebula repository.
+nebula_download_github_user: slackhq
+
+# GitHub repository name for Nebula.
+nebula_download_github_repository: nebula
+
+# Mapping from system architecture to Nebula release architecture naming.
+nebula_download_architecture_map:
+  x86_64: amd64
+  aarch64: arm64
+
+# URL to download the Nebula archive.
+nebula_download_url: "https://github.com/{{ nebula_download_github_user }}/{{ nebula_download_github_repository }}/releases/download/v{{ download_version }}/nebula-linux-{{ download_architecture.value }}.tar.gz"
