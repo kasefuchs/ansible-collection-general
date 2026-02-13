@@ -1,0 +1,9 @@
+---
+# Target directory where Tailscale will be extracted.
+tailscale_install_dir: /usr/local/bin
+
+# Path to the Tailscale binary.
+tailscale_install_binary: "{{ (tailscale_install_dir, 'tailscale') | ansible.builtin.path_join }}"
+
+# Path to the Tailscale daemon binary.
+tailscale_install_daemon_binary: "{{ (tailscale_install_dir, 'tailscaled') | ansible.builtin.path_join }}"

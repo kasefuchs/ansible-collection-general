@@ -1,0 +1,6 @@
+---
+# Directory path where specific versions of Tailscale will be downloaded.
+tailscale_download_local_dir: "{{ (tailscale_cache_local_dir, 'download') | ansible.builtin.path_join }}"
+
+# Path to the Tailscale archive for the current architecture.
+tailscale_download_local_file: "{{ (tailscale_download_local_dir, 'current', ansible_facts.architecture) | ansible.builtin.path_join }}"

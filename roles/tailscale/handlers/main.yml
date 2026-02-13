@@ -1,0 +1,14 @@
+---
+- name: Enable Tailscale service (systemd)
+  when: ansible_facts.service_mgr == "systemd"
+  listen: Enable Tailscale service
+  ansible.builtin.systemd_service:
+    name: tailscaled
+    enabled: true
+
+- name: Restart Tailscale service (systemd)
+  when: ansible_facts.service_mgr == "systemd"
+  listen: Restart Tailscale service
+  ansible.builtin.systemd_service:
+    name: tailscaled
+    state: restarted

@@ -1,0 +1,16 @@
+---
+# Extra flags passed to `tailscale set`.
+tailscale_config_flags:
+  - --accept-routes
+  - --advertise-exit-node
+  - --webclient
+
+# Pre-authentication key used for non-interactive login.
+tailscale_config_auth_key: "{{ undef('Tailscale auth key must be provided (tailscale_config_auth_key)') }}"
+
+# Base URL of the Tailscale control server.
+tailscale_config_login_server: https://controlplane.tailscale.com
+
+# Tags advertised by this node to the Tailscale control plane.
+tailscale_config_advertise_tags:
+  - server
