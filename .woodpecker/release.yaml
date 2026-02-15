@@ -1,0 +1,26 @@
+---
+when:
+  - event: tag
+
+steps:
+  - name: build
+    image: alpine/ansible
+    commands: # language="sh"
+      - ansible-galaxy collection build
+
+  - name: release
+    image: woodpeckerci/plugin-release
+    settings:
+      title: ${CI_COMMIT_TAG}
+      files:
+        - kasefuchs-general-${CI_COMMIT_TAG##v}.tar.gz
+      api_key:
+        from_secret: CODEBERG_RELEASE_API_TOKEN
+
+  - name: publish
+    image: alpine/ansible
+    environment:
+      ANSIBLE_GALAXY_TOKEN:
+        from_secret: ANSIBLE_GALAXY_TOKEN
+    commands: # language="sh"
+      - ansible-galaxy collection publish --token="$${ANSIBLE_GALAXY_TOKEN}" "kasefuchs-general-${CI_COMMIT_TAG##v}.tar.gz"
