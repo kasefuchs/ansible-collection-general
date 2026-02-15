@@ -2,7 +2,7 @@
 # --- Identity ---
 namespace: kasefuchs
 name: general
-version: 1.0.0
+version: 0.1.0
 
 # --- Metadata ---
 description: A collection of common Ansible roles used across my own projects.
@@ -20,5 +20,8 @@ documentation: https://codeberg.org/kasefuchs/ansible-collection-general
 issues: https://codeberg.org/kasefuchs/ansible-collection-general/issues
 
 # --- Technical ---
-build_ignore: []
 dependencies: {}
+build_ignore:
+  - .idea
+  - .vscode
+  - .venv

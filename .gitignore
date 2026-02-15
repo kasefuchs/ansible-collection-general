@@ -5,3 +5,11 @@
 
 # VSCode
 .vscode/
+
+# --- Python ---
+# Environment
+.venv/
+
+# --- Ansible ---
+# Artifacts
+*.tar.gz
