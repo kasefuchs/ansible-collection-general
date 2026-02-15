@@ -14,7 +14,7 @@ galaxy_info:
     - networking
     - security
 
-  issue_tracker_url: https://codeberg.org/kasefuchs/ansible-collection-general
+  issue_tracker_url: https://codeberg.org/kasefuchs/ansible-collection-general/issues
   min_ansible_version: 2.2
 
 dependencies:
