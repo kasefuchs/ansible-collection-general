@@ -1,0 +1,19 @@
+---
+galaxy_info:
+  author: Kasefuchs
+  description: >
+    Common helper role providing shared variables, paths, and handlers
+    used across other roles in the collection.
+
+  license: MIT
+  galaxy_tags:
+    - common
+    - utilities
+    - system
+    - helpers
+    - shared
+
+  issue_tracker_url: https://codeberg.org/kasefuchs/ansible-collection-general
+  min_ansible_version: 2.2
+
+dependencies: []

@@ -1,0 +1,21 @@
+---
+galaxy_info:
+  author: Kasefuchs
+  description: >
+    Generic reusable download role that fetches and manages
+    versioned binaries and archives with multi-architecture support.
+
+  license: MIT
+  galaxy_tags:
+    - download
+    - artifacts
+    - binaries
+    - versioning
+    - system
+    - utilities
+
+  issue_tracker_url: https://codeberg.org/kasefuchs/ansible-collection-general
+  min_ansible_version: 2.2
+
+dependencies:
+  - role: kasefuchs.general.common

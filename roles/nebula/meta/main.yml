@@ -1,0 +1,22 @@
+---
+galaxy_info:
+  author: Kasefuchs
+  description: >
+    Install and configure Nebula overlay networking,
+    including certificate generation, service setup,
+    and configuration management.
+
+  license: MIT
+  galaxy_tags:
+    - nebula
+    - vpn
+    - overlay
+    - networking
+    - security
+
+  issue_tracker_url: https://codeberg.org/kasefuchs/ansible-collection-general
+  min_ansible_version: 2.2
+
+dependencies:
+  - role: kasefuchs.general.common
+  - role: kasefuchs.general.download

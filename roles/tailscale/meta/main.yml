@@ -1,0 +1,22 @@
+---
+galaxy_info:
+  author: Kasefuchs
+  description: >
+    Install and configure Tailscale mesh VPN,
+    including automated login, service setup,
+    and runtime configuration.
+
+  license: MIT
+  galaxy_tags:
+    - tailscale
+    - vpn
+    - mesh
+    - networking
+    - security
+
+  issue_tracker_url: https://codeberg.org/kasefuchs/ansible-collection-general
+  min_ansible_version: 2.2
+
+dependencies:
+  - role: kasefuchs.general.common
+  - role: kasefuchs.general.download
