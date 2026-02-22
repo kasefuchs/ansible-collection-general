@@ -2,5 +2,5 @@
 # Local path for storing Tailscale cache.
 tailscale_cache_local_dir: "{{ (common_cache_local_dir, 'tailscale') | ansible.builtin.path_join }}"
 
-# Local path for storing Tailscale cache.
+# Local path for storing Tailscale artifacts.
 tailscale_artifact_local_dir: "{{ (common_artifact_local_dir, 'tailscale') | ansible.builtin.path_join }}"
