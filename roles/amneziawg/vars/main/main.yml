@@ -1,0 +1,6 @@
+---
+# Local path for storing AmneziaWG cache.
+amneziawg_cache_local_dir: "{{ (common_cache_local_dir, 'amneziawg') | ansible.builtin.path_join }}"
+
+# Local path for storing AmneziaWG artifacts.
+amneziawg_artifact_local_dir: "{{ (common_artifact_local_dir, 'amneziawg') | ansible.builtin.path_join }}"

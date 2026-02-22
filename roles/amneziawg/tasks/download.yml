@@ -1,0 +1,18 @@
+---
+- name: Download AmneziaWG go
+  ansible.builtin.include_role:
+    name: kasefuchs.general.download
+  vars:
+    download_dir: "{{ amneziawg_download_go_local_dir }}"
+    download_url: "{{ amneziawg_download_go_url }}"
+    download_version: "{{ amneziawg_download_go_version }}"
+    download_architecture_map: "{{ amneziawg_download_go_architecture_map }}"
+
+- name: Download AmneziaWG tools
+  ansible.builtin.include_role:
+    name: kasefuchs.general.download
+  vars:
+    download_dir: "{{ amneziawg_download_tools_local_dir }}"
+    download_url: "{{ amneziawg_download_tools_url }}"
+    download_version: "{{ amneziawg_download_tools_version }}"
+    download_architecture_map: "{{ amneziawg_download_tools_architecture_map }}"

@@ -1,0 +1,45 @@
+---
+- name: Create AmneziaWG directories
+  loop:
+    - "{{ amneziawg_install_dir }}"
+    - "{{ amneziawg_install_config_dir }}"
+  ansible.builtin.file:
+    path: "{{ item }}"
+    mode: "0755"
+    state: directory
+    owner: root
+    group: root
+
+- name: Extract AmneziaWG archive
+  block:
+    - name: Extract AmneziaWG go archive
+      ansible.builtin.unarchive:
+        src: "{{ amneziawg_download_go_local_file }}"
+        dest: "{{ amneziawg_install_dir }}"
+        mode: "0755"
+        owner: root
+        group: root
+        include: "{{ amneziawg_install_go_extract_include }}"
+        extra_opts: "{{ amneziawg_install_go_extract_options }}"
+
+    - name: Extract AmneziaWG tools archive
+      ansible.builtin.unarchive:
+        src: "{{ amneziawg_download_tools_local_file }}"
+        dest: "{{ amneziawg_install_dir }}"
+        mode: "0755"
+        owner: root
+        group: root
+        include: "{{ amneziawg_install_tools_extract_include }}"
+        extra_opts: "{{ amneziawg_install_tools_extract_options }}"
+
+- name: Install AmneziaWG service
+  notify: Reload daemon
+  block:
+    - name: Install AmneziaWG service (systemd)
+      when: ansible_facts.service_mgr == "systemd"
+      ansible.builtin.template:
+        src: awg-quick@.service.j2
+        dest: /etc/systemd/system/awg-quick@.service
+        owner: root
+        group: root
+        mode: "0644"

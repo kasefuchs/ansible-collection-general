@@ -1,0 +1,9 @@
+---
+# Target directory where AmneziaWG will be installed.
+amneziawg_install_dir: /usr/local/bin
+
+# Directory where AmneziaWG configuration stored.
+amneziawg_install_config_dir: /etc/amnezia/amneziawg
+
+# Path to the AmneziaWG quick script.
+amneziawg_install_script: "{{ (amneziawg_install_dir, 'awg-quick') | ansible.builtin.path_join }}"

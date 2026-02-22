@@ -13,3 +13,9 @@
 # --- Ansible ---
 # Artifacts
 *.tar.gz
+
+# Cache
+cache/
+
+# Inventories
+inventories/

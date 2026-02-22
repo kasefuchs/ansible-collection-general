@@ -1,0 +1,17 @@
+{{ common_managed_header | ansible.builtin.comment }}
+{{
+  {"Interface": amneziawg_config_interface}
+  | community.general.to_ini
+  | trim
+}}
+
+{% for item in amneziawg_config_peers %}
+{% if not loop.first %}
+
+{% endif %}
+{{
+  {"Peer": item}
+  | community.general.to_ini
+  | trim
+}}
+{% endfor %}

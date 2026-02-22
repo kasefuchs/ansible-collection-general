@@ -1,0 +1,8 @@
+# AmneziaWG interface name.
+amneziawg_config_name: awg0
+
+# Interface configuration parameters.
+amneziawg_config_interface: "{{ undef('AmneziaWG interface configuration must be provided (amneziawg_config_interface)') }}"
+
+# List of peer configurations.
+amneziawg_config_peers: "{{ undef('AmneziaWG peer configuration must be provided (amneziawg_config_peers)') }}"

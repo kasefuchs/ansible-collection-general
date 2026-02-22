@@ -1,0 +1,3 @@
+---
+# Path to the AmneziaWG configuration file.
+amneziawg_config_file: "{{ (amneziawg_install_config_dir, amneziawg_config_name ~ '.conf') | ansible.builtin.path_join }}"
