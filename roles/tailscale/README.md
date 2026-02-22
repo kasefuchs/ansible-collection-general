@@ -8,7 +8,7 @@
 Role belongs to kasefuchs/general
 Namespace - kasefuchs
 Collection - general
-Version - 1.1.0
+Version - 1.1.1
 Repository - https://codeberg.org/kasefuchs/ansible-collection-general
 ```
 

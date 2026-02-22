@@ -9,7 +9,7 @@ common_managed_header: "Managed by Ansible | Template: {{ template_path if not t
 common_cache_local_dir: "{{ (playbook_dir, '../cache') | ansible.builtin.path_join }}"
 
 # Local path for storing artifacts.
-common_artifact_local_dir: "{{ (playbook_dir, '../artifacts', common_inventory_name) | ansible.builtin.path_join }}"
+common_artifact_local_dir: "{{ (inventory_dir, '../artifacts', common_inventory_name) | ansible.builtin.path_join }}"
 
 # List of unique system architectures among all hosts in the current play.
 common_unique_architectures: "{{ ansible_play_hosts | map('ansible.builtin.extract', hostvars, ['ansible_facts', 'architecture']) | unique }}"

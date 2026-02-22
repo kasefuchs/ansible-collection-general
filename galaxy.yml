@@ -2,7 +2,7 @@
 # --- Identity ---
 namespace: kasefuchs
 name: general
-version: 1.1.0
+version: 1.1.1
 
 # --- Metadata ---
 description: A collection of common Ansible roles used across my own projects.
