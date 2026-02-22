@@ -8,7 +8,7 @@
 Role belongs to kasefuchs/general
 Namespace - kasefuchs
 Collection - general
-Version - 1.1.0
+Version - 1.1.1
 Repository - https://codeberg.org/kasefuchs/ansible-collection-general
 ```
 
@@ -39,7 +39,7 @@ Description: Common helper role providing shared variables, paths, and handlers 
 | [common_inventory_name](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/common/vars/main.yml#L3)   | str | `{{ inventory_dir ¦ ansible.builtin.basename }}` |
 | [common_managed_header](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/common/vars/main.yml#L6)   | str | `Managed by Ansible ¦ Template: {{ template_path if not template_path.startswith('/') else (template_path ¦ basename) }} (last modified: {{ template_mtime.strftime('%Y-%m-%d %H:%M:%S') }})` |
 | [common_cache_local_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/common/vars/main.yml#L9)   | str | `{{ (playbook_dir, '../cache') ¦ ansible.builtin.path_join }}` |
-| [common_artifact_local_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/common/vars/main.yml#L12)   | str | `{{ (playbook_dir, '../artifacts', common_inventory_name) ¦ ansible.builtin.path_join }}` |
+| [common_artifact_local_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/common/vars/main.yml#L12)   | str | `{{ (inventory_dir, '../artifacts', common_inventory_name) ¦ ansible.builtin.path_join }}` |
 | [common_unique_architectures](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/common/vars/main.yml#L15)   | str | `{{ ansible_play_hosts ¦ map('ansible.builtin.extract', hostvars, ['ansible_facts', 'architecture']) ¦ unique }}` |
 
 
