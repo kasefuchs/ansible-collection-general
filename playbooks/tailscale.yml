@@ -1,0 +1,6 @@
+---
+- name: Set up Tailscale
+  hosts: all
+  become: true
+  roles:
+    - kasefuchs.general.tailscale

@@ -6,7 +6,7 @@
 
 **Name**: general
 
-**Version**: 1.0.1
+**Version**: 1.0.2
 
 **Authors**:
 
@@ -133,7 +133,7 @@ Install and configure K3s Kubernetes distribution, including server and agent mo
 | [k3s_download_architecture_map.x86_64](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/defaults/main/download.yml#L13)   | str   | `amd64` |
 | [k3s_download_architecture_map.aarch64](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/defaults/main/download.yml#L14)   | str   | `arm64` |
 | [k3s_download_binary_url](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/defaults/main/download.yml#L17)   | str   | `<multiline value: folded>` |
-| [k3s_download_script_url](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/defaults/main/download.yml#L26)   | str   | `https://raw.githubusercontent.com/k3s-io/k3s/refs/heads/main/install.sh` |
+| [k3s_download_script_url](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/defaults/main/download.yml#L26)   | str   | `https://raw.githubusercontent.com/{{ k3s_download_github_user }}/{{ k3s_download_github_repository }}/refs/tags/v{{ download_version }}/install.sh` |
 
 #### k3s File: [defaults/main/server/config.yml](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/defaults/main/server/config.yml)
 
@@ -161,8 +161,10 @@ Install and configure K3s Kubernetes distribution, including server and agent mo
 | Var          | Type         | Value       |
 |--------------|--------------|-------------|
 | [k3s_download_local_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/vars/main/download.yml#L3)   | str   | `{{ (k3s_cache_local_dir, 'download') ¦ ansible.builtin.path_join }}` |
-| [k3s_download_binary_local_file](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/vars/main/download.yml#L6)   | str   | `{{ (k3s_download_local_dir, 'current', ansible_facts.architecture) ¦ ansible.builtin.path_join }}` |
-| [k3s_download_script_local_file](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/vars/main/download.yml#L9)   | str   | `{{ (k3s_download_local_dir, 'install.sh') ¦ ansible.builtin.path_join }}` |
+| [k3s_download_binary_local_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/vars/main/download.yml#L6)   | str   | `{{ (k3s_download_local_dir, 'binary') ¦ ansible.builtin.path_join }}` |
+| [k3s_download_script_local_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/vars/main/download.yml#L9)   | str   | `{{ (k3s_download_local_dir, 'script') ¦ ansible.builtin.path_join }}` |
+| [k3s_download_binary_local_file](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/vars/main/download.yml#L12)   | str   | `{{ (k3s_download_binary_local_dir, 'current', ansible_facts.architecture) ¦ ansible.builtin.path_join }}` |
+| [k3s_download_script_local_file](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/vars/main/download.yml#L15)   | str   | `{{ (k3s_download_script_local_dir, 'current', ansible_facts.architecture) ¦ ansible.builtin.path_join }}` |
 #### k3s File: [vars/main/install.yml](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/vars/main/install.yml)
 
 | Var          | Type         | Value       |

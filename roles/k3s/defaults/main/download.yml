@@ -23,4 +23,4 @@ k3s_download_binary_url: >
   {%- endif -%}
 
 # URL to download the K3s script.
-k3s_download_script_url: https://raw.githubusercontent.com/k3s-io/k3s/refs/heads/main/install.sh
+k3s_download_script_url: https://raw.githubusercontent.com/{{ k3s_download_github_user }}/{{ k3s_download_github_repository }}/refs/tags/v{{ download_version }}/install.sh
