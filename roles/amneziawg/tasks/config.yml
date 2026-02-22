@@ -1,0 +1,11 @@
+---
+- name: Render AmneziaWG config template
+  notify:
+    - Enable AmneziaWG service
+    - Restart AmneziaWG service
+  ansible.builtin.template:
+    src: awg.conf.j2
+    dest: "{{ amneziawg_config_file }}"
+    mode: "0600"
+    owner: root
+    group: root

@@ -1,0 +1,14 @@
+---
+- name: Enable AmneziaWG service (systemd)
+  when: ansible_facts.service_mgr == "systemd"
+  listen: Enable AmneziaWG service
+  ansible.builtin.systemd_service:
+    name: "awg-quick@{{ amneziawg_config_name }}"
+    enabled: true
+
+- name: Restart AmneziaWG service (systemd)
+  when: ansible_facts.service_mgr == "systemd"
+  listen: Restart AmneziaWG service
+  ansible.builtin.systemd_service:
+    name: "awg-quick@{{ amneziawg_config_name }}"
+    state: restarted

@@ -1,0 +1,19 @@
+---
+galaxy_info:
+  author: Kasefuchs
+  description: >
+    Install and configure AmneziaWG using amneziawg-go
+    and amneziawg-tools with systemd integration.
+
+  license: MIT
+  galaxy_tags:
+    - amneziawg
+    - vpn
+    - networking
+    - security
+
+  issue_tracker_url: https://codeberg.org/kasefuchs/ansible-collection-general/issues
+  min_ansible_version: 2.2
+
+dependencies:
+  - role: kasefuchs.general.common

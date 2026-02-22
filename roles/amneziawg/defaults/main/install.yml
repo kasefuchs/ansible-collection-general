@@ -1,0 +1,12 @@
+---
+# Extra options for extracting the AmneziaWG archive.
+amneziawg_install_go_extract_options: []
+
+# Files or directories to include when extracting.
+amneziawg_install_go_extract_include: [amneziawg-go]
+
+# Extra options for extracting the AmneziaWG archive.
+amneziawg_install_tools_extract_options: []
+
+# Files or directories to include when extracting.
+amneziawg_install_tools_extract_include: [awg, awg-quick]

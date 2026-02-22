@@ -1,0 +1,23 @@
+{{ common_managed_header | ansible.builtin.comment }}
+[Unit]
+Description=AmneziaWG tunnel %I
+Documentation=https://docs.amnezia.org/documentation/amnezia-wg
+
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+
+Environment=WG_ENDPOINT_RESOLUTION_RETRIES=infinity
+
+ExecStart={{ amneziawg_install_script }} up %i
+ExecStop={{ amneziawg_install_script }} down %i
+
+AmbientCapabilities=CAP_NET_ADMIN
+CapabilityBoundingSet=CAP_NET_ADMIN
+NoNewPrivileges=yes
+
+[Install]
+WantedBy=multi-user.target

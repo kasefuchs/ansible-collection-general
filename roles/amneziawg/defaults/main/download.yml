@@ -1,0 +1,22 @@
+---
+# Version of AmneziaWG go to download.
+amneziawg_download_go_version: 0.2.16
+
+# Mapping from system architecture to AmneziaWG go release architecture naming.
+amneziawg_download_go_architecture_map:
+  x86_64: amd64
+  aarch64: arm64
+
+# URL to download the AmneziaWG go archive.
+amneziawg_download_go_url: https://dl.kasefuchs.net/amneziawg-go/amneziawg-go_{{ download_version }}_linux_{{ download_architecture.value }}.tar.gz
+
+# Version of AmneziaWG tools to download.
+amneziawg_download_tools_version: 1.0.20250903
+
+# Mapping from system architecture to AmneziaWG tools release architecture naming.
+amneziawg_download_tools_architecture_map:
+  x86_64: x86_64
+  aarch64: aarch64
+
+# URL to download the AmneziaWG tools archive.
+amneziawg_download_tools_url: https://dl.kasefuchs.net/amneziawg-tools/awg-v{{ download_version }}-{{ download_architecture.value }}-linux-musl.tar.gz
