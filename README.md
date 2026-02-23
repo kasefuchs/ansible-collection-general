@@ -6,7 +6,7 @@
 
 **Name**: general
 
-**Version**: 1.1.1
+**Version**: 1.1.2
 
 **Authors**:
 
@@ -54,7 +54,11 @@ Install and configure AmneziaWG using amneziawg-go and amneziawg-tools with syst
 |--------------|--------------|-------------|
 | [amneziawg_config_name](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/config.yml#L2)   | str   | `awg0` |
 | [amneziawg_config_interface](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/config.yml#L5)   | str   | `{{ undef('AmneziaWG interface configuration must be provided (amneziawg_config_interface)') }}` |
-| [amneziawg_config_peers](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/config.yml#L8)   | str   | `{{ undef('AmneziaWG peer configuration must be provided (amneziawg_config_peers)') }}` |
+| [amneziawg_config_peers](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/config.yml#L8)   | list   | `[]` |
+| [amneziawg_config_junk](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/config.yml#L11)   | dict   | `{}` |
+| [amneziawg_config_paddings](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/config.yml#L14)   | list   | `[]` |
+| [amneziawg_config_headers](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/config.yml#L17)   | list   | `[]` |
+| [amneziawg_config_signatures](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/config.yml#L20)   | list   | `[]` |
 
 #### amneziawg File: [defaults/main/download.yml](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/download.yml)
 

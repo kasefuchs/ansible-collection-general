@@ -5,4 +5,16 @@ amneziawg_config_name: awg0
 amneziawg_config_interface: "{{ undef('AmneziaWG interface configuration must be provided (amneziawg_config_interface)') }}"
 
 # List of peer configurations.
-amneziawg_config_peers: "{{ undef('AmneziaWG peer configuration must be provided (amneziawg_config_peers)') }}"
+amneziawg_config_peers: []
+
+# Junk packets.
+amneziawg_config_junk: {}
+
+# Message paddings.
+amneziawg_config_paddings: []
+
+# Message headers.
+amneziawg_config_headers: []
+
+# Custom signature packets.
+amneziawg_config_signatures: []
