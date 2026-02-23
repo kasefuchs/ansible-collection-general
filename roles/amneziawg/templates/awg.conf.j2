@@ -5,6 +5,33 @@
   | trim
 }}
 
+{% if amneziawg_config_junk %}
+{{
+  {"_": amneziawg_config_junk}
+  | community.general.to_ini
+  | regex_replace('^.*\n', '')
+  | trim
+}}
+
+{% endif -%}
+
+{% for block in (
+  {
+    'S': amneziawg_config_paddings,
+    'H': amneziawg_config_headers,
+    'I': amneziawg_config_signatures,
+  }
+  | dict2items
+  | selectattr('value', 'truthy')
+) %}
+{% if not loop.first %}
+
+{% endif %}
+{% for value in block.value %}
+{{ block.key }}{{ loop.index }} = {{ value }}
+{% endfor %}
+{% endfor %}
+
 {% for item in amneziawg_config_peers %}
 {% if not loop.first %}
 
