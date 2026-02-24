@@ -10,3 +10,8 @@ repos:
       - id: check-added-large-files
       - id: check-executables-have-shebangs
       - id: check-shebang-scripts-are-executable
+
+  - repo: https://github.com/JoC0de/pre-commit-prettier
+    rev: main
+    hooks:
+      - id: prettier
