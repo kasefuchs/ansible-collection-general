@@ -6,7 +6,7 @@
 
 **Name**: general
 
-**Version**: 1.1.2
+**Version**: 1.1.3
 
 **Authors**:
 
@@ -107,7 +107,8 @@ Install and configure AmneziaWG using amneziawg-go and amneziawg-tools with syst
 | -------------------------------------------------------------------------------------------------------------------------------------------------- | ---- | ------------------------------------------------------------------------ |
 | [amneziawg_install_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/vars/main/install.yml#L3)        | str  | `/usr/local/bin`                                                         |
 | [amneziawg_install_config_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/vars/main/install.yml#L6) | str  | `/etc/amnezia/amneziawg`                                                 |
-| [amneziawg_install_script](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/vars/main/install.yml#L9)     | str  | `{{ (amneziawg_install_dir, 'awg-quick') ¦ ansible.builtin.path_join }}` |
+| [amneziawg_install_binary](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/vars/main/install.yml#L9)     | str  | `{{ (amneziawg_install_dir, 'awg') ¦ ansible.builtin.path_join }}`       |
+| [amneziawg_install_script](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/vars/main/install.yml#L12)    | str  | `{{ (amneziawg_install_dir, 'awg-quick') ¦ ansible.builtin.path_join }}` |
 
 #### amneziawg File: [vars/main/main.yml](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/vars/main/main.yml)
 
@@ -424,8 +425,8 @@ Install and configure Tailscale mesh VPN, including automated login, service set
 | [tailscale_install_extract_options.0](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/defaults/main/install.yml#L3) | str  | `--strip-components=1`   |
 | [tailscale_install_extract_options.1](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/defaults/main/install.yml#L3) | str  | `--wildcards`            |
 | [tailscale_install_extract_include](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/defaults/main/install.yml#L6)   | list | `[]`                     |
-| [tailscale_install_extract_include.0](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/defaults/main/install.yml#L6) | str  | `tailscale_*/tailscale`  |
-| [tailscale_install_extract_include.1](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/defaults/main/install.yml#L6) | str  | `tailscale_*/tailscaled` |
+| [tailscale_install_extract_include.0](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/defaults/main/install.yml#L7) | str  | `tailscale_*/tailscale`  |
+| [tailscale_install_extract_include.1](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/defaults/main/install.yml#L7) | str  | `tailscale_*/tailscaled` |
 
 ### tailscale Vars
 

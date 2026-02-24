@@ -12,3 +12,17 @@
   ansible.builtin.systemd_service:
     name: "awg-quick@{{ amneziawg_config_name }}"
     state: restarted
+
+- name: Start AmneziaWG service (systemd)
+  when: ansible_facts.service_mgr == "systemd"
+  listen: Start AmneziaWG service
+  ansible.builtin.systemd_service:
+    name: "awg-quick@{{ amneziawg_config_name }}"
+    state: started
+
+- name: Reload AmneziaWG service (systemd)
+  when: ansible_facts.service_mgr == "systemd"
+  listen: Reload AmneziaWG service
+  ansible.builtin.systemd_service:
+    name: "awg-quick@{{ amneziawg_config_name }}"
+    state: reloaded

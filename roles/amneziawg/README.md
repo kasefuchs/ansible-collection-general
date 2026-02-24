@@ -8,7 +8,7 @@
 Role belongs to kasefuchs/general
 Namespace - kasefuchs
 Collection - general
-Version - 1.1.2
+Version - 1.1.3
 Repository - https://codeberg.org/kasefuchs/ansible-collection-general
 ```
 
@@ -87,7 +87,8 @@ Description: Install and configure AmneziaWG using amneziawg-go and amneziawg-to
 | -------------------------------------------------------------------------------------------------------------------------------------------------- | ---- | ------------------------------------------------------------------------ |
 | [amneziawg_install_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/vars/main/install.yml#L3)        | str  | `/usr/local/bin`                                                         |
 | [amneziawg_install_config_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/vars/main/install.yml#L6) | str  | `/etc/amnezia/amneziawg`                                                 |
-| [amneziawg_install_script](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/vars/main/install.yml#L9)     | str  | `{{ (amneziawg_install_dir, 'awg-quick') ¦ ansible.builtin.path_join }}` |
+| [amneziawg_install_binary](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/vars/main/install.yml#L9)     | str  | `{{ (amneziawg_install_dir, 'awg') ¦ ansible.builtin.path_join }}`       |
+| [amneziawg_install_script](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/vars/main/install.yml#L12)    | str  | `{{ (amneziawg_install_dir, 'awg-quick') ¦ ansible.builtin.path_join }}` |
 
 #### File: vars/main/main.yml
 
