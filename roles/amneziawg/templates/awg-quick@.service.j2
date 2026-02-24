@@ -14,6 +14,7 @@ Environment=WG_ENDPOINT_RESOLUTION_RETRIES=infinity
 
 ExecStart={{ amneziawg_install_script }} up %i
 ExecStop={{ amneziawg_install_script }} down %i
+ExecReload=/bin/bash -c 'exec {{ amneziawg_install_binary }} syncconf %i <(exec {{ amneziawg_install_script }} strip %i)'
 
 AmbientCapabilities=CAP_NET_ADMIN
 CapabilityBoundingSet=CAP_NET_ADMIN
