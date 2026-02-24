@@ -7,10 +7,8 @@ version: 1.1.2
 # --- Metadata ---
 description: A collection of common Ansible roles used across my own projects.
 readme: README.md
-authors:
-  - kasefuchs
-license:
-  - MIT
+authors: [kasefuchs]
+license: [MIT]
 tags: []
 
 # --- Links ---
@@ -21,7 +19,7 @@ issues: https://codeberg.org/kasefuchs/ansible-collection-general/issues
 
 # --- Technical ---
 dependencies:
-  community.general: '*'
+  community.general: "*"
 
 build_ignore:
   - .idea

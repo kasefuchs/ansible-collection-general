@@ -3,4 +3,5 @@
 tailscale_install_extract_options: [--strip-components=1, --wildcards]
 
 # Files or directories to include when extracting.
-tailscale_install_extract_include: [tailscale_*/tailscale, tailscale_*/tailscaled]
+tailscale_install_extract_include:
+  [tailscale_*/tailscale, tailscale_*/tailscaled]
