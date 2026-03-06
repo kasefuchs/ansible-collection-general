@@ -27,7 +27,7 @@
     - name: Download files
       when:
         - not download_files.results[ansible_loop.index0].stat.exists
-        - download_architecture.key in common_unique_architectures
+        - download_architecture.key in download_unique_architectures
       loop: "{{ download_architecture_map | ansible.builtin.dict2items }}"
       loop_control:
         label: "{{ download_architecture.key }}"

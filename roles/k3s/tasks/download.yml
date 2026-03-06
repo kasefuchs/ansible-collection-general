@@ -30,4 +30,3 @@
     download_dir: "{{ k3s_download_script_local_dir }}"
     download_url: "{{ k3s_download_script_url }}"
     download_version: "{{ k3s_download_version }}"
-    download_architecture_map: "{{ k3s_download_architecture_map }}"

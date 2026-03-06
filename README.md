@@ -149,14 +149,13 @@ Generic reusable download role that fetches and manages versioned binaries and a
 
 #### download File: [defaults/main.yml](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/download/defaults/main.yml)
 
-| Var                                                                                                                                                 | Type | Value                                                               |
-| --------------------------------------------------------------------------------------------------------------------------------------------------- | ---- | ------------------------------------------------------------------- |
-| [download_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/download/defaults/main.yml#L3)                       | str  | `{{ undef('Download directory must be provided (download_dir)') }}` |
-| [download_url](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/download/defaults/main.yml#L6)                       | str  | `{{ undef('Download url must be provided (download_url)') }}`       |
-| [download_version](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/download/defaults/main.yml#L9)                   | str  | `{{ undef('Download version be provided (download_version)') }}`    |
-| [download_architecture_map](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/download/defaults/main.yml#L12)         | dict | `{}`                                                                |
-| [download_architecture_map.x86_64](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/download/defaults/main.yml#L13)  | str  | `amd64`                                                             |
-| [download_architecture_map.aarch64](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/download/defaults/main.yml#L14) | str  | `arm64`                                                             |
+| Var                                                                                                                                                | Type | Value                                                               |
+| -------------------------------------------------------------------------------------------------------------------------------------------------- | ---- | ------------------------------------------------------------------- |
+| [download_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/download/defaults/main.yml#L3)                      | str  | `{{ undef('Download directory must be provided (download_dir)') }}` |
+| [download_url](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/download/defaults/main.yml#L6)                      | str  | `{{ undef('Download url must be provided (download_url)') }}`       |
+| [download_version](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/download/defaults/main.yml#L9)                  | str  | `{{ undef('Download version be provided (download_version)') }}`    |
+| [download_architecture_map](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/download/defaults/main.yml#L12)        | dict | `{}`                                                                |
+| [download_architecture_map.noarch](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/download/defaults/main.yml#L13) | str  |                                                                     |
 
 ### download Vars
 
@@ -164,10 +163,11 @@ Generic reusable download role that fetches and manages versioned binaries and a
 
 #### download File: [vars/main.yml](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/download/vars/main.yml)
 
-| Var                                                                                                                                    | Type | Value                                                                |
-| -------------------------------------------------------------------------------------------------------------------------------------- | ---- | -------------------------------------------------------------------- |
-| [download_current_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/download/vars/main.yml#L3)      | str  | `{{ (download_dir, download_version) ¦ ansible.builtin.path_join }}` |
-| [download_current_dir_link](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/download/vars/main.yml#L6) | str  | `{{ (download_dir, 'current') ¦ ansible.builtin.path_join }}`        |
+| Var                                                                                                                                        | Type | Value                                                                |
+| ------------------------------------------------------------------------------------------------------------------------------------------ | ---- | -------------------------------------------------------------------- |
+| [download_current_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/download/vars/main.yml#L3)          | str  | `{{ (download_dir, download_version) ¦ ansible.builtin.path_join }}` |
+| [download_current_dir_link](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/download/vars/main.yml#L6)     | str  | `{{ (download_dir, 'current') ¦ ansible.builtin.path_join }}`        |
+| [download_unique_architectures](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/download/vars/main.yml#L9) | str  | `{{ common_unique_architectures + ['noarch'] }}`                     |
 
 # [k3s](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s)
 
@@ -235,8 +235,8 @@ Install and configure K3s Kubernetes distribution, including server and agent mo
 | [k3s_download_local_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/vars/main/download.yml#L3)          | str  | `{{ (k3s_cache_local_dir, 'download') ¦ ansible.builtin.path_join }}`                                      |
 | [k3s_download_binary_local_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/vars/main/download.yml#L6)   | str  | `{{ (k3s_download_local_dir, 'binary') ¦ ansible.builtin.path_join }}`                                     |
 | [k3s_download_binary_local_file](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/vars/main/download.yml#L9)  | str  | `{{ (k3s_download_binary_local_dir, 'current', ansible_facts.architecture) ¦ ansible.builtin.path_join }}` |
-| [k3s_download_script_local_file](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/vars/main/download.yml#L12) | str  | `{{ (k3s_download_script_local_dir, 'current', ansible_facts.architecture) ¦ ansible.builtin.path_join }}` |
-| [k3s_download_script_local_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/vars/main/download.yml#L15)  | str  | `{{ (k3s_download_local_dir, 'script') ¦ ansible.builtin.path_join }}`                                     |
+| [k3s_download_script_local_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/vars/main/download.yml#L12)  | str  | `{{ (k3s_download_local_dir, 'script') ¦ ansible.builtin.path_join }}`                                     |
+| [k3s_download_script_local_file](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/vars/main/download.yml#L15) | str  | `{{ (k3s_download_script_local_dir, 'current/noarch') ¦ ansible.builtin.path_join }}`                      |
 
 #### k3s File: [vars/main/install.yml](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/vars/main/install.yml)
 
