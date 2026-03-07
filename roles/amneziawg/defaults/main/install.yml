@@ -1,11 +1,23 @@
 ---
-# Extra options for extracting the AmneziaWG archive.
+# Whether to install the AmneziaWG go implementation.
+amneziawg_install_go: true
+
+# Extra options for extracting the AmneziaWG go archive.
 amneziawg_install_go_extract_options: []
 
 # Files or directories to include when extracting.
 amneziawg_install_go_extract_include: [amneziawg-go]
 
-# Extra options for extracting the AmneziaWG archive.
+# Whether to install the AmneziaWG kernel module via DKMS.
+amneziawg_install_kmod: true
+
+# Extra options for extracting the AmneziaWG kernel module archive.
+amneziawg_install_kmod_extract_options: [--wildcards, --strip-components=1]
+
+# Files or directories to include when extracting.
+amneziawg_install_kmod_extract_include: ["**/*"]
+
+# Extra options for extracting the AmneziaWG tools archive.
 amneziawg_install_tools_extract_options: []
 
 # Files or directories to include when extracting.

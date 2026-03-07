@@ -1,7 +1,6 @@
 ---
 - name: Create K3s directories
   loop:
-    - "{{ common_binary_dir }}"
     - "{{ k3s_install_config_dir }}"
   ansible.builtin.file:
     path: "{{ item }}"

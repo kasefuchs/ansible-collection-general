@@ -8,7 +8,7 @@
 Role belongs to kasefuchs/general
 Namespace - kasefuchs
 Collection - general
-Version - 1.1.3
+Version - 1.1.4
 Repository - https://codeberg.org/kasefuchs/ansible-collection-general
 ```
 
@@ -127,7 +127,7 @@ Description: Install and configure K3s Kubernetes distribution, including server
 | Name                                                                                                                               | Module               | Has Conditions |
 | ---------------------------------------------------------------------------------------------------------------------------------- | -------------------- | -------------- |
 | [Create K3s directories](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/tasks/install.yml#L2) | ansible.builtin.file | False          |
-| [Copy K3s binary](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/tasks/install.yml#L13)       | ansible.builtin.copy | False          |
+| [Copy K3s binary](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/tasks/install.yml#L12)       | ansible.builtin.copy | False          |
 
 #### File: tasks/main.yml
 

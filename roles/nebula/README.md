@@ -8,7 +8,7 @@
 Role belongs to kasefuchs/general
 Namespace - kasefuchs
 Collection - general
-Version - 1.1.3
+Version - 1.1.4
 Repository - https://codeberg.org/kasefuchs/ansible-collection-general
 ```
 
@@ -175,9 +175,9 @@ Description: Install and configure Nebula overlay networking, including certific
 | Name                                                                                                                                             | Module                    | Has Conditions |
 | ------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------- | -------------- |
 | [Create Nebula directories](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/tasks/install.yml#L2)         | ansible.builtin.file      | False          |
-| [Extract Nebula archive](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/tasks/install.yml#L13)           | ansible.builtin.unarchive | False          |
-| [Install Nebula service](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/tasks/install.yml#L23)           | block                     | False          |
-| [Install Nebula service (systemd)](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/tasks/install.yml#L26) | ansible.builtin.template  | True           |
+| [Extract Nebula archive](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/tasks/install.yml#L12)           | ansible.builtin.unarchive | False          |
+| [Install Nebula service](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/tasks/install.yml#L22)           | block                     | False          |
+| [Install Nebula service (systemd)](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/tasks/install.yml#L25) | ansible.builtin.template  | True           |
 
 #### File: tasks/main.yml
 

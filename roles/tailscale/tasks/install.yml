@@ -1,14 +1,4 @@
 ---
-- name: Create Tailscale directories
-  loop:
-    - "{{ common_binary_dir }}"
-  ansible.builtin.file:
-    path: "{{ item }}"
-    mode: "0755"
-    state: directory
-    owner: root
-    group: root
-
 - name: Extract Tailscale archive
   ansible.builtin.unarchive:
     src: "{{ tailscale_download_local_file }}"
