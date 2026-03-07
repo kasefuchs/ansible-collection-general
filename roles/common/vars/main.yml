@@ -13,3 +13,9 @@ common_artifact_local_dir: "{{ (inventory_dir, '../artifacts', common_inventory_
 
 # List of unique system architectures among all hosts in the current play.
 common_unique_architectures: "{{ ansible_play_hosts | map('ansible.builtin.extract', hostvars, ['ansible_facts', 'architecture']) | unique }}"
+
+# Standard directory for binary installations.
+common_binary_dir: /usr/local/bin
+
+# Standard directory for source code files.
+common_source_dir: /usr/local/src

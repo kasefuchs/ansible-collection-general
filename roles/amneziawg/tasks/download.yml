@@ -8,6 +8,15 @@
     download_version: "{{ amneziawg_download_go_version }}"
     download_architecture_map: "{{ amneziawg_download_go_architecture_map }}"
 
+- name: Download AmneziaWG kernel module
+  ansible.builtin.include_role:
+    name: kasefuchs.general.download
+  vars:
+    download_dir: "{{ amneziawg_download_kernel_local_dir }}"
+    download_url: "{{ amneziawg_download_kernel_url }}"
+    download_version: "{{ amneziawg_download_kernel_version }}"
+    download_architecture_map: "{{ amneziawg_download_kernel_architecture_map }}"
+
 - name: Download AmneziaWG tools
   ansible.builtin.include_role:
     name: kasefuchs.general.download

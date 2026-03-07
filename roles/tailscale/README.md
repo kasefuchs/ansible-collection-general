@@ -55,8 +55,8 @@ Description: Install and configure Tailscale mesh VPN, including automated login
 | [tailscale_install_extract_options.**0**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/defaults/main/install.yml#L3) | str  | `--strip-components=1`   |
 | [tailscale_install_extract_options.**1**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/defaults/main/install.yml#L3) | str  | `--wildcards`            |
 | [tailscale_install_extract_include](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/defaults/main/install.yml#L6)       | list | `[]`                     |
-| [tailscale_install_extract_include.**0**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/defaults/main/install.yml#L7) | str  | `tailscale_*/tailscale`  |
-| [tailscale_install_extract_include.**1**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/defaults/main/install.yml#L7) | str  | `tailscale_*/tailscaled` |
+| [tailscale_install_extract_include.**0**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/defaults/main/install.yml#L6) | str  | `tailscale_*/tailscale`  |
+| [tailscale_install_extract_include.**1**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/defaults/main/install.yml#L6) | str  | `tailscale_*/tailscaled` |
 
 ### Vars
 
@@ -71,11 +71,10 @@ Description: Install and configure Tailscale mesh VPN, including automated login
 
 #### File: vars/main/install.yml
 
-| Var                                                                                                                                                   | Type | Value                                                                     |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------- | ---- | ------------------------------------------------------------------------- |
-| [tailscale_install_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/vars/main/install.yml#L3)           | str  | `/usr/local/bin`                                                          |
-| [tailscale_install_binary](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/vars/main/install.yml#L6)        | str  | `{{ (tailscale_install_dir, 'tailscale') ¦ ansible.builtin.path_join }}`  |
-| [tailscale_install_daemon_binary](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/vars/main/install.yml#L9) | str  | `{{ (tailscale_install_dir, 'tailscaled') ¦ ansible.builtin.path_join }}` |
+| Var                                                                                                                                                   | Type | Value                                                                 |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------- | ---- | --------------------------------------------------------------------- |
+| [tailscale_install_binary](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/vars/main/install.yml#L3)        | str  | `{{ (common_binary_dir, 'tailscale') ¦ ansible.builtin.path_join }}`  |
+| [tailscale_install_daemon_binary](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/vars/main/install.yml#L6) | str  | `{{ (common_binary_dir, 'tailscaled') ¦ ansible.builtin.path_join }}` |
 
 #### File: vars/main/main.yml
 

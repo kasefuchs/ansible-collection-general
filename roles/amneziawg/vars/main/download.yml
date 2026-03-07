@@ -13,3 +13,9 @@ amneziawg_download_tools_local_dir: "{{ (amneziawg_download_local_dir, 'tools') 
 
 # Path to the AmneziaWG tools for the current architecture.
 amneziawg_download_tools_local_file: "{{ (amneziawg_download_tools_local_dir, 'current', ansible_facts.architecture) | ansible.builtin.path_join }}"
+
+# Directory path where specific versions of AmneziaWG install tools will be downloaded.
+amneziawg_download_kernel_local_dir: "{{ (amneziawg_download_local_dir, 'kernel') | ansible.builtin.path_join }}"
+
+# Path to the AmneziaWG tools for the current architecture.
+amneziawg_download_kernel_local_file: "{{ (amneziawg_download_tools_local_dir, 'current/noarch') | ansible.builtin.path_join }}"

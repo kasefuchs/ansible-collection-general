@@ -127,11 +127,10 @@ Description: Install and configure Nebula overlay networking, including certific
 
 #### File: vars/main/install.yml
 
-| Var                                                                                                                                          | Type | Value                                                              |
-| -------------------------------------------------------------------------------------------------------------------------------------------- | ---- | ------------------------------------------------------------------ |
-| [nebula_install_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/vars/main/install.yml#L3)        | str  | `/usr/local/bin`                                                   |
-| [nebula_install_config_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/vars/main/install.yml#L6) | str  | `/etc/nebula`                                                      |
-| [nebula_install_binary](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/vars/main/install.yml#L9)     | str  | `{{ (nebula_install_dir, 'nebula') ¦ ansible.builtin.path_join }}` |
+| Var                                                                                                                                          | Type | Value                                                             |
+| -------------------------------------------------------------------------------------------------------------------------------------------- | ---- | ----------------------------------------------------------------- |
+| [nebula_install_config_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/vars/main/install.yml#L3) | str  | `/etc/nebula`                                                     |
+| [nebula_install_binary](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/vars/main/install.yml#L6)     | str  | `{{ (common_binary_dir, 'nebula') ¦ ansible.builtin.path_join }}` |
 
 #### File: vars/main/main.yml
 

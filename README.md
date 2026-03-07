@@ -63,11 +63,15 @@ Install and configure AmneziaWG using amneziawg-go and amneziawg-tools with syst
 | [amneziawg_download_go_architecture_map.x86_64](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/download.yml#L7)      | str  | `amd64`                                                                                                                    |
 | [amneziawg_download_go_architecture_map.aarch64](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/download.yml#L8)     | str  | `arm64`                                                                                                                    |
 | [amneziawg_download_go_url](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/download.yml#L11)                         | str  | `https://dl.kasefuchs.net/amneziawg-go/amneziawg-go_{{ download_version }}_linux_{{ download_architecture.value }}.tar.gz` |
-| [amneziawg_download_tools_version](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/download.yml#L14)                  | str  | `1.0.20250903`                                                                                                             |
-| [amneziawg_download_tools_architecture_map](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/download.yml#L17)         | dict | `{}`                                                                                                                       |
-| [amneziawg_download_tools_architecture_map.x86_64](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/download.yml#L18)  | str  | `x86_64`                                                                                                                   |
-| [amneziawg_download_tools_architecture_map.aarch64](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/download.yml#L19) | str  | `aarch64`                                                                                                                  |
-| [amneziawg_download_tools_url](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/download.yml#L22)                      | str  | `https://dl.kasefuchs.net/amneziawg-tools/awg-v{{ download_version }}-{{ download_architecture.value }}-linux-musl.tar.gz` |
+| [amneziawg_download_kernel_version](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/download.yml#L14)                 | str  | `1.0.20260210`                                                                                                             |
+| [amneziawg_download_kernel_architecture_map](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/download.yml#L17)        | dict | `{}`                                                                                                                       |
+| [amneziawg_download_kernel_architecture_map.noarch](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/download.yml#L18) | str  |                                                                                                                            |
+| [amneziawg_download_kernel_url](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/download.yml#L21)                     | str  | `https://github.com/amnezia-vpn/amneziawg-linux-kernel-module/archive/refs/tags/v{{ download_version }}.tar.gz`            |
+| [amneziawg_download_tools_version](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/download.yml#L24)                  | str  | `1.0.20250903`                                                                                                             |
+| [amneziawg_download_tools_architecture_map](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/download.yml#L27)         | dict | `{}`                                                                                                                       |
+| [amneziawg_download_tools_architecture_map.x86_64](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/download.yml#L28)  | str  | `x86_64`                                                                                                                   |
+| [amneziawg_download_tools_architecture_map.aarch64](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/download.yml#L29) | str  | `aarch64`                                                                                                                  |
+| [amneziawg_download_tools_url](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/download.yml#L32)                      | str  | `https://dl.kasefuchs.net/amneziawg-tools/awg-v{{ download_version }}-{{ download_architecture.value }}-linux-musl.tar.gz` |
 
 #### amneziawg File: [defaults/main/install.yml](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/install.yml)
 
@@ -93,22 +97,23 @@ Install and configure AmneziaWG using amneziawg-go and amneziawg-tools with syst
 
 #### amneziawg File: [vars/main/download.yml](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/vars/main/download.yml)
 
-| Var                                                                                                                                                         | Type | Value                                                                                                           |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------- | ---- | --------------------------------------------------------------------------------------------------------------- |
-| [amneziawg_download_local_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/vars/main/download.yml#L3)         | str  | `{{ (amneziawg_cache_local_dir, 'download') ¦ ansible.builtin.path_join }}`                                     |
-| [amneziawg_download_go_local_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/vars/main/download.yml#L6)      | str  | `{{ (amneziawg_download_local_dir, 'go') ¦ ansible.builtin.path_join }}`                                        |
-| [amneziawg_download_go_local_file](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/vars/main/download.yml#L9)     | str  | `{{ (amneziawg_download_go_local_dir, 'current', ansible_facts.architecture) ¦ ansible.builtin.path_join }}`    |
-| [amneziawg_download_tools_local_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/vars/main/download.yml#L12)  | str  | `{{ (amneziawg_download_local_dir, 'tools') ¦ ansible.builtin.path_join }}`                                     |
-| [amneziawg_download_tools_local_file](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/vars/main/download.yml#L15) | str  | `{{ (amneziawg_download_tools_local_dir, 'current', ansible_facts.architecture) ¦ ansible.builtin.path_join }}` |
+| Var                                                                                                                                                          | Type | Value                                                                                                           |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---- | --------------------------------------------------------------------------------------------------------------- |
+| [amneziawg_download_local_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/vars/main/download.yml#L3)          | str  | `{{ (amneziawg_cache_local_dir, 'download') ¦ ansible.builtin.path_join }}`                                     |
+| [amneziawg_download_go_local_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/vars/main/download.yml#L6)       | str  | `{{ (amneziawg_download_local_dir, 'go') ¦ ansible.builtin.path_join }}`                                        |
+| [amneziawg_download_go_local_file](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/vars/main/download.yml#L9)      | str  | `{{ (amneziawg_download_go_local_dir, 'current', ansible_facts.architecture) ¦ ansible.builtin.path_join }}`    |
+| [amneziawg_download_tools_local_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/vars/main/download.yml#L12)   | str  | `{{ (amneziawg_download_local_dir, 'tools') ¦ ansible.builtin.path_join }}`                                     |
+| [amneziawg_download_tools_local_file](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/vars/main/download.yml#L15)  | str  | `{{ (amneziawg_download_tools_local_dir, 'current', ansible_facts.architecture) ¦ ansible.builtin.path_join }}` |
+| [amneziawg_download_kernel_local_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/vars/main/download.yml#L18)  | str  | `{{ (amneziawg_download_local_dir, 'kernel') ¦ ansible.builtin.path_join }}`                                    |
+| [amneziawg_download_kernel_local_file](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/vars/main/download.yml#L21) | str  | `{{ (amneziawg_download_tools_local_dir, 'current/noarch') ¦ ansible.builtin.path_join }}`                      |
 
 #### amneziawg File: [vars/main/install.yml](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/vars/main/install.yml)
 
-| Var                                                                                                                                                | Type | Value                                                                    |
-| -------------------------------------------------------------------------------------------------------------------------------------------------- | ---- | ------------------------------------------------------------------------ |
-| [amneziawg_install_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/vars/main/install.yml#L3)        | str  | `/usr/local/bin`                                                         |
-| [amneziawg_install_config_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/vars/main/install.yml#L6) | str  | `/etc/amnezia/amneziawg`                                                 |
-| [amneziawg_install_binary](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/vars/main/install.yml#L9)     | str  | `{{ (amneziawg_install_dir, 'awg') ¦ ansible.builtin.path_join }}`       |
-| [amneziawg_install_script](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/vars/main/install.yml#L12)    | str  | `{{ (amneziawg_install_dir, 'awg-quick') ¦ ansible.builtin.path_join }}` |
+| Var                                                                                                                                                | Type | Value                                                                |
+| -------------------------------------------------------------------------------------------------------------------------------------------------- | ---- | -------------------------------------------------------------------- |
+| [amneziawg_install_config_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/vars/main/install.yml#L3) | str  | `/etc/amnezia/amneziawg`                                             |
+| [amneziawg_install_binary](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/vars/main/install.yml#L6)     | str  | `{{ (common_binary_dir, 'awg') ¦ ansible.builtin.path_join }}`       |
+| [amneziawg_install_script](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/vars/main/install.yml#L9)     | str  | `{{ (common_binary_dir, 'awg-quick') ¦ ansible.builtin.path_join }}` |
 
 #### amneziawg File: [vars/main/main.yml](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/vars/main/main.yml)
 
@@ -136,6 +141,8 @@ Common helper role providing shared variables, paths, and handlers used across o
 | [common_cache_local_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/common/vars/main.yml#L9)       | str  | `{{ (playbook_dir, '../cache') ¦ ansible.builtin.path_join }}`                                                                                                                                |
 | [common_artifact_local_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/common/vars/main.yml#L12)   | str  | `{{ (inventory_dir, '../artifacts', common_inventory_name) ¦ ansible.builtin.path_join }}`                                                                                                    |
 | [common_unique_architectures](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/common/vars/main.yml#L15) | str  | `{{ ansible_play_hosts ¦ map('ansible.builtin.extract', hostvars, ['ansible_facts', 'architecture']) ¦ unique }}`                                                                             |
+| [common_binary_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/common/vars/main.yml#L18)           | str  | `/usr/local/bin`                                                                                                                                                                              |
+| [common_source_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/common/vars/main.yml#L21)           | str  | `/usr/local/src`                                                                                                                                                                              |
 
 # [download](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/download)
 
@@ -241,12 +248,11 @@ Install and configure K3s Kubernetes distribution, including server and agent mo
 
 #### k3s File: [vars/main/install.yml](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/vars/main/install.yml)
 
-| Var                                                                                                                                    | Type | Value                                                                   |
-| -------------------------------------------------------------------------------------------------------------------------------------- | ---- | ----------------------------------------------------------------------- |
-| [k3s_install_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/vars/main/install.yml#L3)        | str  | `/usr/local/bin`                                                        |
-| [k3s_install_config_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/vars/main/install.yml#L6) | str  | `/etc/rancher/k3s`                                                      |
-| [k3s_install_binary](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/vars/main/install.yml#L9)     | str  | `{{ (k3s_install_dir, 'k3s') ¦ ansible.builtin.path_join }}`            |
-| [k3s_install_script](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/vars/main/install.yml#L12)    | str  | `{{ (k3s_install_dir, 'k3s-install.sh') ¦ ansible.builtin.path_join }}` |
+| Var                                                                                                                                    | Type | Value                                                                     |
+| -------------------------------------------------------------------------------------------------------------------------------------- | ---- | ------------------------------------------------------------------------- |
+| [k3s_install_config_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/vars/main/install.yml#L3) | str  | `/etc/rancher/k3s`                                                        |
+| [k3s_install_binary](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/vars/main/install.yml#L6)     | str  | `{{ (common_binary_dir, 'k3s') ¦ ansible.builtin.path_join }}`            |
+| [k3s_install_script](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/vars/main/install.yml#L9)     | str  | `{{ (common_binary_dir, 'k3s-install.sh') ¦ ansible.builtin.path_join }}` |
 
 #### k3s File: [vars/main/main.yml](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/vars/main/main.yml)
 
@@ -370,11 +376,10 @@ Install and configure Nebula overlay networking, including certificate generatio
 
 #### nebula File: [vars/main/install.yml](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/vars/main/install.yml)
 
-| Var                                                                                                                                          | Type | Value                                                              |
-| -------------------------------------------------------------------------------------------------------------------------------------------- | ---- | ------------------------------------------------------------------ |
-| [nebula_install_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/vars/main/install.yml#L3)        | str  | `/usr/local/bin`                                                   |
-| [nebula_install_config_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/vars/main/install.yml#L6) | str  | `/etc/nebula`                                                      |
-| [nebula_install_binary](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/vars/main/install.yml#L9)     | str  | `{{ (nebula_install_dir, 'nebula') ¦ ansible.builtin.path_join }}` |
+| Var                                                                                                                                          | Type | Value                                                             |
+| -------------------------------------------------------------------------------------------------------------------------------------------- | ---- | ----------------------------------------------------------------- |
+| [nebula_install_config_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/vars/main/install.yml#L3) | str  | `/etc/nebula`                                                     |
+| [nebula_install_binary](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/vars/main/install.yml#L6)     | str  | `{{ (common_binary_dir, 'nebula') ¦ ansible.builtin.path_join }}` |
 
 #### nebula File: [vars/main/main.yml](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/vars/main/main.yml)
 
@@ -426,8 +431,8 @@ Install and configure Tailscale mesh VPN, including automated login, service set
 | [tailscale_install_extract_options.0](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/defaults/main/install.yml#L3) | str  | `--strip-components=1`   |
 | [tailscale_install_extract_options.1](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/defaults/main/install.yml#L3) | str  | `--wildcards`            |
 | [tailscale_install_extract_include](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/defaults/main/install.yml#L6)   | list | `[]`                     |
-| [tailscale_install_extract_include.0](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/defaults/main/install.yml#L7) | str  | `tailscale_*/tailscale`  |
-| [tailscale_install_extract_include.1](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/defaults/main/install.yml#L7) | str  | `tailscale_*/tailscaled` |
+| [tailscale_install_extract_include.0](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/defaults/main/install.yml#L6) | str  | `tailscale_*/tailscale`  |
+| [tailscale_install_extract_include.1](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/defaults/main/install.yml#L6) | str  | `tailscale_*/tailscaled` |
 
 ### tailscale Vars
 
@@ -442,11 +447,10 @@ Install and configure Tailscale mesh VPN, including automated login, service set
 
 #### tailscale File: [vars/main/install.yml](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/vars/main/install.yml)
 
-| Var                                                                                                                                                   | Type | Value                                                                     |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------- | ---- | ------------------------------------------------------------------------- |
-| [tailscale_install_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/vars/main/install.yml#L3)           | str  | `/usr/local/bin`                                                          |
-| [tailscale_install_binary](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/vars/main/install.yml#L6)        | str  | `{{ (tailscale_install_dir, 'tailscale') ¦ ansible.builtin.path_join }}`  |
-| [tailscale_install_daemon_binary](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/vars/main/install.yml#L9) | str  | `{{ (tailscale_install_dir, 'tailscaled') ¦ ansible.builtin.path_join }}` |
+| Var                                                                                                                                                   | Type | Value                                                                 |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------- | ---- | --------------------------------------------------------------------- |
+| [tailscale_install_binary](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/vars/main/install.yml#L3)        | str  | `{{ (common_binary_dir, 'tailscale') ¦ ansible.builtin.path_join }}`  |
+| [tailscale_install_daemon_binary](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/vars/main/install.yml#L6) | str  | `{{ (common_binary_dir, 'tailscaled') ¦ ansible.builtin.path_join }}` |
 
 #### tailscale File: [vars/main/main.yml](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/vars/main/main.yml)
 

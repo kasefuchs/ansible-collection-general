@@ -1,7 +1,7 @@
 ---
 - name: Create Nebula directories
   loop:
-    - "{{ nebula_install_dir }}"
+    - "{{ common_binary_dir }}"
     - "{{ nebula_install_config_dir }}"
   ansible.builtin.file:
     path: "{{ item }}"
@@ -13,7 +13,7 @@
 - name: Extract Nebula archive
   ansible.builtin.unarchive:
     src: "{{ nebula_download_local_file }}"
-    dest: "{{ nebula_install_dir }}"
+    dest: "{{ common_binary_dir }}"
     mode: "0755"
     owner: root
     group: root

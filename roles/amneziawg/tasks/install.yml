@@ -1,7 +1,7 @@
 ---
 - name: Create AmneziaWG directories
   loop:
-    - "{{ amneziawg_install_dir }}"
+    - "{{ common_binary_dir }}"
     - "{{ amneziawg_install_config_dir }}"
   ansible.builtin.file:
     path: "{{ item }}"
@@ -15,7 +15,7 @@
     - name: Extract AmneziaWG go archive
       ansible.builtin.unarchive:
         src: "{{ amneziawg_download_go_local_file }}"
-        dest: "{{ amneziawg_install_dir }}"
+        dest: "{{ common_binary_dir }}"
         mode: "0755"
         owner: root
         group: root
@@ -25,7 +25,7 @@
     - name: Extract AmneziaWG tools archive
       ansible.builtin.unarchive:
         src: "{{ amneziawg_download_tools_local_file }}"
-        dest: "{{ amneziawg_install_dir }}"
+        dest: "{{ common_binary_dir }}"
         mode: "0755"
         owner: root
         group: root

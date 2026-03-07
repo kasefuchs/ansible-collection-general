@@ -85,12 +85,11 @@ Description: Install and configure K3s Kubernetes distribution, including server
 
 #### File: vars/main/install.yml
 
-| Var                                                                                                                                    | Type | Value                                                                   |
-| -------------------------------------------------------------------------------------------------------------------------------------- | ---- | ----------------------------------------------------------------------- |
-| [k3s_install_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/vars/main/install.yml#L3)        | str  | `/usr/local/bin`                                                        |
-| [k3s_install_config_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/vars/main/install.yml#L6) | str  | `/etc/rancher/k3s`                                                      |
-| [k3s_install_binary](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/vars/main/install.yml#L9)     | str  | `{{ (k3s_install_dir, 'k3s') ¦ ansible.builtin.path_join }}`            |
-| [k3s_install_script](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/vars/main/install.yml#L12)    | str  | `{{ (k3s_install_dir, 'k3s-install.sh') ¦ ansible.builtin.path_join }}` |
+| Var                                                                                                                                    | Type | Value                                                                     |
+| -------------------------------------------------------------------------------------------------------------------------------------- | ---- | ------------------------------------------------------------------------- |
+| [k3s_install_config_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/vars/main/install.yml#L3) | str  | `/etc/rancher/k3s`                                                        |
+| [k3s_install_binary](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/vars/main/install.yml#L6)     | str  | `{{ (common_binary_dir, 'k3s') ¦ ansible.builtin.path_join }}`            |
+| [k3s_install_script](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/vars/main/install.yml#L9)     | str  | `{{ (common_binary_dir, 'k3s-install.sh') ¦ ansible.builtin.path_join }}` |
 
 #### File: vars/main/main.yml
 
