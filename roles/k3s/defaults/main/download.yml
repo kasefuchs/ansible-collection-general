@@ -8,8 +8,8 @@ k3s_download_github_user: k3s-io
 # GitHub repository name for K3s.
 k3s_download_github_repository: k3s
 
-# Mapping from system architecture to K3s release architecture naming.
-k3s_download_architecture_map:
+# Mapping from system architecture to K3s binary release architecture naming.
+k3s_download_binary_architecture_map:
   x86_64: amd64
   aarch64: arm64
 
@@ -24,3 +24,7 @@ k3s_download_binary_url: >
 
 # URL to download the K3s script.
 k3s_download_script_url: https://raw.githubusercontent.com/{{ k3s_download_github_user }}/{{ k3s_download_github_repository }}/refs/tags/v{{ download_version }}/install.sh
+
+# Mapping from system architecture to K3s script release architecture naming.
+k3s_download_script_architecture_map:
+  noarch: ""

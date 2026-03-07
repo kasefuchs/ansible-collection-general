@@ -6,8 +6,7 @@ download_dir: "{{ undef('Download directory must be provided (download_dir)') }}
 download_url: "{{ undef('Download url must be provided (download_url)') }}"
 
 # Version to download.
-download_version: "{{ undef('Download version be provided (download_version)') }}"
+download_version: "{{ undef('Download version must be provided (download_version)') }}"
 
 # Mapping from system architecture to download architecture naming.
-download_architecture_map:
-  noarch: ""
+download_architecture_map: "{{ undef('Download architecture mapping must be provided (download_architecture_map)') }}"
