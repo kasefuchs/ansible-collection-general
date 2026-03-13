@@ -1,3 +1,6 @@
 ---
+# Directory where K3s configuration stored.
+k3s_config_dir: /etc/rancher/k3s
+
 # Path to the K3s configuration file.
-k3s_config_file: "{{ (k3s_install_config_dir, 'config.yaml') | ansible.builtin.path_join }}"
+k3s_config_file: "{{ (k3s_config_dir, 'config.yaml') | ansible.builtin.path_join }}"

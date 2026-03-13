@@ -8,7 +8,7 @@
 Role belongs to kasefuchs/general
 Namespace - kasefuchs
 Collection - general
-Version - 1.2.0
+Version - 1.2.1
 Repository - https://codeberg.org/kasefuchs/ansible-collection-general
 ```
 
@@ -110,13 +110,14 @@ Description: Install and configure Nebula overlay networking, including certific
 
 #### File: vars/main/config.yml
 
-| Var                                                                                                                                          | Type | Value                                                                          |
-| -------------------------------------------------------------------------------------------------------------------------------------------- | ---- | ------------------------------------------------------------------------------ |
-| [nebula_config_file](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/vars/main/config.yml#L3)         | str  | `{{ (nebula_install_config_dir, 'config.yaml') ¦ ansible.builtin.path_join }}` |
-| [nebula_config_pki](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/vars/main/config.yml#L6)          | dict | `{}`                                                                           |
-| [nebula_config_pki.**ca**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/vars/main/config.yml#L7)   | str  | `{{ (nebula_cert_dir, 'ca.crt') ¦ ansible.builtin.path_join }}`                |
-| [nebula_config_pki.**key**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/vars/main/config.yml#L8)  | str  | `{{ (nebula_cert_dir, 'node.key') ¦ ansible.builtin.path_join }}`              |
-| [nebula_config_pki.**cert**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/vars/main/config.yml#L9) | str  | `{{ (nebula_cert_dir, 'node.crt') ¦ ansible.builtin.path_join }}`              |
+| Var                                                                                                                                           | Type | Value                                                                  |
+| --------------------------------------------------------------------------------------------------------------------------------------------- | ---- | ---------------------------------------------------------------------- |
+| [nebula_config_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/vars/main/config.yml#L3)           | str  | `/etc/nebula`                                                          |
+| [nebula_config_file](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/vars/main/config.yml#L6)          | str  | `{{ (nebula_config_dir, 'config.yaml') ¦ ansible.builtin.path_join }}` |
+| [nebula_config_pki](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/vars/main/config.yml#L9)           | dict | `{}`                                                                   |
+| [nebula_config_pki.**ca**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/vars/main/config.yml#L10)   | str  | `{{ (nebula_cert_dir, 'ca.crt') ¦ ansible.builtin.path_join }}`        |
+| [nebula_config_pki.**key**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/vars/main/config.yml#L11)  | str  | `{{ (nebula_cert_dir, 'node.key') ¦ ansible.builtin.path_join }}`      |
+| [nebula_config_pki.**cert**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/vars/main/config.yml#L12) | str  | `{{ (nebula_cert_dir, 'node.crt') ¦ ansible.builtin.path_join }}`      |
 
 #### File: vars/main/download.yml
 
@@ -127,10 +128,9 @@ Description: Install and configure Nebula overlay networking, including certific
 
 #### File: vars/main/install.yml
 
-| Var                                                                                                                                          | Type | Value                                                             |
-| -------------------------------------------------------------------------------------------------------------------------------------------- | ---- | ----------------------------------------------------------------- |
-| [nebula_install_config_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/vars/main/install.yml#L3) | str  | `/etc/nebula`                                                     |
-| [nebula_install_binary](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/vars/main/install.yml#L6)     | str  | `{{ (common_binary_dir, 'nebula') ¦ ansible.builtin.path_join }}` |
+| Var                                                                                                                                      | Type | Value                                                             |
+| ---------------------------------------------------------------------------------------------------------------------------------------- | ---- | ----------------------------------------------------------------- |
+| [nebula_install_binary](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/vars/main/install.yml#L3) | str  | `{{ (common_binary_dir, 'nebula') ¦ ansible.builtin.path_join }}` |
 
 #### File: vars/main/main.yml
 

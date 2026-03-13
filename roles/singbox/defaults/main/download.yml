@@ -1,0 +1,17 @@
+---
+# Version of sing-box to download.
+singbox_download_version: latest
+
+# GitHub user or organization that maintains the sing-box repository.
+singbox_download_github_user: SagerNet
+
+# GitHub repository name for sing-box.
+singbox_download_github_repository: sing-box
+
+# Mapping from system architecture to sing-box release architecture naming.
+singbox_download_architecture_map:
+  x86_64: amd64
+  aarch64: arm64
+
+# URL to download the sing-box archive.
+singbox_download_url: "https://github.com/{{ singbox_download_github_user }}/{{ singbox_download_github_repository }}/releases/download/v{{ download_version }}/sing-box-{{ download_version }}-linux-{{ download_architecture.value }}.tar.gz"

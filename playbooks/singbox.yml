@@ -1,0 +1,6 @@
+---
+- name: Set up sing-box
+  hosts: all
+  become: true
+  roles:
+    - kasefuchs.general.singbox

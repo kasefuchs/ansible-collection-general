@@ -4,6 +4,19 @@ Kasefuchs.General Release Notes
 
 .. contents:: Topics
 
+v1.2.1
+======
+
+Release Summary
+---------------
+
+Added new singbox role.
+
+Minor Changes
+-------------
+
+- Added new `singbox` role.
+
 v1.2.0
 ======
 

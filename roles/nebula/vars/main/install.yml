@@ -1,6 +1,3 @@
 ---
-# Directory where Nebula configuration stored.
-nebula_install_config_dir: /etc/nebula
-
 # Path to the Nebula binary.
 nebula_install_binary: "{{ (common_binary_dir, 'nebula') | ansible.builtin.path_join }}"

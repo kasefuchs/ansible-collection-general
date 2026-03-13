@@ -1,0 +1,6 @@
+---
+# Directory path where specific versions of sing-box will be downloaded.
+singbox_download_local_dir: "{{ (singbox_cache_local_dir, 'download') | ansible.builtin.path_join }}"
+
+# Path to the sing-box archive for the current architecture.
+singbox_download_local_file: "{{ (singbox_download_local_dir, 'current', ansible_facts.architecture) | ansible.builtin.path_join }}"

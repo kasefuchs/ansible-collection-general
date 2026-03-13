@@ -1,0 +1,20 @@
+---
+galaxy_info:
+  author: Kasefuchs
+  description: >
+    Install and configure sing-box proxy platform,
+    including service setup and configuration management.
+
+  license: MIT
+  galaxy_tags:
+    - singbox
+    - proxy
+    - networking
+    - vpn
+    - security
+
+  issue_tracker_url: https://codeberg.org/kasefuchs/ansible-collection-general/issues
+  min_ansible_version: "2.2"
+
+dependencies:
+  - role: kasefuchs.general.common

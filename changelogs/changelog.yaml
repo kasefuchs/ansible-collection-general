@@ -11,6 +11,10 @@ releases:
         - Added antsibull changelogs.
         - Added prettier formatting configuration.
       release_summary: Maintenance release improving development tooling and linting.
-    fragments:
-      - 1.2.0.yaml
+    release_date: "2026-03-13"
+  1.2.1:
+    changes:
+      minor_changes:
+        - Added new `singbox` role.
+      release_summary: Added new singbox role.
     release_date: "2026-03-13"

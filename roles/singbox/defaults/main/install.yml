@@ -1,0 +1,6 @@
+---
+# Extra options for extracting the sing-box archive.
+singbox_install_extract_options: [--wildcards, --strip-components=1]
+
+# Files or directories to include when extracting.
+singbox_install_extract_include: ["*/sing-box"]

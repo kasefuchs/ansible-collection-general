@@ -2,7 +2,7 @@
 # --- Identity ---
 namespace: kasefuchs
 name: general
-version: 1.2.0
+version: 1.2.1
 
 # --- Metadata ---
 description: A collection of common Ansible roles used across my own projects.
@@ -26,7 +26,10 @@ dependencies:
   community.general: "*"
 
 build_ignore:
+  - .ansible
   - .idea
   - .vscode
   - .venv
-  - cache/
+  - .woodpecker
+  - cache
+  - inventories

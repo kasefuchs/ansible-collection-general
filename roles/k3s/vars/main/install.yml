@@ -1,7 +1,4 @@
 ---
-# Directory where K3s configuration stored.
-k3s_install_config_dir: /etc/rancher/k3s
-
 # Path to the K3s binary.
 k3s_install_binary: "{{ (common_binary_dir, 'k3s') | ansible.builtin.path_join }}"
 

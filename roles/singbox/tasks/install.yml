@@ -1,7 +1,7 @@
 ---
-- name: Create Nebula directories
+- name: Create sing-box directories
   loop:
-    - "{{ nebula_config_dir }}"
+    - "{{ singbox_config_dir }}"
   ansible.builtin.file:
     path: "{{ item }}"
     mode: "0755"
@@ -9,24 +9,24 @@
     owner: root
     group: root
 
-- name: Extract Nebula archive
+- name: Extract sing-box archive
   ansible.builtin.unarchive:
-    src: "{{ nebula_download_local_file }}"
+    src: "{{ singbox_download_local_file }}"
     dest: "{{ common_binary_dir }}"
     mode: "0755"
     owner: root
     group: root
-    include: "{{ nebula_install_extract_include }}"
-    extra_opts: "{{ nebula_install_extract_options }}"
+    include: "{{ singbox_install_extract_include }}"
+    extra_opts: "{{ singbox_install_extract_options }}"
 
-- name: Install Nebula service
+- name: Install sing-box service
   notify: Reload daemon
   block:
-    - name: Install Nebula service (systemd)
+    - name: Install sing-box service (systemd)
       when: ansible_facts.service_mgr == "systemd"
       ansible.builtin.template:
-        src: nebula.service.j2
-        dest: /etc/systemd/system/nebula.service
+        src: sing-box@.service.j2
+        dest: /etc/systemd/system/sing-box@.service
         owner: root
         group: root
         mode: "0644"

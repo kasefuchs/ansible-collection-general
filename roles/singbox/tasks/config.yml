@@ -1,0 +1,12 @@
+---
+- name: Render sing-box config template
+  notify:
+    - Enable sing-box service
+    - Start sing-box service
+    - Reload sing-box service
+  ansible.builtin.template:
+    src: config.json.j2
+    dest: "{{ singbox_config_file }}"
+    mode: "0600"
+    owner: root
+    group: root

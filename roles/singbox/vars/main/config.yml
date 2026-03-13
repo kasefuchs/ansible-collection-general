@@ -1,0 +1,6 @@
+---
+# Directory where sing-box configuration stored.
+singbox_config_dir: /etc/sing-box
+
+# Path to the sing-box configuration file.
+singbox_config_file: "{{ (singbox_config_dir, singbox_config_name ~ '.json') | ansible.builtin.path_join }}"

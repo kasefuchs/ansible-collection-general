@@ -1,0 +1,6 @@
+---
+# Local path for storing sing-box cache.
+singbox_cache_local_dir: "{{ (common_cache_local_dir, 'singbox') | ansible.builtin.path_join }}"
+
+# Local path for storing sing-box artifacts.
+singbox_artifact_local_dir: "{{ (common_artifact_local_dir, 'singbox') | ansible.builtin.path_join }}"

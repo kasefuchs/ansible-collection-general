@@ -1,7 +1,7 @@
 ---
 - name: Create AmneziaWG directories
   loop:
-    - "{{ amneziawg_install_config_dir }}"
+    - "{{ amneziawg_config_dir }}"
   ansible.builtin.file:
     path: "{{ item }}"
     mode: "0755"
