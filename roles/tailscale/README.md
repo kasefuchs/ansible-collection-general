@@ -8,7 +8,7 @@
 Role belongs to kasefuchs/general
 Namespace - kasefuchs
 Collection - general
-Version - 1.1.4
+Version - 1.2.0
 Repository - https://codeberg.org/kasefuchs/ansible-collection-general
 ```
 
@@ -55,8 +55,8 @@ Description: Install and configure Tailscale mesh VPN, including automated login
 | [tailscale_install_extract_options.**0**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/defaults/main/install.yml#L3) | str  | `--strip-components=1`   |
 | [tailscale_install_extract_options.**1**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/defaults/main/install.yml#L3) | str  | `--wildcards`            |
 | [tailscale_install_extract_include](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/defaults/main/install.yml#L6)       | list | `[]`                     |
-| [tailscale_install_extract_include.**0**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/defaults/main/install.yml#L7) | str  | `tailscale_*/tailscale`  |
-| [tailscale_install_extract_include.**1**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/defaults/main/install.yml#L7) | str  | `tailscale_*/tailscaled` |
+| [tailscale_install_extract_include.**0**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/defaults/main/install.yml#L6) | str  | `tailscale_*/tailscale`  |
+| [tailscale_install_extract_include.**1**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/defaults/main/install.yml#L6) | str  | `tailscale_*/tailscaled` |
 
 ### Vars
 
@@ -91,7 +91,7 @@ Description: Install and configure Tailscale mesh VPN, including automated login
 | ------------------------------------------------------------------------------------------------------------------------------------- | ----------------------- | -------------- |
 | [Get Tailscale status](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/tasks/config.yml#L2) | ansible.builtin.command | False          |
 | [Bring Tailscale up](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/tasks/config.yml#L9)   | ansible.builtin.command | True           |
-| [Configure Tailscale](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/tasks/config.yml#L19) | ansible.builtin.command | True           |
+| [Configure Tailscale](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/tasks/config.yml#L20) | ansible.builtin.command | True           |
 
 #### File: tasks/download.yml
 

@@ -11,6 +11,9 @@
 .venv/
 
 # --- Ansible ---
+# Environment
+.ansible/
+
 # Artifacts
 *.tar.gz
 

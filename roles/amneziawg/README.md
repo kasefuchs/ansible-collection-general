@@ -8,7 +8,7 @@
 Role belongs to kasefuchs/general
 Namespace - kasefuchs
 Collection - general
-Version - 1.1.4
+Version - 1.2.0
 Repository - https://codeberg.org/kasefuchs/ansible-collection-general
 ```
 
@@ -139,12 +139,12 @@ Description: Install and configure AmneziaWG using amneziawg-go and amneziawg-to
 | [Extract AmneziaWG kernel module archive](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/tasks/install.yml#L41)           | ansible.builtin.unarchive | False          |
 | [Prepare DKMS sources using Makefile](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/tasks/install.yml#L51)               | community.general.make    | False          |
 | [Register AmneziaWG module in DKMS tree](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/tasks/install.yml#L58)            | ansible.builtin.command   | False          |
-| [Compile AmneziaWG kernel module via DKMS](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/tasks/install.yml#L61)          | ansible.builtin.command   | False          |
-| [Install compiled AmneziaWG module into the kernel](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/tasks/install.yml#L64) | ansible.builtin.command   | False          |
-| [Install AmneziaWG tools](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/tasks/install.yml#L67)                           | block                     | False          |
-| [Extract AmneziaWG tools archive](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/tasks/install.yml#L69)                   | ansible.builtin.unarchive | False          |
-| [Install AmneziaWG service](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/tasks/install.yml#L79)                         | block                     | False          |
-| [Install AmneziaWG service (systemd)](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/tasks/install.yml#L82)               | ansible.builtin.template  | True           |
+| [Compile AmneziaWG kernel module via DKMS](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/tasks/install.yml#L62)          | ansible.builtin.command   | False          |
+| [Install compiled AmneziaWG module into the kernel](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/tasks/install.yml#L66) | ansible.builtin.command   | False          |
+| [Install AmneziaWG tools](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/tasks/install.yml#L70)                           | block                     | False          |
+| [Extract AmneziaWG tools archive](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/tasks/install.yml#L72)                   | ansible.builtin.unarchive | False          |
+| [Install AmneziaWG service](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/tasks/install.yml#L82)                         | block                     | False          |
+| [Install AmneziaWG service (systemd)](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/tasks/install.yml#L85)               | ansible.builtin.template  | True           |
 
 #### File: tasks/main.yml
 

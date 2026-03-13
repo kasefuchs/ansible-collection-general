@@ -1,0 +1,16 @@
+ancestor: null
+releases:
+  1.2.0:
+    changes:
+      bugfixes:
+        - Fixed change detection in several command tasks.
+      major_changes:
+        - Increased the minimum supported Ansible version to 2.15.0.
+      minor_changes:
+        - Added ansible-lint configuration.
+        - Added antsibull changelogs.
+        - Added prettier formatting configuration.
+      release_summary: Maintenance release improving development tooling and linting.
+    fragments:
+      - 1.2.0.yaml
+    release_date: "2026-03-13"

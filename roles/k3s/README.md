@@ -8,7 +8,7 @@
 Role belongs to kasefuchs/general
 Namespace - kasefuchs
 Collection - general
-Version - 1.1.4
+Version - 1.2.0
 Repository - https://codeberg.org/kasefuchs/ansible-collection-general
 ```
 
@@ -46,7 +46,7 @@ Description: Install and configure K3s Kubernetes distribution, including server
 | [k3s_download_binary_architecture_map](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/defaults/main/download.yml#L12)             | dict | `{}`                                                                                                                                                 |
 | [k3s_download_binary_architecture_map.**x86_64**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/defaults/main/download.yml#L13)  | str  | `amd64`                                                                                                                                              |
 | [k3s_download_binary_architecture_map.**aarch64**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/defaults/main/download.yml#L14) | str  | `arm64`                                                                                                                                              |
-| [k3s_download_binary_url](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/defaults/main/download.yml#L17)                          | str  | `<multiline value: folded>`                                                                                                                          |
+| [k3s_download_binary_url](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/defaults/main/download.yml#L17)                          | str  | `<multiline value: literal_strip>`                                                                                                                   |
 | [k3s_download_script_url](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/defaults/main/download.yml#L26)                          | str  | `https://raw.githubusercontent.com/{{ k3s_download_github_user }}/{{ k3s_download_github_repository }}/refs/tags/v{{ download_version }}/install.sh` |
 | [k3s_download_script_architecture_map](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/defaults/main/download.yml#L29)             | dict | `{}`                                                                                                                                                 |
 | [k3s_download_script_architecture_map.**noarch**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/defaults/main/download.yml#L30)  | str  |                                                                                                                                                      |

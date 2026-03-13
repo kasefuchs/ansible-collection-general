@@ -8,6 +8,7 @@
 
 - name: Bring Tailscale up
   when: not (tailscale_config_status_cmd.stdout | from_json).Self.Online
+  changed_when: true
   ansible.builtin.command:
     # language="sh"
     cmd: >-
@@ -18,6 +19,7 @@
 
 - name: Configure Tailscale
   when: tailscale_config_flags | length | ansible.builtin.bool
+  changed_when: true
   ansible.builtin.command:
     argv: >-
       {{

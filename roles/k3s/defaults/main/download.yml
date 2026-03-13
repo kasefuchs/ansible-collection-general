@@ -14,7 +14,7 @@ k3s_download_binary_architecture_map:
   aarch64: arm64
 
 # URL to download the K3s binary.
-k3s_download_binary_url: >
+k3s_download_binary_url: |-
   https://github.com/{{ k3s_download_github_user }}/{{ k3s_download_github_repository }}/releases/download/v{{ download_version }}/
   {%- if download_architecture.key == 'x86_64' -%}
   k3s

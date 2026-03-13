@@ -56,12 +56,15 @@
               WIREGUARD_VERSION: "{{ amneziawg_download_kmod_version }}"
 
         - name: Register AmneziaWG module in DKMS tree
+          changed_when: true
           ansible.builtin.command: "dkms add -m amneziawg -v {{ amneziawg_download_kmod_version }}"
 
         - name: Compile AmneziaWG kernel module via DKMS
+          changed_when: true
           ansible.builtin.command: "dkms build -m amneziawg -v {{ amneziawg_download_kmod_version }}"
 
         - name: Install compiled AmneziaWG module into the kernel
+          changed_when: true
           ansible.builtin.command: "dkms install -m amneziawg -v {{ amneziawg_download_kmod_version }}"
 
 - name: Install AmneziaWG tools
