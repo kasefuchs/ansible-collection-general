@@ -3,4 +3,4 @@
 amneziawg_config_dir: /etc/amnezia/amneziawg
 
 # Path to the AmneziaWG configuration file.
-amneziawg_config_file: "{{ (amneziawg_config_dir, amneziawg_config_name ~ '.conf') | ansible.builtin.path_join }}"
+amneziawg_config_file: "{{ (amneziawg_config_dir, amneziawg_config_instance ~ '.conf') | ansible.builtin.path_join }}"

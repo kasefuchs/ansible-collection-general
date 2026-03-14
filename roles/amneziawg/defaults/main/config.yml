@@ -1,5 +1,5 @@
 # AmneziaWG interface name.
-amneziawg_config_name: awg0
+amneziawg_config_instance: awg0
 
 # Interface configuration parameters.
 amneziawg_config_interface: "{{ undef('AmneziaWG interface configuration must be provided (amneziawg_config_interface)') }}"

@@ -3,26 +3,26 @@
   when: ansible_facts.service_mgr == "systemd"
   listen: Enable sing-box service
   ansible.builtin.systemd_service:
-    name: "sing-box@{{ singbox_config_name }}"
+    name: "sing-box@{{ singbox_config_instance }}"
     enabled: true
 
 - name: Restart sing-box service (systemd)
   when: ansible_facts.service_mgr == "systemd"
   listen: Restart sing-box service
   ansible.builtin.systemd_service:
-    name: "sing-box@{{ singbox_config_name }}"
+    name: "sing-box@{{ singbox_config_instance }}"
     state: restarted
 
 - name: Start sing-box service (systemd)
   when: ansible_facts.service_mgr == "systemd"
   listen: Start sing-box service
   ansible.builtin.systemd_service:
-    name: "sing-box@{{ singbox_config_name }}"
+    name: "sing-box@{{ singbox_config_instance }}"
     state: started
 
 - name: Reload sing-box service (systemd)
   when: ansible_facts.service_mgr == "systemd"
   listen: Reload sing-box service
   ansible.builtin.systemd_service:
-    name: "sing-box@{{ singbox_config_name }}"
+    name: "sing-box@{{ singbox_config_instance }}"
     state: reloaded

@@ -1,6 +1,6 @@
 ---
-# AmneziaWG interface name.
-singbox_config_name: config
+# Name of the generated configuration file.
+singbox_config_instance: default
 
 # Main sing-box configuration structure.
 singbox_config:
@@ -18,20 +18,25 @@ singbox_config_log:
 
 # DNS configuration.
 singbox_config_dns:
-  final: quad9
-  independent_cache: true
-  servers:
-    - tag: dumb
-      type: tcp
-      server: 8.8.8.8
-    - tag: quad9
-      type: https
-      server: dns.quad9.net
-      domain_resolver: dumb
-  rules:
-    - query_type: HTTPS
-      action: predefined
-      rcode: NOERROR
+  final: https
+  servers: "{{ singbox_config_dns_servers }}"
+  rules: "{{ singbox_config_dns_rules }}"
+
+# List of DNS resolvers.
+singbox_config_dns_servers:
+  - tag: tcp
+    type: tcp
+    server: 8.8.8.8
+  - tag: https
+    type: https
+    server: dns.quad9.net
+    domain_resolver: tcp
+
+# Rules controlling how DNS queries are handled.
+singbox_config_dns_rules:
+  - query_type: HTTPS
+    action: predefined
+    rcode: NOERROR
 
 # Inbound listeners.
 singbox_config_inbounds:
@@ -57,7 +62,18 @@ singbox_config_route:
   final: direct
   auto_detect_interface: true
   default_domain_resolver:
-    server: quad9
+    server: https
+  rules: "{{ singbox_config_route_rules }}"
+  rule_set: "{{ singbox_config_route_rule_sets }}"
+
+# Rules controlling routing actions.
+singbox_config_route_rules:
+  - action: sniff
+  - action: hijack-dns
+    protocol: dns
+
+# External rule sets.
+singbox_config_route_rule_sets: []
 
 # Experimental features.
 singbox_config_experimental:

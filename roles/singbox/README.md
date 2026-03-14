@@ -8,7 +8,7 @@
 Role belongs to kasefuchs/general
 Namespace - kasefuchs
 Collection - general
-Version - 1.2.1
+Version - 1.2.2
 Repository - https://codeberg.org/kasefuchs/ansible-collection-general
 ```
 
@@ -24,62 +24,72 @@ Description: Install and configure sing-box proxy platform, including service se
 
 #### File: defaults/main/config.yml
 
-| Var                                                                                                                                                                             | Type | Value                               |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---- | ----------------------------------- |
-| [singbox_config_name](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L3)                                      | str  | `config`                            |
-| [singbox_config](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L6)                                           | dict | `{}`                                |
-| [singbox_config.**log**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L7)                                   | str  | `{{ singbox_config_log }}`          |
-| [singbox_config.**dns**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L8)                                   | str  | `{{ singbox_config_dns }}`          |
-| [singbox_config.**inbounds**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L9)                              | str  | `{{ singbox_config_inbounds }}`     |
-| [singbox_config.**outbounds**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L10)                            | str  | `{{ singbox_config_outbounds }}`    |
-| [singbox_config.**route**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L11)                                | str  | `{{ singbox_config_route }}`        |
-| [singbox_config.**experimental**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L12)                         | str  | `{{ singbox_config_experimental }}` |
-| [singbox_config_log](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L15)                                      | dict | `{}`                                |
-| [singbox_config_log.**level**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L16)                            | str  | `error`                             |
-| [singbox_config_log.**timestamp**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L17)                        | bool | `True`                              |
-| [singbox_config_dns](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L20)                                      | dict | `{}`                                |
-| [singbox_config_dns.**final**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L21)                            | str  | `quad9`                             |
-| [singbox_config_dns.**independent_cache**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L22)                | bool | `True`                              |
-| [singbox_config_dns.**servers**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L23)                          | list | `[]`                                |
-| [singbox_config_dns.servers.**0**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L24)                        | dict | `{}`                                |
-| [singbox_config_dns.servers.0.**tag**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L24)                    | str  | `dumb`                              |
-| [singbox_config_dns.servers.0.**type**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L25)                   | str  | `tcp`                               |
-| [singbox_config_dns.servers.0.**server**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L26)                 | str  | `8.8.8.8`                           |
-| [singbox_config_dns.servers.**1**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L27)                        | dict | `{}`                                |
-| [singbox_config_dns.servers.1.**tag**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L27)                    | str  | `quad9`                             |
-| [singbox_config_dns.servers.1.**type**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L28)                   | str  | `https`                             |
-| [singbox_config_dns.servers.1.**server**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L29)                 | str  | `dns.quad9.net`                     |
-| [singbox_config_dns.servers.1.**domain_resolver**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L30)        | str  | `dumb`                              |
-| [singbox_config_dns.**rules**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L31)                            | list | `[]`                                |
-| [singbox_config_dns.rules.**0**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L32)                          | dict | `{}`                                |
-| [singbox_config_dns.rules.0.**query_type**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L32)               | str  | `HTTPS`                             |
-| [singbox_config_dns.rules.0.**action**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L33)                   | str  | `predefined`                        |
-| [singbox_config_dns.rules.0.**rcode**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L34)                    | str  | `NOERROR`                           |
-| [singbox_config_inbounds](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L37)                                 | list | `[]`                                |
-| [singbox_config_inbounds.**0**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L38)                           | dict | `{}`                                |
-| [singbox_config_inbounds.0.**tag**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L38)                       | str  | `tun`                               |
-| [singbox_config_inbounds.0.**type**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L39)                      | str  | `tun`                               |
-| [singbox_config_inbounds.0.**stack**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L40)                     | str  | `mixed`                             |
-| [singbox_config_inbounds.0.**address**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L41)                   | str  | `172.19.0.1/30`                     |
-| [singbox_config_inbounds.0.**auto_route**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L42)                | bool | `True`                              |
-| [singbox_config_inbounds.0.**strict_route**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L43)              | bool | `True`                              |
-| [singbox_config_inbounds.0.**auto_redirect**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L44)             | bool | `True`                              |
-| [singbox_config_inbounds.0.**auto_redirect_input_mark**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L45)  | str  | `0x2023`                            |
-| [singbox_config_inbounds.0.**auto_redirect_output_mark**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L46) | str  | `0x2024`                            |
-| [singbox_config_inbounds.0.**endpoint_independent_nat**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L47)  | bool | `False`                             |
-| [singbox_config_inbounds.0.**interface_name**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L48)            | str  | `sb0`                               |
-| [singbox_config_outbounds](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L51)                                | list | `[]`                                |
-| [singbox_config_outbounds.**0**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L52)                          | dict | `{}`                                |
-| [singbox_config_outbounds.0.**tag**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L52)                      | str  | `direct`                            |
-| [singbox_config_outbounds.0.**type**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L53)                     | str  | `direct`                            |
-| [singbox_config_route](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L56)                                    | dict | `{}`                                |
-| [singbox_config_route.**final**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L57)                          | str  | `direct`                            |
-| [singbox_config_route.**auto_detect_interface**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L58)          | bool | `True`                              |
-| [singbox_config_route.**default_domain_resolver**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L59)        | dict | `{}`                                |
-| [singbox_config_route.default_domain_resolver.**server**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L60) | str  | `quad9`                             |
-| [singbox_config_experimental](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L63)                             | dict | `{}`                                |
-| [singbox_config_experimental.**cache_file**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L64)              | dict | `{}`                                |
-| [singbox_config_experimental.cache_file.**enabled**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L65)      | bool | `True`                              |
+| Var                                                                                                                                                                             | Type | Value                                  |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---- | -------------------------------------- |
+| [singbox_config_instance](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L3)                                  | str  | `default`                              |
+| [singbox_config](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L6)                                           | dict | `{}`                                   |
+| [singbox_config.**log**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L7)                                   | str  | `{{ singbox_config_log }}`             |
+| [singbox_config.**dns**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L8)                                   | str  | `{{ singbox_config_dns }}`             |
+| [singbox_config.**inbounds**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L9)                              | str  | `{{ singbox_config_inbounds }}`        |
+| [singbox_config.**outbounds**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L10)                            | str  | `{{ singbox_config_outbounds }}`       |
+| [singbox_config.**route**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L11)                                | str  | `{{ singbox_config_route }}`           |
+| [singbox_config.**experimental**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L12)                         | str  | `{{ singbox_config_experimental }}`    |
+| [singbox_config_log](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L15)                                      | dict | `{}`                                   |
+| [singbox_config_log.**level**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L16)                            | str  | `error`                                |
+| [singbox_config_log.**timestamp**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L17)                        | bool | `True`                                 |
+| [singbox_config_dns](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L20)                                      | dict | `{}`                                   |
+| [singbox_config_dns.**final**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L21)                            | str  | `https`                                |
+| [singbox_config_dns.**servers**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L22)                          | str  | `{{ singbox_config_dns_servers }}`     |
+| [singbox_config_dns.**rules**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L23)                            | str  | `{{ singbox_config_dns_rules }}`       |
+| [singbox_config_dns_servers](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L26)                              | list | `[]`                                   |
+| [singbox_config_dns_servers.**0**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L27)                        | dict | `{}`                                   |
+| [singbox_config_dns_servers.0.**tag**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L27)                    | str  | `tcp`                                  |
+| [singbox_config_dns_servers.0.**type**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L28)                   | str  | `tcp`                                  |
+| [singbox_config_dns_servers.0.**server**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L29)                 | str  | `8.8.8.8`                              |
+| [singbox_config_dns_servers.**1**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L30)                        | dict | `{}`                                   |
+| [singbox_config_dns_servers.1.**tag**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L30)                    | str  | `https`                                |
+| [singbox_config_dns_servers.1.**type**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L31)                   | str  | `https`                                |
+| [singbox_config_dns_servers.1.**server**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L32)                 | str  | `dns.quad9.net`                        |
+| [singbox_config_dns_servers.1.**domain_resolver**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L33)        | str  | `tcp`                                  |
+| [singbox_config_dns_rules](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L36)                                | list | `[]`                                   |
+| [singbox_config_dns_rules.**0**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L37)                          | dict | `{}`                                   |
+| [singbox_config_dns_rules.0.**query_type**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L37)               | str  | `HTTPS`                                |
+| [singbox_config_dns_rules.0.**action**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L38)                   | str  | `predefined`                           |
+| [singbox_config_dns_rules.0.**rcode**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L39)                    | str  | `NOERROR`                              |
+| [singbox_config_inbounds](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L42)                                 | list | `[]`                                   |
+| [singbox_config_inbounds.**0**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L43)                           | dict | `{}`                                   |
+| [singbox_config_inbounds.0.**tag**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L43)                       | str  | `tun`                                  |
+| [singbox_config_inbounds.0.**type**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L44)                      | str  | `tun`                                  |
+| [singbox_config_inbounds.0.**stack**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L45)                     | str  | `mixed`                                |
+| [singbox_config_inbounds.0.**address**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L46)                   | str  | `172.19.0.1/30`                        |
+| [singbox_config_inbounds.0.**auto_route**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L47)                | bool | `True`                                 |
+| [singbox_config_inbounds.0.**strict_route**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L48)              | bool | `True`                                 |
+| [singbox_config_inbounds.0.**auto_redirect**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L49)             | bool | `True`                                 |
+| [singbox_config_inbounds.0.**auto_redirect_input_mark**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L50)  | str  | `0x2023`                               |
+| [singbox_config_inbounds.0.**auto_redirect_output_mark**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L51) | str  | `0x2024`                               |
+| [singbox_config_inbounds.0.**endpoint_independent_nat**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L52)  | bool | `False`                                |
+| [singbox_config_inbounds.0.**interface_name**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L53)            | str  | `sb0`                                  |
+| [singbox_config_outbounds](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L56)                                | list | `[]`                                   |
+| [singbox_config_outbounds.**0**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L57)                          | dict | `{}`                                   |
+| [singbox_config_outbounds.0.**tag**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L57)                      | str  | `direct`                               |
+| [singbox_config_outbounds.0.**type**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L58)                     | str  | `direct`                               |
+| [singbox_config_route](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L61)                                    | dict | `{}`                                   |
+| [singbox_config_route.**final**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L62)                          | str  | `direct`                               |
+| [singbox_config_route.**auto_detect_interface**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L63)          | bool | `True`                                 |
+| [singbox_config_route.**default_domain_resolver**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L64)        | dict | `{}`                                   |
+| [singbox_config_route.default_domain_resolver.**server**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L65) | str  | `https`                                |
+| [singbox_config_route.**rules**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L66)                          | str  | `{{ singbox_config_route_rules }}`     |
+| [singbox_config_route.**rule_set**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L67)                       | str  | `{{ singbox_config_route_rule_sets }}` |
+| [singbox_config_route_rules](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L70)                              | list | `[]`                                   |
+| [singbox_config_route_rules.**0**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L71)                        | dict | `{}`                                   |
+| [singbox_config_route_rules.0.**action**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L71)                 | str  | `sniff`                                |
+| [singbox_config_route_rules.**1**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L72)                        | dict | `{}`                                   |
+| [singbox_config_route_rules.1.**action**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L72)                 | str  | `hijack-dns`                           |
+| [singbox_config_route_rules.1.**protocol**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L73)               | str  | `dns`                                  |
+| [singbox_config_route_rule_sets](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L76)                          | list | `[]`                                   |
+| [singbox_config_experimental](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L79)                             | dict | `{}`                                   |
+| [singbox_config_experimental.**cache_file**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L80)              | dict | `{}`                                   |
+| [singbox_config_experimental.cache_file.**enabled**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L81)      | bool | `True`                                 |
 
 #### File: defaults/main/download.yml
 
@@ -109,10 +119,10 @@ Description: Install and configure sing-box proxy platform, including service se
 
 #### File: vars/main/config.yml
 
-| Var                                                                                                                                    | Type | Value                                                                                   |
-| -------------------------------------------------------------------------------------------------------------------------------------- | ---- | --------------------------------------------------------------------------------------- |
-| [singbox_config_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/vars/main/config.yml#L3)  | str  | `/etc/sing-box`                                                                         |
-| [singbox_config_file](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/vars/main/config.yml#L6) | str  | `{{ (singbox_config_dir, singbox_config_name ~ '.json') ¦ ansible.builtin.path_join }}` |
+| Var                                                                                                                                    | Type | Value                                                                                       |
+| -------------------------------------------------------------------------------------------------------------------------------------- | ---- | ------------------------------------------------------------------------------------------- |
+| [singbox_config_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/vars/main/config.yml#L3)  | str  | `/etc/sing-box`                                                                             |
+| [singbox_config_file](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/vars/main/config.yml#L6) | str  | `{{ (singbox_config_dir, singbox_config_instance ~ '.json') ¦ ansible.builtin.path_join }}` |
 
 #### File: vars/main/download.yml
 

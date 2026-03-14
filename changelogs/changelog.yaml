@@ -18,3 +18,11 @@ releases:
         - Added new `singbox` role.
       release_summary: Added new singbox role.
     release_date: "2026-03-13"
+  1.2.2:
+    changes:
+      minor_changes:
+        - Refactored sing-box configuration variables.
+        - Renamed `amneziawg_config_name` to `amneziawg_config_instance`.
+        - Renamed `singbox_config_name` to `singbox_config_instance`.
+      release_summary: Improved config variable structure and naming.
+    release_date: "2026-03-14"

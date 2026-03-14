@@ -8,7 +8,7 @@
 Role belongs to kasefuchs/general
 Namespace - kasefuchs
 Collection - general
-Version - 1.2.1
+Version - 1.2.2
 Repository - https://codeberg.org/kasefuchs/ansible-collection-general
 ```
 
@@ -26,7 +26,7 @@ Description: Install and configure AmneziaWG using amneziawg-go and amneziawg-to
 
 | Var                                                                                                                                                   | Type | Value                                                                                            |
 | ----------------------------------------------------------------------------------------------------------------------------------------------------- | ---- | ------------------------------------------------------------------------------------------------ |
-| [amneziawg_config_name](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/config.yml#L2)        | str  | `awg0`                                                                                           |
+| [amneziawg_config_instance](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/config.yml#L2)    | str  | `awg0`                                                                                           |
 | [amneziawg_config_interface](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/config.yml#L5)   | str  | `{{ undef('AmneziaWG interface configuration must be provided (amneziawg_config_interface)') }}` |
 | [amneziawg_config_peers](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/config.yml#L8)       | list | `[]`                                                                                             |
 | [amneziawg_config_junk](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/config.yml#L11)       | dict | `{}`                                                                                             |
@@ -78,10 +78,10 @@ Description: Install and configure AmneziaWG using amneziawg-go and amneziawg-to
 
 #### File: vars/main/config.yml
 
-| Var                                                                                                                                        | Type | Value                                                                                       |
-| ------------------------------------------------------------------------------------------------------------------------------------------ | ---- | ------------------------------------------------------------------------------------------- |
-| [amneziawg_config_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/vars/main/config.yml#L3)  | str  | `/etc/amnezia/amneziawg`                                                                    |
-| [amneziawg_config_file](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/vars/main/config.yml#L6) | str  | `{{ (amneziawg_config_dir, amneziawg_config_name ~ '.conf') ¦ ansible.builtin.path_join }}` |
+| Var                                                                                                                                        | Type | Value                                                                                           |
+| ------------------------------------------------------------------------------------------------------------------------------------------ | ---- | ----------------------------------------------------------------------------------------------- |
+| [amneziawg_config_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/vars/main/config.yml#L3)  | str  | `/etc/amnezia/amneziawg`                                                                        |
+| [amneziawg_config_file](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/vars/main/config.yml#L6) | str  | `{{ (amneziawg_config_dir, amneziawg_config_instance ~ '.conf') ¦ ansible.builtin.path_join }}` |
 
 #### File: vars/main/download.yml
 

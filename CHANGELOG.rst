@@ -4,6 +4,21 @@ Kasefuchs.General Release Notes
 
 .. contents:: Topics
 
+v1.2.2
+======
+
+Release Summary
+---------------
+
+Improved config variable structure and naming.
+
+Minor Changes
+-------------
+
+- Refactored sing-box configuration variables.
+- Renamed `amneziawg_config_name` to `amneziawg_config_instance`.
+- Renamed `singbox_config_name` to `singbox_config_instance`.
+
 v1.2.1
 ======
 
