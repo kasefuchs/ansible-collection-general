@@ -4,6 +4,20 @@ Kasefuchs.General Release Notes
 
 .. contents:: Topics
 
+v1.3.1
+======
+
+Release Summary
+---------------
+
+Added custom registries and auto-deploy manifests support to the k3s role.
+
+Minor Changes
+-------------
+
+- Added support for auto-deploying Kubernetes manifests in the `k3s` server role via `k3s_server_config_manifests`.
+- Added support for configuring custom containerd registries in the `k3s` role via `k3s_config_registries`.
+
 v1.3.0
 ======
 

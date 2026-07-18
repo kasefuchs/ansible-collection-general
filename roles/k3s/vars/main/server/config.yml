@@ -1,0 +1,2 @@
+# Directory where K3s auto-deploy manifests are stored.
+k3s_server_config_manifests_dir: /var/lib/rancher/k3s/server/manifests

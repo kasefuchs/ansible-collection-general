@@ -8,7 +8,7 @@
 Role belongs to kasefuchs/general
 Namespace - kasefuchs
 Collection - general
-Version - 1.3.0
+Version - 1.3.1
 Repository - https://codeberg.org/kasefuchs/ansible-collection-general
 ```
 
@@ -44,6 +44,12 @@ Description: Install and configure K3s Kubernetes distribution, including server
 |--------------|--------------|-------------|
 | [k3s_agent_group](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/defaults/main/agent/main.yml#L2)   | str | `k3s_agent` |
 
+#### File: defaults/main/config.yml
+
+| Var          | Type         | Value       |
+|--------------|--------------|-------------|
+| [k3s_config_registries](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/defaults/main/config.yml#L2)   | dict | `{}` |
+
 #### File: defaults/main/download.yml
 
 | Var          | Type         | Value       |
@@ -64,6 +70,7 @@ Description: Install and configure K3s Kubernetes distribution, including server
 | Var          | Type         | Value       |
 |--------------|--------------|-------------|
 | [k3s_server_config](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/defaults/main/server/config.yml#L2)   | dict | `{}` |
+| [k3s_server_config_manifests](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/defaults/main/server/config.yml#L5)   | dict | `{}` |
 
 #### File: defaults/main/server/main.yml
 
@@ -81,6 +88,7 @@ Description: Install and configure K3s Kubernetes distribution, including server
 |--------------|--------------|-------------|
 | [k3s_config_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/vars/main/config.yml#L2)   | str | `/etc/rancher/k3s` |
 | [k3s_config_file](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/vars/main/config.yml#L5)   | str | `{{ (k3s_config_dir, 'config.yaml') ¦ path_join }}` |
+| [k3s_config_registries_file](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/vars/main/config.yml#L8)   | str | `{{ (k3s_config_dir, 'registries.yaml') ¦ path_join }}` |
 #### File: vars/main/download.yml
 
 | Var          | Type         | Value       |
@@ -102,6 +110,11 @@ Description: Install and configure K3s Kubernetes distribution, including server
 |--------------|--------------|-------------|
 | [k3s_cache_local_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/vars/main/main.yml#L2)   | str | `{{ (common_cache_local_dir, 'k3s') ¦ path_join }}` |
 | [k3s_artifact_local_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/vars/main/main.yml#L5)   | str | `{{ (common_artifact_local_dir, 'k3s') ¦ path_join }}` |
+#### File: vars/main/server/config.yml
+
+| Var          | Type         | Value       |
+|--------------|--------------|-------------|
+| [k3s_server_config_manifests_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/vars/main/server/config.yml#L2)   | str | `/var/lib/rancher/k3s/server/manifests` |
 
 
 ### Tasks
@@ -118,6 +131,13 @@ Description: Install and configure K3s Kubernetes distribution, including server
 | Name | Module | Has Conditions |
 | ---- | ------ | -------------- |
 | [Install K3s agent](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/tasks/agent/install.yml#L1) | ansible.builtin.script | False |
+
+#### File: tasks/config.yml
+
+| Name | Module | Has Conditions |
+| ---- | ------ | -------------- |
+| [Configure K3s registries](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/tasks/config.yml#L1) | ansible.builtin.template | True |
+| [Remove K3s registries config](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/tasks/config.yml#L13) | ansible.builtin.file | True |
 
 #### File: tasks/download.yml
 
@@ -142,19 +162,22 @@ Description: Install and configure K3s Kubernetes distribution, including server
 | ---- | ------ | -------------- | -----|
 | [Download K3s](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/tasks/main.yml#L1) | ansible.builtin.include_tasks | False | download,packer |
 | [Install K3s](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/tasks/main.yml#L15) | ansible.builtin.include_tasks | False | install,packer |
-| [Setup K3s server](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/tasks/main.yml#L26) | block | True | s,e,r,v,e,r |
-| [Install K3s server](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/tasks/main.yml#L30) | ansible.builtin.include_tasks | False |  |
-| [Configure K3s server](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/tasks/main.yml#L41) | ansible.builtin.include_tasks | False |  |
-| [Setup K3s agent](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/tasks/main.yml#L52) | block | True | a,g,e,n,t |
-| [Install K3s agent](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/tasks/main.yml#L56) | ansible.builtin.include_tasks | False |  |
-| [Configure K3s agent](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/tasks/main.yml#L67) | ansible.builtin.include_tasks | False |  |
-| [Flush handlers](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/tasks/main.yml#L78) | ansible.builtin.meta | False | a,l,w,a,y,s |
+| [Configure K3s](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/tasks/main.yml#L26) | ansible.builtin.include_tasks | False | c,o,n,f,i,g |
+| [Setup K3s server](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/tasks/main.yml#L33) | block | True | s,e,r,v,e,r |
+| [Install K3s server](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/tasks/main.yml#L37) | ansible.builtin.include_tasks | False |  |
+| [Configure K3s server](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/tasks/main.yml#L48) | ansible.builtin.include_tasks | False |  |
+| [Setup K3s agent](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/tasks/main.yml#L59) | block | True | a,g,e,n,t |
+| [Install K3s agent](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/tasks/main.yml#L63) | ansible.builtin.include_tasks | False |  |
+| [Configure K3s agent](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/tasks/main.yml#L74) | ansible.builtin.include_tasks | False |  |
+| [Flush handlers](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/tasks/main.yml#L85) | ansible.builtin.meta | False | a,l,w,a,y,s |
 
 #### File: tasks/server/config.yml
 
 | Name | Module | Has Conditions |
 | ---- | ------ | -------------- |
 | [Render K3s server template](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/tasks/server/config.yml#L1) | ansible.builtin.template | False |
+| [Create K3s manifests directory](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/tasks/server/config.yml#L14) | ansible.builtin.file | False |
+| [Deploy K3s server manifests](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/tasks/server/config.yml#L22) | ansible.builtin.copy | False |
 
 #### File: tasks/server/install.yml
 

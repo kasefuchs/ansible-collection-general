@@ -10,3 +10,27 @@
     mode: "0644"
     owner: root
     group: root
+
+- name: Create K3s manifests directory
+  ansible.builtin.file:
+    path: "{{ k3s_server_config_manifests_dir }}"
+    mode: "0755"
+    state: directory
+    owner: root
+    group: root
+
+- name: Deploy K3s server manifests
+  loop: "{{ k3s_server_config_manifests | dict2items }}"
+  loop_control:
+    label: "{{ item.key }}"
+  ansible.builtin.copy:
+    content: >-
+      {{
+        item.value | to_nice_yaml(indent=2)
+        if not item.value is string
+        else item.value
+      }}
+    dest: "{{ (k3s_server_config_manifests_dir, item.key ~ '.yaml') | path_join }}"
+    mode: "0600"
+    owner: root
+    group: root

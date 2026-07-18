@@ -36,3 +36,10 @@ releases:
         - Replaced Prettier with `yamlfmt` for YAML code formatting.
       release_summary: Codebase cleanup, YAML formatting overhaul, and minor bugfixes.
     release_date: "2026-07-18"
+  1.3.1:
+    changes:
+      minor_changes:
+        - Added support for auto-deploying Kubernetes manifests in the `k3s` server role via `k3s_server_config_manifests`.
+        - Added support for configuring custom containerd registries in the `k3s` role via `k3s_config_registries`.
+      release_summary: Added custom registries and auto-deploy manifests support to the k3s role.
+    release_date: "2026-07-18"

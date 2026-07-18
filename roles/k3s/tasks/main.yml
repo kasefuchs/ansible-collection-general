@@ -23,6 +23,13 @@
         - install
         - packer
 
+- name: Configure K3s
+  tags: config
+  ansible.builtin.include_tasks:
+    file: config.yml
+    apply:
+      tags: config
+
 - name: Setup K3s server
   tags: server
   when: k3s_server_group in group_names

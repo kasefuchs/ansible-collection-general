@@ -6,7 +6,7 @@
 
 **Name**: general
 
-**Version**: 1.3.0
+**Version**: 1.3.1
 
 **Authors**:
 
@@ -226,6 +226,12 @@ Install and configure K3s Kubernetes distribution, including server and agent mo
 |--------------|--------------|-------------|
 | [k3s_agent_group](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/defaults/main/agent/main.yml#L2)   | str   | `k3s_agent` |
 
+#### k3s File: [defaults/main/config.yml](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/defaults/main/config.yml)
+
+| Var          | Type         | Value       |
+|--------------|--------------|-------------|
+| [k3s_config_registries](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/defaults/main/config.yml#L2)   | dict   | `{}` |
+
 #### k3s File: [defaults/main/download.yml](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/defaults/main/download.yml)
 
 | Var          | Type         | Value       |
@@ -246,6 +252,7 @@ Install and configure K3s Kubernetes distribution, including server and agent mo
 | Var          | Type         | Value       |
 |--------------|--------------|-------------|
 | [k3s_server_config](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/defaults/main/server/config.yml#L2)   | dict   | `{}` |
+| [k3s_server_config_manifests](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/defaults/main/server/config.yml#L5)   | dict   | `{}` |
 
 #### k3s File: [defaults/main/server/main.yml](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/defaults/main/server/main.yml)
 
@@ -263,6 +270,7 @@ Install and configure K3s Kubernetes distribution, including server and agent mo
 |--------------|--------------|-------------|
 | [k3s_config_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/vars/main/config.yml#L2)   | str   | `/etc/rancher/k3s` |
 | [k3s_config_file](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/vars/main/config.yml#L5)   | str   | `{{ (k3s_config_dir, 'config.yaml') ¦ path_join }}` |
+| [k3s_config_registries_file](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/vars/main/config.yml#L8)   | str   | `{{ (k3s_config_dir, 'registries.yaml') ¦ path_join }}` |
 #### k3s File: [vars/main/download.yml](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/vars/main/download.yml)
 
 | Var          | Type         | Value       |
@@ -284,6 +292,11 @@ Install and configure K3s Kubernetes distribution, including server and agent mo
 |--------------|--------------|-------------|
 | [k3s_cache_local_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/vars/main/main.yml#L2)   | str   | `{{ (common_cache_local_dir, 'k3s') ¦ path_join }}` |
 | [k3s_artifact_local_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/vars/main/main.yml#L5)   | str   | `{{ (common_artifact_local_dir, 'k3s') ¦ path_join }}` |
+#### k3s File: [vars/main/server/config.yml](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/vars/main/server/config.yml)
+
+| Var          | Type         | Value       |
+|--------------|--------------|-------------|
+| [k3s_server_config_manifests_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/vars/main/server/config.yml#L2)   | str   | `/var/lib/rancher/k3s/server/manifests` |
 
 # [nebula](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula)
 ## nebula Description:

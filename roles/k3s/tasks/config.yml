@@ -1,0 +1,20 @@
+- name: Configure K3s registries
+  when: k3s_config_registries | length > 0
+  notify:
+    - Restart K3s server service
+    - Restart K3s agent service
+  ansible.builtin.template:
+    src: registries.yaml.j2
+    dest: "{{ k3s_config_registries_file }}"
+    mode: "0644"
+    owner: root
+    group: root
+
+- name: Remove K3s registries config
+  when: k3s_config_registries | length == 0
+  notify:
+    - Restart K3s server service
+    - Restart K3s agent service
+  ansible.builtin.file:
+    path: "{{ k3s_config_registries_file }}"
+    state: absent

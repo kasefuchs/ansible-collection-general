@@ -1,2 +1,5 @@
 # Settings for the K3s server node.
 k3s_server_config: {}
+
+# List of K3s auto-deploy manifests.
+k3s_server_config_manifests: {}

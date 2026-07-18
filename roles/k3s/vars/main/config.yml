@@ -3,3 +3,6 @@ k3s_config_dir: /etc/rancher/k3s
 
 # Path to the K3s configuration file.
 k3s_config_file: "{{ (k3s_config_dir, 'config.yaml') | path_join }}"
+
+# Path to the K3s registries configuration file.
+k3s_config_registries_file: "{{ (k3s_config_dir, 'registries.yaml') | path_join }}"

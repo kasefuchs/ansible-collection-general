@@ -1,0 +1,6 @@
+{{ common_managed_header | comment }}
+{{
+  k3s_config_registries
+  | to_nice_yaml(indent=2)
+  | trim
+}}
