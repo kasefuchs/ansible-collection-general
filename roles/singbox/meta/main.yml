@@ -1,10 +1,7 @@
----
 galaxy_info:
   author: Kasefuchs
   description: >
-    Install and configure sing-box proxy platform,
-    including service setup and configuration management.
-
+    Install and configure sing-box proxy platform, including service setup and configuration management. #magic___^_^___line
   license: MIT
   galaxy_tags:
     - singbox

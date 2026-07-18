@@ -1,4 +1,3 @@
----
 - name: Get latest Tailscale version
   when: tailscale_download_version == "latest"
   block:
@@ -12,7 +11,7 @@
 
     - name: Set Tailscale version fact
       ansible.builtin.set_fact:
-        tailscale_download_version: "{{ tailscale_download_github_release.tag | ansible.builtin.regex_replace('^v', '') }}"
+        tailscale_download_version: "{{ tailscale_download_github_release.tag | regex_replace('^v', '') }}"
 
 - name: Download Tailscale archive
   ansible.builtin.include_role:

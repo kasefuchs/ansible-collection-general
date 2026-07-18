@@ -1,3 +1,2 @@
----
 # Path to the sing-box binary.
-singbox_install_binary: "{{ (common_binary_dir, 'sing-box') | ansible.builtin.path_join }}"
+singbox_install_binary: "{{ (common_binary_dir, 'sing-box') | path_join }}"

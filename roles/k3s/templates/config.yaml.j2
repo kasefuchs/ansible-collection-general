@@ -1,7 +1,7 @@
-{{ common_managed_header | ansible.builtin.comment }}
+{{ common_managed_header | comment }}
 ---
 {{
   k3s_config
-  | ansible.builtin.to_nice_yaml(indent=2)
+  | to_nice_yaml(indent=2)
   | trim
 }}

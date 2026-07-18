@@ -1,4 +1,3 @@
----
 # Nebula configuration.
 nebula_config:
   firewall: "{{ nebula_config_firewall }}"
@@ -32,9 +31,13 @@ nebula_config_firewall:
   inbound_action: drop
   outbound_action: drop
   inbound:
-    - { host: any, port: any, proto: any }
+    - host: any
+      port: any
+      proto: any
   outbound:
-    - { host: any, port: any, proto: any }
+    - host: any
+      port: any
+      proto: any
 
 # Config for UDP hole punching support.
 nebula_config_punchy:

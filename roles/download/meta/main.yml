@@ -1,10 +1,7 @@
----
 galaxy_info:
   author: Kasefuchs
   description: >
-    Generic reusable download role that fetches and manages
-    versioned binaries and archives with multi-architecture support.
-
+    Generic reusable download role that fetches and manages versioned binaries and archives with multi-architecture support. #magic___^_^___line
   license: MIT
   galaxy_tags:
     - download

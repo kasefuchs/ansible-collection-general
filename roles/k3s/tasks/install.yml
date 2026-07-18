@@ -1,4 +1,3 @@
----
 - name: Create K3s directories
   loop:
     - "{{ k3s_config_dir }}"

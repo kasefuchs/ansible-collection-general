@@ -1,4 +1,3 @@
----
 - name: Set up Tailscale
   hosts: all
   become: true

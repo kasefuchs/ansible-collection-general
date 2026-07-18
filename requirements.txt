@@ -3,3 +3,4 @@ ansible-lint==26.3.0
 docsible==0.8.0
 github3.py==4.0.1
 pur==7.3.3
+antsibull-changelog==0.35.1

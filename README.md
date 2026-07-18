@@ -6,7 +6,7 @@
 
 **Name**: general
 
-**Version**: 1.2.2
+**Version**: 1.3.0
 
 **Authors**:
 
@@ -15,6 +15,8 @@
 ## Description
 
 A collection of common Ansible roles used across my own projects.
+
+
 
 ## Roles
 
@@ -35,10 +37,14 @@ A collection of common Ansible roles used across my own projects.
 ## Roles vars
 
 # [amneziawg](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg)
-
 ## amneziawg Description:
+Install and configure AmneziaWG using amneziawg-go and amneziawg-tools with systemd integration. #magic___^_^___line
 
-Install and configure AmneziaWG using amneziawg-go and amneziawg-tools with systemd integration.
+
+
+
+
+
 
 ### amneziawg Defaults
 
@@ -46,119 +52,126 @@ Install and configure AmneziaWG using amneziawg-go and amneziawg-tools with syst
 
 #### amneziawg File: [defaults/main/config.yml](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/config.yml)
 
-| Var                                                                                                                                                   | Type | Value                                                                                            |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------- | ---- | ------------------------------------------------------------------------------------------------ |
-| [amneziawg_config_instance](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/config.yml#L2)    | str  | `awg0`                                                                                           |
-| [amneziawg_config_interface](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/config.yml#L5)   | str  | `{{ undef('AmneziaWG interface configuration must be provided (amneziawg_config_interface)') }}` |
-| [amneziawg_config_peers](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/config.yml#L8)       | list | `[]`                                                                                             |
-| [amneziawg_config_junk](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/config.yml#L11)       | dict | `{}`                                                                                             |
-| [amneziawg_config_paddings](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/config.yml#L14)   | list | `[]`                                                                                             |
-| [amneziawg_config_headers](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/config.yml#L17)    | list | `[]`                                                                                             |
-| [amneziawg_config_signatures](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/config.yml#L20) | list | `[]`                                                                                             |
+| Var          | Type         | Value       |
+|--------------|--------------|-------------|
+| [amneziawg_config_instance](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/config.yml#L2)   | str   | `awg0` |
+| [amneziawg_config_interface](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/config.yml#L5)   | str   | `{{ undef('AmneziaWG interface configuration must be provided (amneziawg_config_interface)') }}` |
+| [amneziawg_config_peers](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/config.yml#L8)   | list   | `[]` |
+| [amneziawg_config_junk](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/config.yml#L11)   | dict   | `{}` |
+| [amneziawg_config_paddings](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/config.yml#L14)   | list   | `[]` |
+| [amneziawg_config_headers](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/config.yml#L17)   | list   | `[]` |
+| [amneziawg_config_signatures](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/config.yml#L20)   | list   | `[]` |
 
 #### amneziawg File: [defaults/main/download.yml](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/download.yml)
 
-| Var                                                                                                                                                                           | Type | Value                                                                                                                      |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---- | -------------------------------------------------------------------------------------------------------------------------- |
-| [amneziawg_download_go_version](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/download.yml#L3)                      | str  | `0.2.16`                                                                                                                   |
-| [amneziawg_download_go_architecture_map](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/download.yml#L6)             | dict | `{}`                                                                                                                       |
-| [amneziawg_download_go_architecture_map.x86_64](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/download.yml#L7)      | str  | `amd64`                                                                                                                    |
-| [amneziawg_download_go_architecture_map.aarch64](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/download.yml#L8)     | str  | `arm64`                                                                                                                    |
-| [amneziawg_download_go_url](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/download.yml#L11)                         | str  | `https://dl.kasefuchs.net/amneziawg-go/amneziawg-go_{{ download_version }}_linux_{{ download_architecture.value }}.tar.gz` |
-| [amneziawg_download_kmod_version](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/download.yml#L14)                   | str  | `1.0.20260210`                                                                                                             |
-| [amneziawg_download_kmod_architecture_map](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/download.yml#L17)          | dict | `{}`                                                                                                                       |
-| [amneziawg_download_kmod_architecture_map.noarch](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/download.yml#L18)   | str  |                                                                                                                            |
-| [amneziawg_download_kmod_url](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/download.yml#L21)                       | str  | `https://github.com/amnezia-vpn/amneziawg-linux-kernel-module/archive/refs/tags/v{{ download_version }}.tar.gz`            |
-| [amneziawg_download_tools_version](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/download.yml#L24)                  | str  | `1.0.20250903`                                                                                                             |
-| [amneziawg_download_tools_architecture_map](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/download.yml#L27)         | dict | `{}`                                                                                                                       |
-| [amneziawg_download_tools_architecture_map.x86_64](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/download.yml#L28)  | str  | `x86_64`                                                                                                                   |
-| [amneziawg_download_tools_architecture_map.aarch64](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/download.yml#L29) | str  | `aarch64`                                                                                                                  |
-| [amneziawg_download_tools_url](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/download.yml#L32)                      | str  | `https://dl.kasefuchs.net/amneziawg-tools/awg-v{{ download_version }}-{{ download_architecture.value }}-linux-musl.tar.gz` |
+| Var          | Type         | Value       |
+|--------------|--------------|-------------|
+| [amneziawg_download_go_version](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/download.yml#L2)   | str   | `0.2.16` |
+| [amneziawg_download_go_architecture_map](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/download.yml#L5)   | dict   | `{}` |
+| [amneziawg_download_go_architecture_map.x86_64](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/download.yml#L6)   | str   | `amd64` |
+| [amneziawg_download_go_architecture_map.aarch64](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/download.yml#L7)   | str   | `arm64` |
+| [amneziawg_download_go_url](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/download.yml#L10)   | str   | `https://dl.kasefuchs.net/amneziawg-go/amneziawg-go_{{ download_version }}_linux_{{ download_architecture.value }}.tar.gz` |
+| [amneziawg_download_kmod_version](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/download.yml#L13)   | str   | `1.0.20260210` |
+| [amneziawg_download_kmod_architecture_map](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/download.yml#L16)   | dict   | `{}` |
+| [amneziawg_download_kmod_architecture_map.noarch](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/download.yml#L17)   | str   |  |
+| [amneziawg_download_kmod_url](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/download.yml#L20)   | str   | `https://github.com/amnezia-vpn/amneziawg-linux-kernel-module/archive/refs/tags/v{{ download_version }}.tar.gz` |
+| [amneziawg_download_tools_version](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/download.yml#L23)   | str   | `1.0.20250903` |
+| [amneziawg_download_tools_architecture_map](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/download.yml#L26)   | dict   | `{}` |
+| [amneziawg_download_tools_architecture_map.x86_64](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/download.yml#L27)   | str   | `x86_64` |
+| [amneziawg_download_tools_architecture_map.aarch64](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/download.yml#L28)   | str   | `aarch64` |
+| [amneziawg_download_tools_url](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/download.yml#L31)   | str   | `https://dl.kasefuchs.net/amneziawg-tools/awg-v{{ download_version }}-{{ download_architecture.value }}-linux-musl.tar.gz` |
 
 #### amneziawg File: [defaults/main/install.yml](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/install.yml)
 
-| Var                                                                                                                                                                  | Type | Value                  |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---- | ---------------------- |
-| [amneziawg_install_go](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/install.yml#L3)                       | bool | `True`                 |
-| [amneziawg_install_go_extract_options](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/install.yml#L6)       | list | `[]`                   |
-| [amneziawg_install_go_extract_include](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/install.yml#L9)       | list | `[]`                   |
-| [amneziawg_install_go_extract_include.0](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/install.yml#L9)     | str  | `amneziawg-go`         |
-| [amneziawg_install_kmod](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/install.yml#L12)                    | bool | `True`                 |
-| [amneziawg_install_kmod_extract_options](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/install.yml#L15)    | list | `[]`                   |
-| [amneziawg_install_kmod_extract_options.0](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/install.yml#L15)  | str  | `--wildcards`          |
-| [amneziawg_install_kmod_extract_options.1](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/install.yml#L15)  | str  | `--strip-components=1` |
-| [amneziawg_install_kmod_extract_include](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/install.yml#L18)    | list | `[]`                   |
-| [amneziawg_install_kmod_extract_include.0](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/install.yml#L18)  | str  | `**/*`                 |
-| [amneziawg_install_tools_extract_options](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/install.yml#L21)   | list | `[]`                   |
-| [amneziawg_install_tools_extract_include](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/install.yml#L24)   | list | `[]`                   |
-| [amneziawg_install_tools_extract_include.0](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/install.yml#L24) | str  | `awg`                  |
-| [amneziawg_install_tools_extract_include.1](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/install.yml#L24) | str  | `awg-quick`            |
+| Var          | Type         | Value       |
+|--------------|--------------|-------------|
+| [amneziawg_install_go](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/install.yml#L2)   | bool   | `True` |
+| [amneziawg_install_go_extract_options](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/install.yml#L5)   | list   | `[]` |
+| [amneziawg_install_go_extract_include](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/install.yml#L8)   | list   | `[]` |
+| [amneziawg_install_go_extract_include.0](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/install.yml#L9)   | str   | `amneziawg-go` |
+| [amneziawg_install_kmod](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/install.yml#L12)   | bool   | `True` |
+| [amneziawg_install_kmod_extract_options](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/install.yml#L15)   | list   | `[]` |
+| [amneziawg_install_kmod_extract_options.0](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/install.yml#L16)   | str   | `--wildcards` |
+| [amneziawg_install_kmod_extract_options.1](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/install.yml#L17)   | str   | `--strip-components=1` |
+| [amneziawg_install_kmod_extract_include](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/install.yml#L20)   | list   | `[]` |
+| [amneziawg_install_kmod_extract_include.0](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/install.yml#L21)   | str   | `**/*` |
+| [amneziawg_install_tools_extract_options](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/install.yml#L24)   | list   | `[]` |
+| [amneziawg_install_tools_extract_include](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/install.yml#L27)   | list   | `[]` |
+| [amneziawg_install_tools_extract_include.0](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/install.yml#L27)   | str   | `awg` |
+| [amneziawg_install_tools_extract_include.1](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/install.yml#L29)   | str   | `awg-quick` |
+
 
 ### amneziawg Vars
 
 **These are variables with higher priority**
-
 #### amneziawg File: [vars/main/config.yml](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/vars/main/config.yml)
 
-| Var                                                                                                                                        | Type | Value                                                                                           |
-| ------------------------------------------------------------------------------------------------------------------------------------------ | ---- | ----------------------------------------------------------------------------------------------- |
-| [amneziawg_config_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/vars/main/config.yml#L3)  | str  | `/etc/amnezia/amneziawg`                                                                        |
-| [amneziawg_config_file](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/vars/main/config.yml#L6) | str  | `{{ (amneziawg_config_dir, amneziawg_config_instance ~ '.conf') ¦ ansible.builtin.path_join }}` |
-
+| Var          | Type         | Value       |
+|--------------|--------------|-------------|
+| [amneziawg_config_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/vars/main/config.yml#L2)   | str   | `/etc/amnezia/amneziawg` |
+| [amneziawg_config_file](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/vars/main/config.yml#L5)   | str   | `{{ (amneziawg_config_dir, amneziawg_config_instance ~ '.conf') ¦ path_join }}` |
 #### amneziawg File: [vars/main/download.yml](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/vars/main/download.yml)
 
-| Var                                                                                                                                                         | Type | Value                                                                                                           |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------- | ---- | --------------------------------------------------------------------------------------------------------------- |
-| [amneziawg_download_local_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/vars/main/download.yml#L3)         | str  | `{{ (amneziawg_cache_local_dir, 'download') ¦ ansible.builtin.path_join }}`                                     |
-| [amneziawg_download_go_local_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/vars/main/download.yml#L6)      | str  | `{{ (amneziawg_download_local_dir, 'go') ¦ ansible.builtin.path_join }}`                                        |
-| [amneziawg_download_go_local_file](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/vars/main/download.yml#L9)     | str  | `{{ (amneziawg_download_go_local_dir, 'current', ansible_facts.architecture) ¦ ansible.builtin.path_join }}`    |
-| [amneziawg_download_tools_local_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/vars/main/download.yml#L12)  | str  | `{{ (amneziawg_download_local_dir, 'tools') ¦ ansible.builtin.path_join }}`                                     |
-| [amneziawg_download_tools_local_file](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/vars/main/download.yml#L15) | str  | `{{ (amneziawg_download_tools_local_dir, 'current', ansible_facts.architecture) ¦ ansible.builtin.path_join }}` |
-| [amneziawg_download_kmod_local_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/vars/main/download.yml#L18)   | str  | `{{ (amneziawg_download_local_dir, 'kernel') ¦ ansible.builtin.path_join }}`                                    |
-| [amneziawg_download_kmod_local_file](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/vars/main/download.yml#L21)  | str  | `{{ (amneziawg_download_kmod_local_dir, 'current/noarch') ¦ ansible.builtin.path_join }}`                       |
-
+| Var          | Type         | Value       |
+|--------------|--------------|-------------|
+| [amneziawg_download_local_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/vars/main/download.yml#L2)   | str   | `{{ (amneziawg_cache_local_dir, 'download') ¦ path_join }}` |
+| [amneziawg_download_go_local_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/vars/main/download.yml#L5)   | str   | `{{ (amneziawg_download_local_dir, 'go') ¦ path_join }}` |
+| [amneziawg_download_go_local_file](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/vars/main/download.yml#L8)   | str   | `{{ (amneziawg_download_go_local_dir, 'current', ansible_facts.architecture) ¦ path_join }}` |
+| [amneziawg_download_tools_local_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/vars/main/download.yml#L11)   | str   | `{{ (amneziawg_download_local_dir, 'tools') ¦ path_join }}` |
+| [amneziawg_download_tools_local_file](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/vars/main/download.yml#L14)   | str   | `{{ (amneziawg_download_tools_local_dir, 'current', ansible_facts.architecture) ¦ path_join }}` |
+| [amneziawg_download_kmod_local_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/vars/main/download.yml#L17)   | str   | `{{ (amneziawg_download_local_dir, 'kernel') ¦ path_join }}` |
+| [amneziawg_download_kmod_local_file](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/vars/main/download.yml#L20)   | str   | `{{ (amneziawg_download_kmod_local_dir, 'current/noarch') ¦ path_join }}` |
 #### amneziawg File: [vars/main/install.yml](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/vars/main/install.yml)
 
-| Var                                                                                                                                                     | Type | Value                                                                            |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------- | ---- | -------------------------------------------------------------------------------- |
-| [amneziawg_install_binary](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/vars/main/install.yml#L3)          | str  | `{{ (common_binary_dir, 'awg') ¦ ansible.builtin.path_join }}`                   |
-| [amneziawg_install_script](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/vars/main/install.yml#L6)          | str  | `{{ (common_binary_dir, 'awg-quick') ¦ ansible.builtin.path_join }}`             |
-| [amneziawg_install_kmod_source_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/vars/main/install.yml#L9) | str  | `{{ (amneziawg_install_kmod_tempdir.path, 'src') ¦ ansible.builtin.path_join }}` |
-
+| Var          | Type         | Value       |
+|--------------|--------------|-------------|
+| [amneziawg_install_binary](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/vars/main/install.yml#L2)   | str   | `{{ (common_binary_dir, 'awg') ¦ path_join }}` |
+| [amneziawg_install_script](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/vars/main/install.yml#L5)   | str   | `{{ (common_binary_dir, 'awg-quick') ¦ path_join }}` |
+| [amneziawg_install_kmod_source_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/vars/main/install.yml#L8)   | str   | `{{ (amneziawg_install_kmod_tempdir.path, 'src') ¦ path_join }}` |
 #### amneziawg File: [vars/main/main.yml](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/vars/main/main.yml)
 
-| Var                                                                                                                                             | Type | Value                                                                        |
-| ----------------------------------------------------------------------------------------------------------------------------------------------- | ---- | ---------------------------------------------------------------------------- |
-| [amneziawg_cache_local_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/vars/main/main.yml#L3)    | str  | `{{ (common_cache_local_dir, 'amneziawg') ¦ ansible.builtin.path_join }}`    |
-| [amneziawg_artifact_local_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/vars/main/main.yml#L6) | str  | `{{ (common_artifact_local_dir, 'amneziawg') ¦ ansible.builtin.path_join }}` |
+| Var          | Type         | Value       |
+|--------------|--------------|-------------|
+| [amneziawg_cache_local_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/vars/main/main.yml#L2)   | str   | `{{ (common_cache_local_dir, 'amneziawg') ¦ path_join }}` |
+| [amneziawg_artifact_local_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/vars/main/main.yml#L5)   | str   | `{{ (common_artifact_local_dir, 'amneziawg') ¦ path_join }}` |
 
 # [common](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/common)
-
 ## common Description:
+Common helper role providing shared variables, paths, and handlers used across other roles in the collection. #magic___^_^___line
 
-Common helper role providing shared variables, paths, and handlers used across other roles in the collection.
+
+
+
+
+
+
+
+
 
 ### common Vars
 
 **These are variables with higher priority**
-
 #### common File: [vars/main.yml](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/common/vars/main.yml)
 
-| Var                                                                                                                                     | Type | Value                                                                                                                                                                                         |
-| --------------------------------------------------------------------------------------------------------------------------------------- | ---- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [common_inventory_name](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/common/vars/main.yml#L3)        | str  | `{{ inventory_dir ¦ ansible.builtin.basename }}`                                                                                                                                              |
-| [common_managed_header](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/common/vars/main.yml#L6)        | str  | `Managed by Ansible ¦ Template: {{ template_path if not template_path.startswith('/') else (template_path ¦ basename) }} (last modified: {{ template_mtime.strftime('%Y-%m-%d %H:%M:%S') }})` |
-| [common_cache_local_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/common/vars/main.yml#L9)       | str  | `{{ (playbook_dir, '../cache') ¦ ansible.builtin.path_join }}`                                                                                                                                |
-| [common_artifact_local_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/common/vars/main.yml#L12)   | str  | `{{ (inventory_dir, '../artifacts', common_inventory_name) ¦ ansible.builtin.path_join }}`                                                                                                    |
-| [common_unique_architectures](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/common/vars/main.yml#L15) | str  | `{{ ansible_play_hosts ¦ map('ansible.builtin.extract', hostvars, ['ansible_facts', 'architecture']) ¦ unique }}`                                                                             |
-| [common_binary_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/common/vars/main.yml#L18)           | str  | `/usr/local/bin`                                                                                                                                                                              |
-| [common_source_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/common/vars/main.yml#L21)           | str  | `/usr/local/src`                                                                                                                                                                              |
+| Var          | Type         | Value       |
+|--------------|--------------|-------------|
+| [common_inventory_name](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/common/vars/main.yml#L2)   | str   | `{{ inventory_dir ¦ basename }}` |
+| [common_managed_header](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/common/vars/main.yml#L5)   | str   | `Managed by Ansible ¦ Template: {{ template_path if not template_path.startswith('/') else (template_path ¦ basename) }} (last modified: {{ template_mtime.strftime('%Y-%m-%d %H:%M:%S') }})` |
+| [common_cache_local_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/common/vars/main.yml#L8)   | str   | `{{ (playbook_dir, '../cache') ¦ path_join }}` |
+| [common_artifact_local_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/common/vars/main.yml#L11)   | str   | `{{ (inventory_dir, '../artifacts', common_inventory_name) ¦ path_join }}` |
+| [common_unique_architectures](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/common/vars/main.yml#L14)   | str   | `{{ ansible_play_hosts ¦ map('ansible.builtin.extract', hostvars, ['ansible_facts', 'architecture']) ¦ unique }}` |
+| [common_binary_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/common/vars/main.yml#L17)   | str   | `/usr/local/bin` |
+| [common_source_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/common/vars/main.yml#L20)   | str   | `/usr/local/src` |
 
 # [download](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/download)
-
 ## download Description:
+Generic reusable download role that fetches and manages versioned binaries and archives with multi-architecture support. #magic___^_^___line
 
-Generic reusable download role that fetches and manages versioned binaries and archives with multi-architecture support.
+
+
+
+
+
 
 ### download Defaults
 
@@ -166,30 +179,34 @@ Generic reusable download role that fetches and manages versioned binaries and a
 
 #### download File: [defaults/main.yml](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/download/defaults/main.yml)
 
-| Var                                                                                                                                         | Type | Value                                                                                       |
-| ------------------------------------------------------------------------------------------------------------------------------------------- | ---- | ------------------------------------------------------------------------------------------- |
-| [download_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/download/defaults/main.yml#L3)               | str  | `{{ undef('Download directory must be provided (download_dir)') }}`                         |
-| [download_url](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/download/defaults/main.yml#L6)               | str  | `{{ undef('Download url must be provided (download_url)') }}`                               |
-| [download_version](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/download/defaults/main.yml#L9)           | str  | `{{ undef('Download version must be provided (download_version)') }}`                       |
-| [download_architecture_map](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/download/defaults/main.yml#L12) | str  | `{{ undef('Download architecture mapping must be provided (download_architecture_map)') }}` |
+| Var          | Type         | Value       |
+|--------------|--------------|-------------|
+| [download_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/download/defaults/main.yml#L2)   | str   | `{{ undef('Download directory must be provided (download_dir)') }}` |
+| [download_url](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/download/defaults/main.yml#L5)   | str   | `{{ undef('Download url must be provided (download_url)') }}` |
+| [download_version](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/download/defaults/main.yml#L8)   | str   | `{{ undef('Download version must be provided (download_version)') }}` |
+| [download_architecture_map](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/download/defaults/main.yml#L11)   | str   | `{{ undef('Download architecture mapping must be provided (download_architecture_map)') }}` |
+
 
 ### download Vars
 
 **These are variables with higher priority**
-
 #### download File: [vars/main.yml](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/download/vars/main.yml)
 
-| Var                                                                                                                                        | Type | Value                                                                |
-| ------------------------------------------------------------------------------------------------------------------------------------------ | ---- | -------------------------------------------------------------------- |
-| [download_current_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/download/vars/main.yml#L3)          | str  | `{{ (download_dir, download_version) ¦ ansible.builtin.path_join }}` |
-| [download_current_dir_link](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/download/vars/main.yml#L6)     | str  | `{{ (download_dir, 'current') ¦ ansible.builtin.path_join }}`        |
-| [download_unique_architectures](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/download/vars/main.yml#L9) | str  | `{{ common_unique_architectures + ['noarch'] }}`                     |
+| Var          | Type         | Value       |
+|--------------|--------------|-------------|
+| [download_current_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/download/vars/main.yml#L2)   | str   | `{{ (download_dir, download_version) ¦ path_join }}` |
+| [download_current_dir_link](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/download/vars/main.yml#L5)   | str   | `{{ (download_dir, 'current') ¦ path_join }}` |
+| [download_unique_architectures](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/download/vars/main.yml#L8)   | str   | `{{ common_unique_architectures + ['noarch'] }}` |
 
 # [k3s](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s)
-
 ## k3s Description:
+Install and configure K3s Kubernetes distribution, including server and agent modes with download, installation and configuration management. #magic___^_^___line
 
-Install and configure K3s Kubernetes distribution, including server and agent modes with download, installation and configuration management.
+
+
+
+
+
 
 ### k3s Defaults
 
@@ -197,85 +214,86 @@ Install and configure K3s Kubernetes distribution, including server and agent mo
 
 #### k3s File: [defaults/main/agent/config.yml](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/defaults/main/agent/config.yml)
 
-| Var                                                                                                                                             | Type | Value                                                                      |
-| ----------------------------------------------------------------------------------------------------------------------------------------------- | ---- | -------------------------------------------------------------------------- |
-| [k3s_agent_config_token](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/defaults/main/agent/config.yml#L3) | str  | `{{ undef('K3s agent token must be provided (k3s_agent_config_token)') }}` |
-| [k3s_agent_config](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/defaults/main/agent/config.yml#L6)       | dict | `{}`                                                                       |
-| [k3s_agent_config.token](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/defaults/main/agent/config.yml#L7) | str  | `{{ k3s_agent_config_token }}`                                             |
+| Var          | Type         | Value       |
+|--------------|--------------|-------------|
+| [k3s_agent_config_token](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/defaults/main/agent/config.yml#L2)   | str   | `{{ undef('K3s agent token must be provided (k3s_agent_config_token)') }}` |
+| [k3s_agent_config](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/defaults/main/agent/config.yml#L5)   | dict   | `{}` |
+| [k3s_agent_config.token](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/defaults/main/agent/config.yml#L6)   | str   | `{{ k3s_agent_config_token }}` |
 
 #### k3s File: [defaults/main/agent/main.yml](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/defaults/main/agent/main.yml)
 
-| Var                                                                                                                                    | Type | Value       |
-| -------------------------------------------------------------------------------------------------------------------------------------- | ---- | ----------- |
-| [k3s_agent_group](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/defaults/main/agent/main.yml#L3) | str  | `k3s_agent` |
+| Var          | Type         | Value       |
+|--------------|--------------|-------------|
+| [k3s_agent_group](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/defaults/main/agent/main.yml#L2)   | str   | `k3s_agent` |
 
 #### k3s File: [defaults/main/download.yml](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/defaults/main/download.yml)
 
-| Var                                                                                                                                                                | Type | Value                                                                                                                                                |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [k3s_download_version](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/defaults/main/download.yml#L3)                          | str  | `latest`                                                                                                                                             |
-| [k3s_download_github_user](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/defaults/main/download.yml#L6)                      | str  | `k3s-io`                                                                                                                                             |
-| [k3s_download_github_repository](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/defaults/main/download.yml#L9)                | str  | `k3s`                                                                                                                                                |
-| [k3s_download_binary_architecture_map](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/defaults/main/download.yml#L12)         | dict | `{}`                                                                                                                                                 |
-| [k3s_download_binary_architecture_map.x86_64](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/defaults/main/download.yml#L13)  | str  | `amd64`                                                                                                                                              |
-| [k3s_download_binary_architecture_map.aarch64](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/defaults/main/download.yml#L14) | str  | `arm64`                                                                                                                                              |
-| [k3s_download_binary_url](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/defaults/main/download.yml#L17)                      | str  | `<multiline value: literal_strip>`                                                                                                                   |
-| [k3s_download_script_url](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/defaults/main/download.yml#L26)                      | str  | `https://raw.githubusercontent.com/{{ k3s_download_github_user }}/{{ k3s_download_github_repository }}/refs/tags/v{{ download_version }}/install.sh` |
-| [k3s_download_script_architecture_map](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/defaults/main/download.yml#L29)         | dict | `{}`                                                                                                                                                 |
-| [k3s_download_script_architecture_map.noarch](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/defaults/main/download.yml#L30)  | str  |                                                                                                                                                      |
+| Var          | Type         | Value       |
+|--------------|--------------|-------------|
+| [k3s_download_version](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/defaults/main/download.yml#L2)   | str   | `latest` |
+| [k3s_download_github_user](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/defaults/main/download.yml#L5)   | str   | `k3s-io` |
+| [k3s_download_github_repository](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/defaults/main/download.yml#L8)   | str   | `k3s` |
+| [k3s_download_binary_architecture_map](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/defaults/main/download.yml#L11)   | dict   | `{}` |
+| [k3s_download_binary_architecture_map.x86_64](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/defaults/main/download.yml#L12)   | str   | `amd64` |
+| [k3s_download_binary_architecture_map.aarch64](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/defaults/main/download.yml#L13)   | str   | `arm64` |
+| [k3s_download_binary_url](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/defaults/main/download.yml#L16)   | str   | `<multiline value: literal_strip>` |
+| [k3s_download_script_url](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/defaults/main/download.yml#L25)   | str   | `https://raw.githubusercontent.com/{{ k3s_download_github_user }}/{{ k3s_download_github_repository }}/refs/tags/v{{ download_version }}/install.sh` |
+| [k3s_download_script_architecture_map](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/defaults/main/download.yml#L28)   | dict   | `{}` |
+| [k3s_download_script_architecture_map.noarch](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/defaults/main/download.yml#L29)   | str   |  |
 
 #### k3s File: [defaults/main/server/config.yml](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/defaults/main/server/config.yml)
 
-| Var                                                                                                                                         | Type | Value |
-| ------------------------------------------------------------------------------------------------------------------------------------------- | ---- | ----- |
-| [k3s_server_config](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/defaults/main/server/config.yml#L3) | dict | `{}`  |
+| Var          | Type         | Value       |
+|--------------|--------------|-------------|
+| [k3s_server_config](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/defaults/main/server/config.yml#L2)   | dict   | `{}` |
 
 #### k3s File: [defaults/main/server/main.yml](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/defaults/main/server/main.yml)
 
-| Var                                                                                                                                      | Type | Value        |
-| ---------------------------------------------------------------------------------------------------------------------------------------- | ---- | ------------ |
-| [k3s_server_group](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/defaults/main/server/main.yml#L3) | str  | `k3s_server` |
+| Var          | Type         | Value       |
+|--------------|--------------|-------------|
+| [k3s_server_group](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/defaults/main/server/main.yml#L2)   | str   | `k3s_server` |
+
 
 ### k3s Vars
 
 **These are variables with higher priority**
-
 #### k3s File: [vars/main/config.yml](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/vars/main/config.yml)
 
-| Var                                                                                                                            | Type | Value                                                               |
-| ------------------------------------------------------------------------------------------------------------------------------ | ---- | ------------------------------------------------------------------- |
-| [k3s_config_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/vars/main/config.yml#L3)  | str  | `/etc/rancher/k3s`                                                  |
-| [k3s_config_file](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/vars/main/config.yml#L6) | str  | `{{ (k3s_config_dir, 'config.yaml') ¦ ansible.builtin.path_join }}` |
-
+| Var          | Type         | Value       |
+|--------------|--------------|-------------|
+| [k3s_config_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/vars/main/config.yml#L2)   | str   | `/etc/rancher/k3s` |
+| [k3s_config_file](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/vars/main/config.yml#L5)   | str   | `{{ (k3s_config_dir, 'config.yaml') ¦ path_join }}` |
 #### k3s File: [vars/main/download.yml](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/vars/main/download.yml)
 
-| Var                                                                                                                                              | Type | Value                                                                                                      |
-| ------------------------------------------------------------------------------------------------------------------------------------------------ | ---- | ---------------------------------------------------------------------------------------------------------- |
-| [k3s_download_local_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/vars/main/download.yml#L3)          | str  | `{{ (k3s_cache_local_dir, 'download') ¦ ansible.builtin.path_join }}`                                      |
-| [k3s_download_binary_local_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/vars/main/download.yml#L6)   | str  | `{{ (k3s_download_local_dir, 'binary') ¦ ansible.builtin.path_join }}`                                     |
-| [k3s_download_binary_local_file](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/vars/main/download.yml#L9)  | str  | `{{ (k3s_download_binary_local_dir, 'current', ansible_facts.architecture) ¦ ansible.builtin.path_join }}` |
-| [k3s_download_script_local_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/vars/main/download.yml#L12)  | str  | `{{ (k3s_download_local_dir, 'script') ¦ ansible.builtin.path_join }}`                                     |
-| [k3s_download_script_local_file](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/vars/main/download.yml#L15) | str  | `{{ (k3s_download_script_local_dir, 'current/noarch') ¦ ansible.builtin.path_join }}`                      |
-
+| Var          | Type         | Value       |
+|--------------|--------------|-------------|
+| [k3s_download_local_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/vars/main/download.yml#L2)   | str   | `{{ (k3s_cache_local_dir, 'download') ¦ path_join }}` |
+| [k3s_download_binary_local_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/vars/main/download.yml#L5)   | str   | `{{ (k3s_download_local_dir, 'binary') ¦ path_join }}` |
+| [k3s_download_binary_local_file](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/vars/main/download.yml#L8)   | str   | `{{ (k3s_download_binary_local_dir, 'current', ansible_facts.architecture) ¦ path_join }}` |
+| [k3s_download_script_local_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/vars/main/download.yml#L11)   | str   | `{{ (k3s_download_local_dir, 'script') ¦ path_join }}` |
+| [k3s_download_script_local_file](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/vars/main/download.yml#L14)   | str   | `{{ (k3s_download_script_local_dir, 'current/noarch') ¦ path_join }}` |
 #### k3s File: [vars/main/install.yml](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/vars/main/install.yml)
 
-| Var                                                                                                                                | Type | Value                                                                     |
-| ---------------------------------------------------------------------------------------------------------------------------------- | ---- | ------------------------------------------------------------------------- |
-| [k3s_install_binary](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/vars/main/install.yml#L3) | str  | `{{ (common_binary_dir, 'k3s') ¦ ansible.builtin.path_join }}`            |
-| [k3s_install_script](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/vars/main/install.yml#L6) | str  | `{{ (common_binary_dir, 'k3s-install.sh') ¦ ansible.builtin.path_join }}` |
-
+| Var          | Type         | Value       |
+|--------------|--------------|-------------|
+| [k3s_install_binary](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/vars/main/install.yml#L2)   | str   | `{{ (common_binary_dir, 'k3s') ¦ path_join }}` |
+| [k3s_install_script](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/vars/main/install.yml#L5)   | str   | `{{ (common_binary_dir, 'k3s-install.sh') ¦ path_join }}` |
 #### k3s File: [vars/main/main.yml](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/vars/main/main.yml)
 
-| Var                                                                                                                                 | Type | Value                                                                  |
-| ----------------------------------------------------------------------------------------------------------------------------------- | ---- | ---------------------------------------------------------------------- |
-| [k3s_cache_local_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/vars/main/main.yml#L3)    | str  | `{{ (common_cache_local_dir, 'k3s') ¦ ansible.builtin.path_join }}`    |
-| [k3s_artifact_local_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/vars/main/main.yml#L6) | str  | `{{ (common_artifact_local_dir, 'k3s') ¦ ansible.builtin.path_join }}` |
+| Var          | Type         | Value       |
+|--------------|--------------|-------------|
+| [k3s_cache_local_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/vars/main/main.yml#L2)   | str   | `{{ (common_cache_local_dir, 'k3s') ¦ path_join }}` |
+| [k3s_artifact_local_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/vars/main/main.yml#L5)   | str   | `{{ (common_artifact_local_dir, 'k3s') ¦ path_join }}` |
 
 # [nebula](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula)
-
 ## nebula Description:
+Install and configure Nebula overlay networking, including certificate generation, service setup, and configuration management. #magic___^_^___line
 
-Install and configure Nebula overlay networking, including certificate generation, service setup, and configuration management.
+
+
+
+
+
 
 ### nebula Defaults
 
@@ -283,126 +301,126 @@ Install and configure Nebula overlay networking, including certificate generatio
 
 #### nebula File: [defaults/main/cert.yml](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/cert.yml)
 
-| Var                                                                                                                                           | Type | Value                      |
-| --------------------------------------------------------------------------------------------------------------------------------------------- | ---- | -------------------------- |
-| [nebula_cert_ca_cn](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/cert.yml#L3)         | str  | `Nebula CA`                |
-| [nebula_cert_ca_duration](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/cert.yml#L6)   | str  | `87600h`                   |
-| [nebula_cert_host_cn](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/cert.yml#L9)       | str  | `{{ inventory_hostname }}` |
-| [nebula_cert_host_subnets](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/cert.yml#L12) | list | `[]`                       |
+| Var          | Type         | Value       |
+|--------------|--------------|-------------|
+| [nebula_cert_ca_cn](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/cert.yml#L2)   | str   | `Nebula CA` |
+| [nebula_cert_ca_duration](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/cert.yml#L5)   | str   | `87600h` |
+| [nebula_cert_host_cn](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/cert.yml#L8)   | str   | `{{ inventory_hostname }}` |
+| [nebula_cert_host_subnets](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/cert.yml#L11)   | list   | `[]` |
 
 #### nebula File: [defaults/main/config.yml](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/config.yml)
 
-| Var                                                                                                                                                            | Type | Value                                 |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---- | ------------------------------------- |
-| [nebula_config](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/config.yml#L3)                            | dict | `{}`                                  |
-| [nebula_config.firewall](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/config.yml#L4)                   | str  | `{{ nebula_config_firewall }}`        |
-| [nebula_config.lighthouse](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/config.yml#L5)                 | str  | `{{ nebula_config_lighthouse }}`      |
-| [nebula_config.listen](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/config.yml#L6)                     | str  | `{{ nebula_config_listen }}`          |
-| [nebula_config.pki](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/config.yml#L7)                        | str  | `{{ nebula_config_pki }}`             |
-| [nebula_config.punchy](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/config.yml#L8)                     | str  | `{{ nebula_config_punchy }}`          |
-| [nebula_config.relay](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/config.yml#L9)                      | str  | `{{ nebula_config_relay }}`           |
-| [nebula_config.static_host_map](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/config.yml#L10)           | str  | `{{ nebula_config_static_host_map }}` |
-| [nebula_config.tun](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/config.yml#L11)                       | str  | `{{ nebula_config_tun }}`             |
-| [nebula_config_listen](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/config.yml#L14)                    | dict | `{}`                                  |
-| [nebula_config_listen.host](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/config.yml#L15)               | str  | `0.0.0.0`                             |
-| [nebula_config_listen.port](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/config.yml#L16)               | int  | `4646`                                |
-| [nebula_config_lighthouse](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/config.yml#L19)                | dict | `{}`                                  |
-| [nebula_config_lighthouse.am_lighthouse](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/config.yml#L20)  | bool | `False`                               |
-| [nebula_config_lighthouse.hosts](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/config.yml#L21)          | str  | `{{ nebula_config_lighthouse_list }}` |
-| [nebula_config_lighthouse_list](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/config.yml#L24)           | list | `[]`                                  |
-| [nebula_config_tun](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/config.yml#L27)                       | dict | `{}`                                  |
-| [nebula_config_tun.dev](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/config.yml#L28)                   | str  | `nebula0`                             |
-| [nebula_config_firewall](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/config.yml#L31)                  | dict | `{}`                                  |
-| [nebula_config_firewall.inbound_action](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/config.yml#L32)   | str  | `drop`                                |
-| [nebula_config_firewall.outbound_action](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/config.yml#L33)  | str  | `drop`                                |
-| [nebula_config_firewall.inbound](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/config.yml#L34)          | list | `[]`                                  |
-| [nebula_config_firewall.inbound.0](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/config.yml#L34)        | dict | `{}`                                  |
-| [nebula_config_firewall.inbound.0.host](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/config.yml#L35)   | str  | `any`                                 |
-| [nebula_config_firewall.inbound.0.port](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/config.yml#L35)   | str  | `any`                                 |
-| [nebula_config_firewall.inbound.0.proto](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/config.yml#L35)  | str  | `any`                                 |
-| [nebula_config_firewall.outbound](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/config.yml#L36)         | list | `[]`                                  |
-| [nebula_config_firewall.outbound.0](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/config.yml#L36)       | dict | `{}`                                  |
-| [nebula_config_firewall.outbound.0.host](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/config.yml#L37)  | str  | `any`                                 |
-| [nebula_config_firewall.outbound.0.port](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/config.yml#L37)  | str  | `any`                                 |
-| [nebula_config_firewall.outbound.0.proto](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/config.yml#L37) | str  | `any`                                 |
-| [nebula_config_punchy](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/config.yml#L40)                    | dict | `{}`                                  |
-| [nebula_config_punchy.punch](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/config.yml#L41)              | bool | `False`                               |
-| [nebula_config_punchy.respond](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/config.yml#L42)            | bool | `False`                               |
-| [nebula_config_relay](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/config.yml#L45)                     | dict | `{}`                                  |
-| [nebula_config_relay.relays](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/config.yml#L46)              | str  | `{{ nebula_config_relay_list }}`      |
-| [nebula_config_relay.am_relay](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/config.yml#L47)            | bool | `False`                               |
-| [nebula_config_relay.use_relays](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/config.yml#L48)          | bool | `True`                                |
-| [nebula_config_relay_list](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/config.yml#L51)                | list | `[]`                                  |
-| [nebula_config_static_host_map](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/config.yml#L54)           | dict | `{}`                                  |
+| Var          | Type         | Value       |
+|--------------|--------------|-------------|
+| [nebula_config](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/config.yml#L2)   | dict   | `{}` |
+| [nebula_config.firewall](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/config.yml#L3)   | str   | `{{ nebula_config_firewall }}` |
+| [nebula_config.lighthouse](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/config.yml#L4)   | str   | `{{ nebula_config_lighthouse }}` |
+| [nebula_config.listen](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/config.yml#L5)   | str   | `{{ nebula_config_listen }}` |
+| [nebula_config.pki](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/config.yml#L6)   | str   | `{{ nebula_config_pki }}` |
+| [nebula_config.punchy](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/config.yml#L7)   | str   | `{{ nebula_config_punchy }}` |
+| [nebula_config.relay](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/config.yml#L8)   | str   | `{{ nebula_config_relay }}` |
+| [nebula_config.static_host_map](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/config.yml#L9)   | str   | `{{ nebula_config_static_host_map }}` |
+| [nebula_config.tun](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/config.yml#L10)   | str   | `{{ nebula_config_tun }}` |
+| [nebula_config_listen](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/config.yml#L13)   | dict   | `{}` |
+| [nebula_config_listen.host](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/config.yml#L14)   | str   | `0.0.0.0` |
+| [nebula_config_listen.port](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/config.yml#L15)   | int   | `4646` |
+| [nebula_config_lighthouse](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/config.yml#L18)   | dict   | `{}` |
+| [nebula_config_lighthouse.am_lighthouse](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/config.yml#L19)   | bool   | `False` |
+| [nebula_config_lighthouse.hosts](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/config.yml#L20)   | str   | `{{ nebula_config_lighthouse_list }}` |
+| [nebula_config_lighthouse_list](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/config.yml#L23)   | list   | `[]` |
+| [nebula_config_tun](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/config.yml#L26)   | dict   | `{}` |
+| [nebula_config_tun.dev](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/config.yml#L27)   | str   | `nebula0` |
+| [nebula_config_firewall](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/config.yml#L30)   | dict   | `{}` |
+| [nebula_config_firewall.inbound_action](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/config.yml#L31)   | str   | `drop` |
+| [nebula_config_firewall.outbound_action](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/config.yml#L32)   | str   | `drop` |
+| [nebula_config_firewall.inbound](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/config.yml#L33)   | list   | `[]` |
+| [nebula_config_firewall.inbound.0](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/config.yml#L34)   | dict   | `{}` |
+| [nebula_config_firewall.inbound.0.host](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/config.yml#L34)   | str   | `any` |
+| [nebula_config_firewall.inbound.0.port](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/config.yml#L35)   | str   | `any` |
+| [nebula_config_firewall.inbound.0.proto](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/config.yml#L36)   | str   | `any` |
+| [nebula_config_firewall.outbound](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/config.yml#L37)   | list   | `[]` |
+| [nebula_config_firewall.outbound.0](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/config.yml#L38)   | dict   | `{}` |
+| [nebula_config_firewall.outbound.0.host](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/config.yml#L38)   | str   | `any` |
+| [nebula_config_firewall.outbound.0.port](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/config.yml#L39)   | str   | `any` |
+| [nebula_config_firewall.outbound.0.proto](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/config.yml#L40)   | str   | `any` |
+| [nebula_config_punchy](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/config.yml#L43)   | dict   | `{}` |
+| [nebula_config_punchy.punch](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/config.yml#L44)   | bool   | `False` |
+| [nebula_config_punchy.respond](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/config.yml#L45)   | bool   | `False` |
+| [nebula_config_relay](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/config.yml#L48)   | dict   | `{}` |
+| [nebula_config_relay.relays](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/config.yml#L49)   | str   | `{{ nebula_config_relay_list }}` |
+| [nebula_config_relay.am_relay](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/config.yml#L50)   | bool   | `False` |
+| [nebula_config_relay.use_relays](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/config.yml#L51)   | bool   | `True` |
+| [nebula_config_relay_list](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/config.yml#L54)   | list   | `[]` |
+| [nebula_config_static_host_map](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/config.yml#L57)   | dict   | `{}` |
 
 #### nebula File: [defaults/main/download.yml](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/download.yml)
 
-| Var                                                                                                                                                               | Type | Value                                                                                                                                                                                          |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [nebula_download_version](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/download.yml#L3)                   | str  | `latest`                                                                                                                                                                                       |
-| [nebula_download_github_user](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/download.yml#L6)               | str  | `slackhq`                                                                                                                                                                                      |
-| [nebula_download_github_repository](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/download.yml#L9)         | str  | `nebula`                                                                                                                                                                                       |
-| [nebula_download_architecture_map](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/download.yml#L12)         | dict | `{}`                                                                                                                                                                                           |
-| [nebula_download_architecture_map.x86_64](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/download.yml#L13)  | str  | `amd64`                                                                                                                                                                                        |
-| [nebula_download_architecture_map.aarch64](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/download.yml#L14) | str  | `arm64`                                                                                                                                                                                        |
-| [nebula_download_url](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/download.yml#L17)                      | str  | `https://github.com/{{ nebula_download_github_user }}/{{ nebula_download_github_repository }}/releases/download/v{{ download_version }}/nebula-linux-{{ download_architecture.value }}.tar.gz` |
+| Var          | Type         | Value       |
+|--------------|--------------|-------------|
+| [nebula_download_version](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/download.yml#L2)   | str   | `latest` |
+| [nebula_download_github_user](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/download.yml#L5)   | str   | `slackhq` |
+| [nebula_download_github_repository](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/download.yml#L8)   | str   | `nebula` |
+| [nebula_download_architecture_map](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/download.yml#L11)   | dict   | `{}` |
+| [nebula_download_architecture_map.x86_64](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/download.yml#L12)   | str   | `amd64` |
+| [nebula_download_architecture_map.aarch64](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/download.yml#L13)   | str   | `arm64` |
+| [nebula_download_url](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/download.yml#L16)   | str   | `https://github.com/{{ nebula_download_github_user }}/{{ nebula_download_github_repository }}/releases/download/v{{ download_version }}/nebula-linux-{{ download_architecture.value }}.tar.gz` |
 
 #### nebula File: [defaults/main/install.yml](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/install.yml)
 
-| Var                                                                                                                                                     | Type | Value         |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------- | ---- | ------------- |
-| [nebula_install_extract_options](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/install.yml#L3)   | list | `[]`          |
-| [nebula_install_extract_include](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/install.yml#L6)   | list | `[]`          |
-| [nebula_install_extract_include.0](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/install.yml#L6) | str  | `nebula`      |
-| [nebula_install_extract_include.1](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/install.yml#L6) | str  | `nebula-cert` |
+| Var          | Type         | Value       |
+|--------------|--------------|-------------|
+| [nebula_install_extract_options](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/install.yml#L2)   | list   | `[]` |
+| [nebula_install_extract_include](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/install.yml#L5)   | list   | `[]` |
+| [nebula_install_extract_include.0](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/install.yml#L5)   | str   | `nebula` |
+| [nebula_install_extract_include.1](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/install.yml#L7)   | str   | `nebula-cert` |
+
 
 ### nebula Vars
 
 **These are variables with higher priority**
-
 #### nebula File: [vars/main/cert.yml](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/vars/main/cert.yml)
 
-| Var                                                                                                                                   | Type | Value                                                                   |
-| ------------------------------------------------------------------------------------------------------------------------------------- | ---- | ----------------------------------------------------------------------- |
-| [nebula_cert_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/vars/main/cert.yml#L3)       | str  | `/etc/pki/nebula`                                                       |
-| [nebula_cert_local_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/vars/main/cert.yml#L6) | str  | `{{ (nebula_artifact_local_dir, 'cert') ¦ ansible.builtin.path_join }}` |
-
+| Var          | Type         | Value       |
+|--------------|--------------|-------------|
+| [nebula_cert_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/vars/main/cert.yml#L2)   | str   | `/etc/pki/nebula` |
+| [nebula_cert_local_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/vars/main/cert.yml#L5)   | str   | `{{ (nebula_artifact_local_dir, 'cert') ¦ path_join }}` |
 #### nebula File: [vars/main/config.yml](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/vars/main/config.yml)
 
-| Var                                                                                                                                       | Type | Value                                                                  |
-| ----------------------------------------------------------------------------------------------------------------------------------------- | ---- | ---------------------------------------------------------------------- |
-| [nebula_config_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/vars/main/config.yml#L3)       | str  | `/etc/nebula`                                                          |
-| [nebula_config_file](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/vars/main/config.yml#L6)      | str  | `{{ (nebula_config_dir, 'config.yaml') ¦ ansible.builtin.path_join }}` |
-| [nebula_config_pki](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/vars/main/config.yml#L9)       | dict | `{}`                                                                   |
-| [nebula_config_pki.ca](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/vars/main/config.yml#L10)   | str  | `{{ (nebula_cert_dir, 'ca.crt') ¦ ansible.builtin.path_join }}`        |
-| [nebula_config_pki.key](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/vars/main/config.yml#L11)  | str  | `{{ (nebula_cert_dir, 'node.key') ¦ ansible.builtin.path_join }}`      |
-| [nebula_config_pki.cert](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/vars/main/config.yml#L12) | str  | `{{ (nebula_cert_dir, 'node.crt') ¦ ansible.builtin.path_join }}`      |
-
+| Var          | Type         | Value       |
+|--------------|--------------|-------------|
+| [nebula_config_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/vars/main/config.yml#L2)   | str   | `/etc/nebula` |
+| [nebula_config_file](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/vars/main/config.yml#L5)   | str   | `{{ (nebula_config_dir, 'config.yaml') ¦ path_join }}` |
+| [nebula_config_pki](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/vars/main/config.yml#L8)   | dict   | `{}` |
+| [nebula_config_pki.ca](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/vars/main/config.yml#L9)   | str   | `{{ (nebula_cert_dir, 'ca.crt') ¦ path_join }}` |
+| [nebula_config_pki.key](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/vars/main/config.yml#L10)   | str   | `{{ (nebula_cert_dir, 'node.key') ¦ path_join }}` |
+| [nebula_config_pki.cert](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/vars/main/config.yml#L11)   | str   | `{{ (nebula_cert_dir, 'node.crt') ¦ path_join }}` |
 #### nebula File: [vars/main/download.yml](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/vars/main/download.yml)
 
-| Var                                                                                                                                            | Type | Value                                                                                                  |
-| ---------------------------------------------------------------------------------------------------------------------------------------------- | ---- | ------------------------------------------------------------------------------------------------------ |
-| [nebula_download_local_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/vars/main/download.yml#L3)  | str  | `{{ (nebula_cache_local_dir, 'download') ¦ ansible.builtin.path_join }}`                               |
-| [nebula_download_local_file](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/vars/main/download.yml#L6) | str  | `{{ (nebula_download_local_dir, 'current', ansible_facts.architecture) ¦ ansible.builtin.path_join }}` |
-
+| Var          | Type         | Value       |
+|--------------|--------------|-------------|
+| [nebula_download_local_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/vars/main/download.yml#L2)   | str   | `{{ (nebula_cache_local_dir, 'download') ¦ path_join }}` |
+| [nebula_download_local_file](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/vars/main/download.yml#L5)   | str   | `{{ (nebula_download_local_dir, 'current', ansible_facts.architecture) ¦ path_join }}` |
 #### nebula File: [vars/main/install.yml](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/vars/main/install.yml)
 
-| Var                                                                                                                                      | Type | Value                                                             |
-| ---------------------------------------------------------------------------------------------------------------------------------------- | ---- | ----------------------------------------------------------------- |
-| [nebula_install_binary](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/vars/main/install.yml#L3) | str  | `{{ (common_binary_dir, 'nebula') ¦ ansible.builtin.path_join }}` |
-
+| Var          | Type         | Value       |
+|--------------|--------------|-------------|
+| [nebula_install_binary](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/vars/main/install.yml#L2)   | str   | `{{ (common_binary_dir, 'nebula') ¦ path_join }}` |
 #### nebula File: [vars/main/main.yml](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/vars/main/main.yml)
 
-| Var                                                                                                                                       | Type | Value                                                                     |
-| ----------------------------------------------------------------------------------------------------------------------------------------- | ---- | ------------------------------------------------------------------------- |
-| [nebula_cache_local_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/vars/main/main.yml#L3)    | str  | `{{ (common_cache_local_dir, 'nebula') ¦ ansible.builtin.path_join }}`    |
-| [nebula_artifact_local_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/vars/main/main.yml#L6) | str  | `{{ (common_artifact_local_dir, 'nebula') ¦ ansible.builtin.path_join }}` |
+| Var          | Type         | Value       |
+|--------------|--------------|-------------|
+| [nebula_cache_local_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/vars/main/main.yml#L2)   | str   | `{{ (common_cache_local_dir, 'nebula') ¦ path_join }}` |
+| [nebula_artifact_local_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/vars/main/main.yml#L5)   | str   | `{{ (common_artifact_local_dir, 'nebula') ¦ path_join }}` |
 
 # [singbox](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox)
-
 ## singbox Description:
+Install and configure sing-box proxy platform, including service setup and configuration management. #magic___^_^___line
 
-Install and configure sing-box proxy platform, including service setup and configuration management.
+
+
+
+
+
 
 ### singbox Defaults
 
@@ -410,131 +428,132 @@ Install and configure sing-box proxy platform, including service setup and confi
 
 #### singbox File: [defaults/main/config.yml](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml)
 
-| Var                                                                                                                                                                         | Type | Value                                  |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---- | -------------------------------------- |
-| [singbox_config_instance](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L3)                              | str  | `default`                              |
-| [singbox_config](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L6)                                       | dict | `{}`                                   |
-| [singbox_config.log](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L7)                                   | str  | `{{ singbox_config_log }}`             |
-| [singbox_config.dns](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L8)                                   | str  | `{{ singbox_config_dns }}`             |
-| [singbox_config.inbounds](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L9)                              | str  | `{{ singbox_config_inbounds }}`        |
-| [singbox_config.outbounds](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L10)                            | str  | `{{ singbox_config_outbounds }}`       |
-| [singbox_config.route](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L11)                                | str  | `{{ singbox_config_route }}`           |
-| [singbox_config.experimental](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L12)                         | str  | `{{ singbox_config_experimental }}`    |
-| [singbox_config_log](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L15)                                  | dict | `{}`                                   |
-| [singbox_config_log.level](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L16)                            | str  | `error`                                |
-| [singbox_config_log.timestamp](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L17)                        | bool | `True`                                 |
-| [singbox_config_dns](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L20)                                  | dict | `{}`                                   |
-| [singbox_config_dns.final](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L21)                            | str  | `https`                                |
-| [singbox_config_dns.servers](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L22)                          | str  | `{{ singbox_config_dns_servers }}`     |
-| [singbox_config_dns.rules](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L23)                            | str  | `{{ singbox_config_dns_rules }}`       |
-| [singbox_config_dns_servers](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L26)                          | list | `[]`                                   |
-| [singbox_config_dns_servers.0](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L27)                        | dict | `{}`                                   |
-| [singbox_config_dns_servers.0.tag](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L27)                    | str  | `tcp`                                  |
-| [singbox_config_dns_servers.0.type](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L28)                   | str  | `tcp`                                  |
-| [singbox_config_dns_servers.0.server](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L29)                 | str  | `8.8.8.8`                              |
-| [singbox_config_dns_servers.1](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L30)                        | dict | `{}`                                   |
-| [singbox_config_dns_servers.1.tag](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L30)                    | str  | `https`                                |
-| [singbox_config_dns_servers.1.type](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L31)                   | str  | `https`                                |
-| [singbox_config_dns_servers.1.server](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L32)                 | str  | `dns.quad9.net`                        |
-| [singbox_config_dns_servers.1.domain_resolver](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L33)        | str  | `tcp`                                  |
-| [singbox_config_dns_rules](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L36)                            | list | `[]`                                   |
-| [singbox_config_dns_rules.0](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L37)                          | dict | `{}`                                   |
-| [singbox_config_dns_rules.0.query_type](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L37)               | str  | `HTTPS`                                |
-| [singbox_config_dns_rules.0.action](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L38)                   | str  | `predefined`                           |
-| [singbox_config_dns_rules.0.rcode](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L39)                    | str  | `NOERROR`                              |
-| [singbox_config_inbounds](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L42)                             | list | `[]`                                   |
-| [singbox_config_inbounds.0](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L43)                           | dict | `{}`                                   |
-| [singbox_config_inbounds.0.tag](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L43)                       | str  | `tun`                                  |
-| [singbox_config_inbounds.0.type](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L44)                      | str  | `tun`                                  |
-| [singbox_config_inbounds.0.stack](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L45)                     | str  | `mixed`                                |
-| [singbox_config_inbounds.0.address](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L46)                   | str  | `172.19.0.1/30`                        |
-| [singbox_config_inbounds.0.auto_route](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L47)                | bool | `True`                                 |
-| [singbox_config_inbounds.0.strict_route](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L48)              | bool | `True`                                 |
-| [singbox_config_inbounds.0.auto_redirect](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L49)             | bool | `True`                                 |
-| [singbox_config_inbounds.0.auto_redirect_input_mark](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L50)  | str  | `0x2023`                               |
-| [singbox_config_inbounds.0.auto_redirect_output_mark](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L51) | str  | `0x2024`                               |
-| [singbox_config_inbounds.0.endpoint_independent_nat](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L52)  | bool | `False`                                |
-| [singbox_config_inbounds.0.interface_name](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L53)            | str  | `sb0`                                  |
-| [singbox_config_outbounds](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L56)                            | list | `[]`                                   |
-| [singbox_config_outbounds.0](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L57)                          | dict | `{}`                                   |
-| [singbox_config_outbounds.0.tag](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L57)                      | str  | `direct`                               |
-| [singbox_config_outbounds.0.type](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L58)                     | str  | `direct`                               |
-| [singbox_config_route](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L61)                                | dict | `{}`                                   |
-| [singbox_config_route.final](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L62)                          | str  | `direct`                               |
-| [singbox_config_route.auto_detect_interface](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L63)          | bool | `True`                                 |
-| [singbox_config_route.default_domain_resolver](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L64)        | dict | `{}`                                   |
-| [singbox_config_route.default_domain_resolver.server](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L65) | str  | `https`                                |
-| [singbox_config_route.rules](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L66)                          | str  | `{{ singbox_config_route_rules }}`     |
-| [singbox_config_route.rule_set](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L67)                       | str  | `{{ singbox_config_route_rule_sets }}` |
-| [singbox_config_route_rules](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L70)                          | list | `[]`                                   |
-| [singbox_config_route_rules.0](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L71)                        | dict | `{}`                                   |
-| [singbox_config_route_rules.0.action](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L71)                 | str  | `sniff`                                |
-| [singbox_config_route_rules.1](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L72)                        | dict | `{}`                                   |
-| [singbox_config_route_rules.1.action](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L72)                 | str  | `hijack-dns`                           |
-| [singbox_config_route_rules.1.protocol](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L73)               | str  | `dns`                                  |
-| [singbox_config_route_rule_sets](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L76)                      | list | `[]`                                   |
-| [singbox_config_experimental](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L79)                         | dict | `{}`                                   |
-| [singbox_config_experimental.cache_file](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L80)              | dict | `{}`                                   |
-| [singbox_config_experimental.cache_file.enabled](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L81)      | bool | `True`                                 |
+| Var          | Type         | Value       |
+|--------------|--------------|-------------|
+| [singbox_config_instance](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L2)   | str   | `default` |
+| [singbox_config](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L5)   | dict   | `{}` |
+| [singbox_config.log](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L6)   | str   | `{{ singbox_config_log }}` |
+| [singbox_config.dns](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L7)   | str   | `{{ singbox_config_dns }}` |
+| [singbox_config.inbounds](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L8)   | str   | `{{ singbox_config_inbounds }}` |
+| [singbox_config.outbounds](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L9)   | str   | `{{ singbox_config_outbounds }}` |
+| [singbox_config.route](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L10)   | str   | `{{ singbox_config_route }}` |
+| [singbox_config.experimental](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L11)   | str   | `{{ singbox_config_experimental }}` |
+| [singbox_config_log](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L14)   | dict   | `{}` |
+| [singbox_config_log.level](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L15)   | str   | `error` |
+| [singbox_config_log.timestamp](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L16)   | bool   | `True` |
+| [singbox_config_dns](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L19)   | dict   | `{}` |
+| [singbox_config_dns.final](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L20)   | str   | `https` |
+| [singbox_config_dns.servers](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L21)   | str   | `{{ singbox_config_dns_servers }}` |
+| [singbox_config_dns.rules](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L22)   | str   | `{{ singbox_config_dns_rules }}` |
+| [singbox_config_dns_servers](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L25)   | list   | `[]` |
+| [singbox_config_dns_servers.0](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L26)   | dict   | `{}` |
+| [singbox_config_dns_servers.0.tag](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L26)   | str   | `tcp` |
+| [singbox_config_dns_servers.0.type](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L27)   | str   | `tcp` |
+| [singbox_config_dns_servers.0.server](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L28)   | str   | `8.8.8.8` |
+| [singbox_config_dns_servers.1](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L29)   | dict   | `{}` |
+| [singbox_config_dns_servers.1.tag](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L29)   | str   | `https` |
+| [singbox_config_dns_servers.1.type](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L30)   | str   | `https` |
+| [singbox_config_dns_servers.1.server](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L31)   | str   | `dns.quad9.net` |
+| [singbox_config_dns_servers.1.domain_resolver](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L32)   | str   | `tcp` |
+| [singbox_config_dns_rules](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L35)   | list   | `[]` |
+| [singbox_config_dns_rules.0](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L36)   | dict   | `{}` |
+| [singbox_config_dns_rules.0.query_type](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L36)   | str   | `HTTPS` |
+| [singbox_config_dns_rules.0.action](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L37)   | str   | `predefined` |
+| [singbox_config_dns_rules.0.rcode](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L38)   | str   | `NOERROR` |
+| [singbox_config_inbounds](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L41)   | list   | `[]` |
+| [singbox_config_inbounds.0](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L42)   | dict   | `{}` |
+| [singbox_config_inbounds.0.tag](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L42)   | str   | `tun` |
+| [singbox_config_inbounds.0.type](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L43)   | str   | `tun` |
+| [singbox_config_inbounds.0.stack](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L44)   | str   | `mixed` |
+| [singbox_config_inbounds.0.address](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L45)   | str   | `172.19.0.1/30` |
+| [singbox_config_inbounds.0.auto_route](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L46)   | bool   | `True` |
+| [singbox_config_inbounds.0.strict_route](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L47)   | bool   | `True` |
+| [singbox_config_inbounds.0.auto_redirect](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L48)   | bool   | `True` |
+| [singbox_config_inbounds.0.auto_redirect_input_mark](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L49)   | str   | `0x2023` |
+| [singbox_config_inbounds.0.auto_redirect_output_mark](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L50)   | str   | `0x2024` |
+| [singbox_config_inbounds.0.endpoint_independent_nat](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L51)   | bool   | `False` |
+| [singbox_config_inbounds.0.interface_name](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L52)   | str   | `sb0` |
+| [singbox_config_outbounds](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L55)   | list   | `[]` |
+| [singbox_config_outbounds.0](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L56)   | dict   | `{}` |
+| [singbox_config_outbounds.0.tag](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L56)   | str   | `direct` |
+| [singbox_config_outbounds.0.type](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L57)   | str   | `direct` |
+| [singbox_config_route](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L60)   | dict   | `{}` |
+| [singbox_config_route.final](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L61)   | str   | `direct` |
+| [singbox_config_route.auto_detect_interface](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L62)   | bool   | `True` |
+| [singbox_config_route.default_domain_resolver](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L63)   | dict   | `{}` |
+| [singbox_config_route.default_domain_resolver.server](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L64)   | str   | `https` |
+| [singbox_config_route.rules](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L65)   | str   | `{{ singbox_config_route_rules }}` |
+| [singbox_config_route.rule_set](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L66)   | str   | `{{ singbox_config_route_rule_sets }}` |
+| [singbox_config_route_rules](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L69)   | list   | `[]` |
+| [singbox_config_route_rules.0](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L70)   | dict   | `{}` |
+| [singbox_config_route_rules.0.action](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L70)   | str   | `sniff` |
+| [singbox_config_route_rules.1](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L71)   | dict   | `{}` |
+| [singbox_config_route_rules.1.action](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L71)   | str   | `hijack-dns` |
+| [singbox_config_route_rules.1.protocol](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L72)   | str   | `dns` |
+| [singbox_config_route_rule_sets](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L75)   | list   | `[]` |
+| [singbox_config_experimental](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L78)   | dict   | `{}` |
+| [singbox_config_experimental.cache_file](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L79)   | dict   | `{}` |
+| [singbox_config_experimental.cache_file.enabled](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/config.yml#L80)   | bool   | `True` |
 
 #### singbox File: [defaults/main/download.yml](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/download.yml)
 
-| Var                                                                                                                                                                 | Type | Value                                                                                                                                                                                                                     |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [singbox_download_version](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/download.yml#L3)                   | str  | `latest`                                                                                                                                                                                                                  |
-| [singbox_download_github_user](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/download.yml#L6)               | str  | `SagerNet`                                                                                                                                                                                                                |
-| [singbox_download_github_repository](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/download.yml#L9)         | str  | `sing-box`                                                                                                                                                                                                                |
-| [singbox_download_architecture_map](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/download.yml#L12)         | dict | `{}`                                                                                                                                                                                                                      |
-| [singbox_download_architecture_map.x86_64](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/download.yml#L13)  | str  | `amd64`                                                                                                                                                                                                                   |
-| [singbox_download_architecture_map.aarch64](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/download.yml#L14) | str  | `arm64`                                                                                                                                                                                                                   |
-| [singbox_download_url](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/download.yml#L17)                      | str  | `https://github.com/{{ singbox_download_github_user }}/{{ singbox_download_github_repository }}/releases/download/v{{ download_version }}/sing-box-{{ download_version }}-linux-{{ download_architecture.value }}.tar.gz` |
+| Var          | Type         | Value       |
+|--------------|--------------|-------------|
+| [singbox_download_version](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/download.yml#L2)   | str   | `latest` |
+| [singbox_download_github_user](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/download.yml#L5)   | str   | `SagerNet` |
+| [singbox_download_github_repository](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/download.yml#L8)   | str   | `sing-box` |
+| [singbox_download_architecture_map](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/download.yml#L11)   | dict   | `{}` |
+| [singbox_download_architecture_map.x86_64](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/download.yml#L12)   | str   | `amd64` |
+| [singbox_download_architecture_map.aarch64](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/download.yml#L13)   | str   | `arm64` |
+| [singbox_download_url](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/download.yml#L16)   | str   | `https://github.com/{{ singbox_download_github_user }}/{{ singbox_download_github_repository }}/releases/download/v{{ download_version }}/sing-box-{{ download_version }}-linux-{{ download_architecture.value }}.tar.gz` |
 
 #### singbox File: [defaults/main/install.yml](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/install.yml)
 
-| Var                                                                                                                                                       | Type | Value                  |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------- | ---- | ---------------------- |
-| [singbox_install_extract_options](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/install.yml#L3)   | list | `[]`                   |
-| [singbox_install_extract_options.0](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/install.yml#L3) | str  | `--wildcards`          |
-| [singbox_install_extract_options.1](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/install.yml#L3) | str  | `--strip-components=1` |
-| [singbox_install_extract_include](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/install.yml#L6)   | list | `[]`                   |
-| [singbox_install_extract_include.0](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/install.yml#L6) | str  | `*/sing-box`           |
+| Var          | Type         | Value       |
+|--------------|--------------|-------------|
+| [singbox_install_extract_options](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/install.yml#L2)   | list   | `[]` |
+| [singbox_install_extract_options.0](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/install.yml#L3)   | str   | `--wildcards` |
+| [singbox_install_extract_options.1](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/install.yml#L4)   | str   | `--strip-components=1` |
+| [singbox_install_extract_include](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/install.yml#L7)   | list   | `[]` |
+| [singbox_install_extract_include.0](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/install.yml#L8)   | str   | `*/sing-box` |
+
 
 ### singbox Vars
 
 **These are variables with higher priority**
-
 #### singbox File: [vars/main/config.yml](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/vars/main/config.yml)
 
-| Var                                                                                                                                    | Type | Value                                                                                       |
-| -------------------------------------------------------------------------------------------------------------------------------------- | ---- | ------------------------------------------------------------------------------------------- |
-| [singbox_config_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/vars/main/config.yml#L3)  | str  | `/etc/sing-box`                                                                             |
-| [singbox_config_file](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/vars/main/config.yml#L6) | str  | `{{ (singbox_config_dir, singbox_config_instance ~ '.json') ¦ ansible.builtin.path_join }}` |
-
+| Var          | Type         | Value       |
+|--------------|--------------|-------------|
+| [singbox_config_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/vars/main/config.yml#L2)   | str   | `/etc/sing-box` |
+| [singbox_config_file](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/vars/main/config.yml#L5)   | str   | `{{ (singbox_config_dir, singbox_config_instance ~ '.json') ¦ path_join }}` |
 #### singbox File: [vars/main/download.yml](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/vars/main/download.yml)
 
-| Var                                                                                                                                              | Type | Value                                                                                                   |
-| ------------------------------------------------------------------------------------------------------------------------------------------------ | ---- | ------------------------------------------------------------------------------------------------------- |
-| [singbox_download_local_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/vars/main/download.yml#L3)  | str  | `{{ (singbox_cache_local_dir, 'download') ¦ ansible.builtin.path_join }}`                               |
-| [singbox_download_local_file](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/vars/main/download.yml#L6) | str  | `{{ (singbox_download_local_dir, 'current', ansible_facts.architecture) ¦ ansible.builtin.path_join }}` |
-
+| Var          | Type         | Value       |
+|--------------|--------------|-------------|
+| [singbox_download_local_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/vars/main/download.yml#L2)   | str   | `{{ (singbox_cache_local_dir, 'download') ¦ path_join }}` |
+| [singbox_download_local_file](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/vars/main/download.yml#L5)   | str   | `{{ (singbox_download_local_dir, 'current', ansible_facts.architecture) ¦ path_join }}` |
 #### singbox File: [vars/main/install.yml](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/vars/main/install.yml)
 
-| Var                                                                                                                                        | Type | Value                                                               |
-| ------------------------------------------------------------------------------------------------------------------------------------------ | ---- | ------------------------------------------------------------------- |
-| [singbox_install_binary](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/vars/main/install.yml#L3) | str  | `{{ (common_binary_dir, 'sing-box') ¦ ansible.builtin.path_join }}` |
-
+| Var          | Type         | Value       |
+|--------------|--------------|-------------|
+| [singbox_install_binary](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/vars/main/install.yml#L2)   | str   | `{{ (common_binary_dir, 'sing-box') ¦ path_join }}` |
 #### singbox File: [vars/main/main.yml](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/vars/main/main.yml)
 
-| Var                                                                                                                                         | Type | Value                                                                      |
-| ------------------------------------------------------------------------------------------------------------------------------------------- | ---- | -------------------------------------------------------------------------- |
-| [singbox_cache_local_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/vars/main/main.yml#L3)    | str  | `{{ (common_cache_local_dir, 'singbox') ¦ ansible.builtin.path_join }}`    |
-| [singbox_artifact_local_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/vars/main/main.yml#L6) | str  | `{{ (common_artifact_local_dir, 'singbox') ¦ ansible.builtin.path_join }}` |
+| Var          | Type         | Value       |
+|--------------|--------------|-------------|
+| [singbox_cache_local_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/vars/main/main.yml#L2)   | str   | `{{ (common_cache_local_dir, 'singbox') ¦ path_join }}` |
+| [singbox_artifact_local_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/vars/main/main.yml#L5)   | str   | `{{ (common_artifact_local_dir, 'singbox') ¦ path_join }}` |
 
 # [tailscale](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale)
-
 ## tailscale Description:
+Install and configure Tailscale mesh VPN, including automated login, service setup, and runtime configuration. #magic___^_^___line
 
-Install and configure Tailscale mesh VPN, including automated login, service setup, and runtime configuration.
+
+
+
+
+
 
 ### tailscale Defaults
 
@@ -542,64 +561,62 @@ Install and configure Tailscale mesh VPN, including automated login, service set
 
 #### tailscale File: [defaults/main/config.yml](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/defaults/main/config.yml)
 
-| Var                                                                                                                                                         | Type | Value                                                                            |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------- | ---- | -------------------------------------------------------------------------------- |
-| [tailscale_config_flags](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/defaults/main/config.yml#L3)             | list | `[]`                                                                             |
-| [tailscale_config_flags.0](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/defaults/main/config.yml#L4)           | str  | `--accept-routes`                                                                |
-| [tailscale_config_flags.1](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/defaults/main/config.yml#L5)           | str  | `--advertise-exit-node`                                                          |
-| [tailscale_config_flags.2](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/defaults/main/config.yml#L6)           | str  | `--webclient`                                                                    |
-| [tailscale_config_auth_key](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/defaults/main/config.yml#L9)          | str  | `{{ undef('Tailscale auth key must be provided (tailscale_config_auth_key)') }}` |
-| [tailscale_config_login_server](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/defaults/main/config.yml#L12)     | str  | `https://controlplane.tailscale.com`                                             |
-| [tailscale_config_advertise_tags](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/defaults/main/config.yml#L15)   | list | `[]`                                                                             |
-| [tailscale_config_advertise_tags.0](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/defaults/main/config.yml#L16) | str  | `server`                                                                         |
+| Var          | Type         | Value       |
+|--------------|--------------|-------------|
+| [tailscale_config_flags](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/defaults/main/config.yml#L2)   | list   | `[]` |
+| [tailscale_config_flags.0](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/defaults/main/config.yml#L3)   | str   | `--accept-routes` |
+| [tailscale_config_flags.1](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/defaults/main/config.yml#L4)   | str   | `--advertise-exit-node` |
+| [tailscale_config_flags.2](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/defaults/main/config.yml#L5)   | str   | `--webclient` |
+| [tailscale_config_auth_key](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/defaults/main/config.yml#L8)   | str   | `{{ undef('Tailscale auth key must be provided (tailscale_config_auth_key)') }}` |
+| [tailscale_config_login_server](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/defaults/main/config.yml#L11)   | str   | `https://controlplane.tailscale.com` |
+| [tailscale_config_advertise_tags](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/defaults/main/config.yml#L14)   | list   | `[]` |
+| [tailscale_config_advertise_tags.0](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/defaults/main/config.yml#L15)   | str   | `server` |
 
 #### tailscale File: [defaults/main/download.yml](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/defaults/main/download.yml)
 
-| Var                                                                                                                                                                     | Type | Value                                                                                                      |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---- | ---------------------------------------------------------------------------------------------------------- |
-| [tailscale_download_version](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/defaults/main/download.yml#L3)                   | str  | `latest`                                                                                                   |
-| [tailscale_download_github_user](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/defaults/main/download.yml#L6)               | str  | `tailscale`                                                                                                |
-| [tailscale_download_github_repository](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/defaults/main/download.yml#L9)         | str  | `tailscale`                                                                                                |
-| [tailscale_download_architecture_map](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/defaults/main/download.yml#L12)         | dict | `{}`                                                                                                       |
-| [tailscale_download_architecture_map.x86_64](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/defaults/main/download.yml#L13)  | str  | `amd64`                                                                                                    |
-| [tailscale_download_architecture_map.aarch64](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/defaults/main/download.yml#L14) | str  | `arm64`                                                                                                    |
-| [tailscale_download_url](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/defaults/main/download.yml#L17)                      | str  | `https://pkgs.tailscale.com/stable/tailscale_{{ download_version }}_{{ download_architecture.value }}.tgz` |
+| Var          | Type         | Value       |
+|--------------|--------------|-------------|
+| [tailscale_download_version](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/defaults/main/download.yml#L2)   | str   | `latest` |
+| [tailscale_download_github_user](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/defaults/main/download.yml#L5)   | str   | `tailscale` |
+| [tailscale_download_github_repository](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/defaults/main/download.yml#L8)   | str   | `tailscale` |
+| [tailscale_download_architecture_map](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/defaults/main/download.yml#L11)   | dict   | `{}` |
+| [tailscale_download_architecture_map.x86_64](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/defaults/main/download.yml#L12)   | str   | `amd64` |
+| [tailscale_download_architecture_map.aarch64](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/defaults/main/download.yml#L13)   | str   | `arm64` |
+| [tailscale_download_url](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/defaults/main/download.yml#L16)   | str   | `https://pkgs.tailscale.com/stable/tailscale_{{ download_version }}_{{ download_architecture.value }}.tgz` |
 
 #### tailscale File: [defaults/main/install.yml](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/defaults/main/install.yml)
 
-| Var                                                                                                                                                           | Type | Value                    |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---- | ------------------------ |
-| [tailscale_install_extract_options](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/defaults/main/install.yml#L3)   | list | `[]`                     |
-| [tailscale_install_extract_options.0](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/defaults/main/install.yml#L3) | str  | `--strip-components=1`   |
-| [tailscale_install_extract_options.1](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/defaults/main/install.yml#L3) | str  | `--wildcards`            |
-| [tailscale_install_extract_include](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/defaults/main/install.yml#L6)   | list | `[]`                     |
-| [tailscale_install_extract_include.0](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/defaults/main/install.yml#L6) | str  | `tailscale_*/tailscale`  |
-| [tailscale_install_extract_include.1](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/defaults/main/install.yml#L6) | str  | `tailscale_*/tailscaled` |
+| Var          | Type         | Value       |
+|--------------|--------------|-------------|
+| [tailscale_install_extract_options](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/defaults/main/install.yml#L2)   | list   | `[]` |
+| [tailscale_install_extract_options.0](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/defaults/main/install.yml#L3)   | str   | `--strip-components=1` |
+| [tailscale_install_extract_options.1](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/defaults/main/install.yml#L4)   | str   | `--wildcards` |
+| [tailscale_install_extract_include](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/defaults/main/install.yml#L7)   | list   | `[]` |
+| [tailscale_install_extract_include.0](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/defaults/main/install.yml#L8)   | str   | `tailscale_*/tailscale` |
+| [tailscale_install_extract_include.1](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/defaults/main/install.yml#L9)   | str   | `tailscale_*/tailscaled` |
+
 
 ### tailscale Vars
 
 **These are variables with higher priority**
-
 #### tailscale File: [vars/main/download.yml](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/vars/main/download.yml)
 
-| Var                                                                                                                                                  | Type | Value                                                                                                     |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------- | ---- | --------------------------------------------------------------------------------------------------------- |
-| [tailscale_download_local_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/vars/main/download.yml#L3)  | str  | `{{ (tailscale_cache_local_dir, 'download') ¦ ansible.builtin.path_join }}`                               |
-| [tailscale_download_local_file](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/vars/main/download.yml#L6) | str  | `{{ (tailscale_download_local_dir, 'current', ansible_facts.architecture) ¦ ansible.builtin.path_join }}` |
-
+| Var          | Type         | Value       |
+|--------------|--------------|-------------|
+| [tailscale_download_local_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/vars/main/download.yml#L2)   | str   | `{{ (tailscale_cache_local_dir, 'download') ¦ path_join }}` |
+| [tailscale_download_local_file](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/vars/main/download.yml#L5)   | str   | `{{ (tailscale_download_local_dir, 'current', ansible_facts.architecture) ¦ path_join }}` |
 #### tailscale File: [vars/main/install.yml](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/vars/main/install.yml)
 
-| Var                                                                                                                                                   | Type | Value                                                                 |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------- | ---- | --------------------------------------------------------------------- |
-| [tailscale_install_binary](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/vars/main/install.yml#L3)        | str  | `{{ (common_binary_dir, 'tailscale') ¦ ansible.builtin.path_join }}`  |
-| [tailscale_install_daemon_binary](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/vars/main/install.yml#L6) | str  | `{{ (common_binary_dir, 'tailscaled') ¦ ansible.builtin.path_join }}` |
-
+| Var          | Type         | Value       |
+|--------------|--------------|-------------|
+| [tailscale_install_binary](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/vars/main/install.yml#L2)   | str   | `{{ (common_binary_dir, 'tailscale') ¦ path_join }}` |
+| [tailscale_install_daemon_binary](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/vars/main/install.yml#L5)   | str   | `{{ (common_binary_dir, 'tailscaled') ¦ path_join }}` |
 #### tailscale File: [vars/main/main.yml](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/vars/main/main.yml)
 
-| Var                                                                                                                                             | Type | Value                                                                        |
-| ----------------------------------------------------------------------------------------------------------------------------------------------- | ---- | ---------------------------------------------------------------------------- |
-| [tailscale_cache_local_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/vars/main/main.yml#L3)    | str  | `{{ (common_cache_local_dir, 'tailscale') ¦ ansible.builtin.path_join }}`    |
-| [tailscale_artifact_local_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/vars/main/main.yml#L6) | str  | `{{ (common_artifact_local_dir, 'tailscale') ¦ ansible.builtin.path_join }}` |
+| Var          | Type         | Value       |
+|--------------|--------------|-------------|
+| [tailscale_cache_local_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/vars/main/main.yml#L2)   | str   | `{{ (common_cache_local_dir, 'tailscale') ¦ path_join }}` |
+| [tailscale_artifact_local_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/vars/main/main.yml#L5)   | str   | `{{ (common_artifact_local_dir, 'tailscale') ¦ path_join }}` |
 
 ## Metadata
 

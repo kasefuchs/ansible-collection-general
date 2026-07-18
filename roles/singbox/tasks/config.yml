@@ -1,4 +1,3 @@
----
 - name: Render sing-box config template
   notify:
     - Enable sing-box service

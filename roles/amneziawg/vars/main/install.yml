@@ -1,9 +1,8 @@
----
 # Path to the AmneziaWG tool binary.
-amneziawg_install_binary: "{{ (common_binary_dir, 'awg') | ansible.builtin.path_join }}"
+amneziawg_install_binary: "{{ (common_binary_dir, 'awg') | path_join }}"
 
 # Path to the AmneziaWG quick script.
-amneziawg_install_script: "{{ (common_binary_dir, 'awg-quick') | ansible.builtin.path_join }}"
+amneziawg_install_script: "{{ (common_binary_dir, 'awg-quick') | path_join }}"
 
 # Path to the AmneziaWG kernel module source directory.
-amneziawg_install_kmod_source_dir: "{{ (amneziawg_install_kmod_tempdir.path, 'src') | ansible.builtin.path_join }}"
+amneziawg_install_kmod_source_dir: "{{ (amneziawg_install_kmod_tempdir.path, 'src') | path_join }}"

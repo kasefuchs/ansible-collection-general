@@ -1,4 +1,3 @@
----
 - name: Render K3s server template
   vars:
     k3s_config: "{{ k3s_server_config }}"

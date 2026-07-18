@@ -1,4 +1,3 @@
----
 - name: Set up AmneziaWG
   hosts: all
   become: true

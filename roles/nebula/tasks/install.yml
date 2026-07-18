@@ -1,4 +1,3 @@
----
 - name: Create Nebula directories
   loop:
     - "{{ nebula_config_dir }}"

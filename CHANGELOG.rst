@@ -4,6 +4,26 @@ Kasefuchs.General Release Notes
 
 .. contents:: Topics
 
+v1.3.0
+======
+
+Release Summary
+---------------
+
+Codebase cleanup, YAML formatting overhaul, and minor bugfixes.
+
+Minor Changes
+-------------
+
+- Reformatted YAML files (removed document start markers `---`, converted inline arrays to block lists).
+- Removed unnecessary `ansible.builtin.` prefixes from standard Jinja2 filters and lookups across all roles to improve readability.
+- Replaced Prettier with `yamlfmt` for YAML code formatting.
+
+Bugfixes
+--------
+
+- Added explicit boolean casting (`| bool`) to conditionals in the `amneziawg` role to prevent evaluation errors.
+
 v1.2.2
 ======
 

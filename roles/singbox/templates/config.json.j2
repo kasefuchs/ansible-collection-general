@@ -1,6 +1,6 @@
-{{ common_managed_header | ansible.builtin.comment('c') }}
+{{ common_managed_header | comment('c') }}
 {{
   singbox_config
-  | ansible.builtin.to_nice_json(indent=2)
+  | to_nice_json(indent=2)
   | trim
 }}

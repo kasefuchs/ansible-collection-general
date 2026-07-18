@@ -1,4 +1,3 @@
----
 - name: Reload daemon (SystemD)
   when: ansible_facts.service_mgr == "systemd"
   listen: Reload daemon

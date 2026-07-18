@@ -1,4 +1,3 @@
----
 - name: Render Nebula config template
   notify:
     - Enable Nebula service

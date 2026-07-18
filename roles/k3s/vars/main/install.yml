@@ -1,6 +1,5 @@
----
 # Path to the K3s binary.
-k3s_install_binary: "{{ (common_binary_dir, 'k3s') | ansible.builtin.path_join }}"
+k3s_install_binary: "{{ (common_binary_dir, 'k3s') | path_join }}"
 
 # Path to the K3s install script.
-k3s_install_script: "{{ (common_binary_dir, 'k3s-install.sh') | ansible.builtin.path_join }}"
+k3s_install_script: "{{ (common_binary_dir, 'k3s-install.sh') | path_join }}"

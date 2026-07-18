@@ -1,4 +1,3 @@
----
 - name: Get latest sing-box version
   when: singbox_download_version == "latest"
   block:
@@ -12,7 +11,7 @@
 
     - name: Set sing-box version fact
       ansible.builtin.set_fact:
-        singbox_download_version: "{{ singbox_download_github_release.tag | ansible.builtin.regex_replace('^v', '') }}"
+        singbox_download_version: "{{ singbox_download_github_release.tag | regex_replace('^v', '') }}"
 
 - name: Download sing-box archive
   ansible.builtin.include_role:

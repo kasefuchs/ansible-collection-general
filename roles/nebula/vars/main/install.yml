@@ -1,3 +1,2 @@
----
 # Path to the Nebula binary.
-nebula_install_binary: "{{ (common_binary_dir, 'nebula') | ansible.builtin.path_join }}"
+nebula_install_binary: "{{ (common_binary_dir, 'nebula') | path_join }}"

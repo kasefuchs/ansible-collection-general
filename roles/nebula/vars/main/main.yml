@@ -1,6 +1,5 @@
----
 # Local path for storing Nebula cache.
-nebula_cache_local_dir: "{{ (common_cache_local_dir, 'nebula') | ansible.builtin.path_join }}"
+nebula_cache_local_dir: "{{ (common_cache_local_dir, 'nebula') | path_join }}"
 
 # Local path for storing Nebula artifacts.
-nebula_artifact_local_dir: "{{ (common_artifact_local_dir, 'nebula') | ansible.builtin.path_join }}"
+nebula_artifact_local_dir: "{{ (common_artifact_local_dir, 'nebula') | path_join }}"

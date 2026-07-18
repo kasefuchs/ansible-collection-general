@@ -1,4 +1,3 @@
----
 - name: Enable Tailscale service (systemd)
   when: ansible_facts.service_mgr == "systemd"
   listen: Enable Tailscale service

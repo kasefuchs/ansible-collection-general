@@ -1,4 +1,3 @@
----
 - name: Get latest Nebula version
   when: nebula_download_version == "latest"
   block:
@@ -12,7 +11,7 @@
 
     - name: Set Nebula version fact
       ansible.builtin.set_fact:
-        nebula_download_version: "{{ nebula_download_github_release.tag | ansible.builtin.regex_replace('^v', '') }}"
+        nebula_download_version: "{{ nebula_download_github_release.tag | regex_replace('^v', '') }}"
 
 - name: Download Nebula archive
   ansible.builtin.include_role:

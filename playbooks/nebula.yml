@@ -1,4 +1,3 @@
----
 - name: Set up Nebula
   hosts: all
   become: true

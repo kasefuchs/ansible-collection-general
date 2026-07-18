@@ -1,4 +1,3 @@
----
 # Directory path where specific versions will be downloaded.
 download_dir: "{{ undef('Download directory must be provided (download_dir)') }}"
 

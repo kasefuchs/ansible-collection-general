@@ -1,4 +1,4 @@
-{{ common_managed_header | ansible.builtin.comment }}
+{{ common_managed_header | comment }}
 [Unit]
 Description=sing-box %I
 Documentation=https://sing-box.sagernet.org
@@ -9,7 +9,7 @@ After=network-online.target
 [Service]
 Type=simple
 
-ExecStart={{ singbox_install_binary }} -D ${STATE_DIRECTORY} -c {{ (singbox_config_dir, '%i.json') | ansible.builtin.path_join }} run
+ExecStart={{ singbox_install_binary }} -D ${STATE_DIRECTORY} -c {{ (singbox_config_dir, '%i.json') | path_join }} run
 ExecReload=/bin/kill -HUP $MAINPID
 
 StateDirectory=sing-box-%i

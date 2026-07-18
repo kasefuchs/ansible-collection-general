@@ -1,3 +1,2 @@
----
 # K3s server group name.
 k3s_server_group: k3s_server

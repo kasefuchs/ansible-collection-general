@@ -1,9 +1,8 @@
----
 # Directory containing currently used version.
-download_current_dir: "{{ (download_dir, download_version) | ansible.builtin.path_join }}"
+download_current_dir: "{{ (download_dir, download_version) | path_join }}"
 
 # Symlink path pointing to the currently used version.
-download_current_dir_link: "{{ (download_dir, 'current') | ansible.builtin.path_join }}"
+download_current_dir_link: "{{ (download_dir, 'current') | path_join }}"
 
 # Unique architectures plus 'noarch' placeholder for arch-independent downloads.
 download_unique_architectures: "{{ common_unique_architectures + ['noarch'] }}"

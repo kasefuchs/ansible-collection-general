@@ -1,4 +1,3 @@
----
 - name: Enable Nebula service (systemd)
   when: ansible_facts.service_mgr == "systemd"
   listen: Enable Nebula service

@@ -1,4 +1,3 @@
----
 - name: Create AmneziaWG directories
   loop:
     - "{{ amneziawg_config_dir }}"
@@ -10,7 +9,7 @@
     group: root
 
 - name: Extract AmneziaWG go archive
-  when: amneziawg_install_go
+  when: amneziawg_install_go | bool
   ansible.builtin.unarchive:
     src: "{{ amneziawg_download_go_local_file }}"
     dest: "{{ common_binary_dir }}"
@@ -21,7 +20,7 @@
     extra_opts: "{{ amneziawg_install_go_extract_options }}"
 
 - name: Install AmneziaWG kernel module
-  when: amneziawg_install_kmod
+  when: amneziawg_install_kmod | bool
   block:
     - name: Check current DKMS status for AmneziaWG module
       register: amneziawg_install_kmod_dkms_status

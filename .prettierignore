@@ -1,7 +1,0 @@
-# --- Python ---
-# Environment
-.venv/
-
-# --- Ansible ---
-# Environment
-.ansible/

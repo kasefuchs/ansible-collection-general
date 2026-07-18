@@ -1,11 +1,7 @@
----
 galaxy_info:
   author: Kasefuchs
   description: >
-    Install and configure Tailscale mesh VPN,
-    including automated login, service setup,
-    and runtime configuration.
-
+    Install and configure Tailscale mesh VPN, including automated login, service setup, and runtime configuration. #magic___^_^___line
   license: MIT
   galaxy_tags:
     - tailscale

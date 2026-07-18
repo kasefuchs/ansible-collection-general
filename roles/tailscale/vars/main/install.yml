@@ -1,6 +1,5 @@
----
 # Path to the Tailscale binary.
-tailscale_install_binary: "{{ (common_binary_dir, 'tailscale') | ansible.builtin.path_join }}"
+tailscale_install_binary: "{{ (common_binary_dir, 'tailscale') | path_join }}"
 
 # Path to the Tailscale daemon binary.
-tailscale_install_daemon_binary: "{{ (common_binary_dir, 'tailscaled') | ansible.builtin.path_join }}"
+tailscale_install_daemon_binary: "{{ (common_binary_dir, 'tailscaled') | path_join }}"

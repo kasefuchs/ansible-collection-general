@@ -1,20 +1,27 @@
----
 - name: Download Nebula
-  tags: [download, packer]
+  tags:
+    - download
+    - packer
   ansible.builtin.include_tasks:
     file: download.yml
     apply:
-      tags: [download, packer]
+      tags:
+        - download
+        - packer
       become: false
       run_once: true
       delegate_to: localhost
 
 - name: Install Nebula
-  tags: [install, packer]
+  tags:
+    - install
+    - packer
   ansible.builtin.include_tasks:
     file: install.yml
     apply:
-      tags: [install, packer]
+      tags:
+        - install
+        - packer
 
 - name: Generate Nebula certificates
   tags: cert
