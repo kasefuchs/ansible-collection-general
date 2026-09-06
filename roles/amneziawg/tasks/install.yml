@@ -9,7 +9,6 @@
     group: root
 
 - name: Extract AmneziaWG go archive
-  when: amneziawg_install_go | bool
   ansible.builtin.unarchive:
     src: "{{ amneziawg_download_go_local_file }}"
     dest: "{{ common_binary_dir }}"
@@ -18,53 +17,6 @@
     group: root
     include: "{{ amneziawg_install_go_extract_include }}"
     extra_opts: "{{ amneziawg_install_go_extract_options }}"
-
-- name: Install AmneziaWG kernel module
-  when: amneziawg_install_kmod | bool
-  block:
-    - name: Check current DKMS status for AmneziaWG module
-      register: amneziawg_install_kmod_dkms_status
-      failed_when: false
-      changed_when: false
-      ansible.builtin.command: dkms status -m amneziawg -v {{ amneziawg_download_kmod_version }}
-
-    - name: Build and register AmneziaWG module in DKMS
-      when: "amneziawg_download_kmod_version not in amneziawg_install_kmod_dkms_status.stdout"
-      block:
-        - name: Create temporary directory for kernel module
-          register: amneziawg_install_kmod_tempdir
-          ansible.builtin.tempfile:
-            state: directory
-            suffix: amneziawg
-
-        - name: Extract AmneziaWG kernel module archive
-          ansible.builtin.unarchive:
-            src: "{{ amneziawg_download_kmod_local_file }}"
-            dest: "{{ amneziawg_install_kmod_tempdir.path }}"
-            mode: "0755"
-            owner: root
-            group: root
-            include: "{{ amneziawg_install_kmod_extract_include }}"
-            extra_opts: "{{ amneziawg_install_kmod_extract_options }}"
-
-        - name: Prepare DKMS sources using Makefile
-          community.general.make:
-            chdir: "{{ amneziawg_install_kmod_source_dir }}"
-            target: dkms-install
-            params:
-              WIREGUARD_VERSION: "{{ amneziawg_download_kmod_version }}"
-
-        - name: Register AmneziaWG module in DKMS tree
-          changed_when: true
-          ansible.builtin.command: "dkms add -m amneziawg -v {{ amneziawg_download_kmod_version }}"
-
-        - name: Compile AmneziaWG kernel module via DKMS
-          changed_when: true
-          ansible.builtin.command: "dkms build -m amneziawg -v {{ amneziawg_download_kmod_version }}"
-
-        - name: Install compiled AmneziaWG module into the kernel
-          changed_when: true
-          ansible.builtin.command: "dkms install -m amneziawg -v {{ amneziawg_download_kmod_version }}"
 
 - name: Install AmneziaWG tools
   block:

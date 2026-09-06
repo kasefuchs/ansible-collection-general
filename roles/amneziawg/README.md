@@ -51,34 +51,23 @@ Description: Install and configure AmneziaWG using amneziawg-go and amneziawg-to
 | [amneziawg_download_go_architecture_map.**x86_64**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/download.yml#L6)   | str | `amd64` |
 | [amneziawg_download_go_architecture_map.**aarch64**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/download.yml#L7)   | str | `arm64` |
 | [amneziawg_download_go_url](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/download.yml#L10)   | str | `https://dl.kasefuchs.net/amneziawg-go/amneziawg-go_{{ download_url_version }}_linux_{{ arch.value }}.tar.gz` |
-| [amneziawg_download_kmod_version](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/download.yml#L13)   | str | `1.0.20260210` |
-| [amneziawg_download_kmod_architecture_map](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/download.yml#L16)   | dict | `{}` |
-| [amneziawg_download_kmod_architecture_map.**noarch**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/download.yml#L17)   | str |  |
-| [amneziawg_download_kmod_url](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/download.yml#L20)   | str | `https://github.com/amnezia-vpn/amneziawg-linux-kernel-module/archive/refs/tags/v{{ download_url_version }}.tar.gz` |
-| [amneziawg_download_tools_version](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/download.yml#L23)   | str | `1.0.20250903` |
-| [amneziawg_download_tools_architecture_map](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/download.yml#L26)   | dict | `{}` |
-| [amneziawg_download_tools_architecture_map.**x86_64**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/download.yml#L27)   | str | `x86_64` |
-| [amneziawg_download_tools_architecture_map.**aarch64**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/download.yml#L28)   | str | `aarch64` |
-| [amneziawg_download_tools_url](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/download.yml#L31)   | str | `https://dl.kasefuchs.net/amneziawg-tools/awg-v{{ download_url_version }}-{{ arch.value }}-linux-musl.tar.gz` |
+| [amneziawg_download_tools_version](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/download.yml#L13)   | str | `1.0.20250903` |
+| [amneziawg_download_tools_architecture_map](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/download.yml#L16)   | dict | `{}` |
+| [amneziawg_download_tools_architecture_map.**x86_64**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/download.yml#L17)   | str | `x86_64` |
+| [amneziawg_download_tools_architecture_map.**aarch64**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/download.yml#L18)   | str | `aarch64` |
+| [amneziawg_download_tools_url](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/download.yml#L21)   | str | `https://dl.kasefuchs.net/amneziawg-tools/awg-v{{ download_url_version }}-{{ arch.value }}-linux-musl.tar.gz` |
 
 #### File: defaults/main/install.yml
 
 | Var          | Type         | Value       |
 |--------------|--------------|-------------|
-| [amneziawg_install_go](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/install.yml#L2)   | bool | `True` |
-| [amneziawg_install_go_extract_options](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/install.yml#L5)   | list | `[]` |
-| [amneziawg_install_go_extract_include](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/install.yml#L8)   | list | `[]` |
-| [amneziawg_install_go_extract_include.**0**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/install.yml#L9)   | str | `amneziawg-go` |
-| [amneziawg_install_kmod](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/install.yml#L12)   | bool | `True` |
-| [amneziawg_install_kmod_extract_options](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/install.yml#L15)   | list | `[]` |
-| [amneziawg_install_kmod_extract_options.**0**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/install.yml#L16)   | str | `--wildcards` |
-| [amneziawg_install_kmod_extract_options.**1**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/install.yml#L17)   | str | `--strip-components=1` |
-| [amneziawg_install_kmod_extract_include](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/install.yml#L20)   | list | `[]` |
-| [amneziawg_install_kmod_extract_include.**0**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/install.yml#L21)   | str | `**/*` |
-| [amneziawg_install_tools_extract_options](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/install.yml#L24)   | list | `[]` |
-| [amneziawg_install_tools_extract_include](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/install.yml#L27)   | list | `[]` |
-| [amneziawg_install_tools_extract_include.**0**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/install.yml#L27)   | str | `awg` |
-| [amneziawg_install_tools_extract_include.**1**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/install.yml#L29)   | str | `awg-quick` |
+| [amneziawg_install_go_extract_options](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/install.yml#L2)   | list | `[]` |
+| [amneziawg_install_go_extract_include](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/install.yml#L5)   | list | `[]` |
+| [amneziawg_install_go_extract_include.**0**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/install.yml#L6)   | str | `amneziawg-go` |
+| [amneziawg_install_tools_extract_options](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/install.yml#L9)   | list | `[]` |
+| [amneziawg_install_tools_extract_include](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/install.yml#L12)   | list | `[]` |
+| [amneziawg_install_tools_extract_include.**0**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/install.yml#L12)   | str | `awg` |
+| [amneziawg_install_tools_extract_include.**1**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/install.yml#L14)   | str | `awg-quick` |
 
 
 ### Vars
@@ -99,15 +88,12 @@ Description: Install and configure AmneziaWG using amneziawg-go and amneziawg-to
 | [amneziawg_download_go_local_file](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/vars/main/download.yml#L8)   | str | `{{ (amneziawg_download_go_local_dir, 'current', ansible_facts.architecture) ¦ path_join }}` |
 | [amneziawg_download_tools_local_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/vars/main/download.yml#L11)   | str | `{{ (amneziawg_download_local_dir, 'tools') ¦ path_join }}` |
 | [amneziawg_download_tools_local_file](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/vars/main/download.yml#L14)   | str | `{{ (amneziawg_download_tools_local_dir, 'current', ansible_facts.architecture) ¦ path_join }}` |
-| [amneziawg_download_kmod_local_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/vars/main/download.yml#L17)   | str | `{{ (amneziawg_download_local_dir, 'kernel') ¦ path_join }}` |
-| [amneziawg_download_kmod_local_file](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/vars/main/download.yml#L20)   | str | `{{ (amneziawg_download_kmod_local_dir, 'current/noarch') ¦ path_join }}` |
 #### File: vars/main/install.yml
 
 | Var          | Type         | Value       |
 |--------------|--------------|-------------|
 | [amneziawg_install_binary](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/vars/main/install.yml#L2)   | str | `{{ (common_binary_dir, 'awg') ¦ path_join }}` |
 | [amneziawg_install_script](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/vars/main/install.yml#L5)   | str | `{{ (common_binary_dir, 'awg-quick') ¦ path_join }}` |
-| [amneziawg_install_kmod_source_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/vars/main/install.yml#L8)   | str | `{{ (amneziawg_install_kmod_tempdir.path, 'src') ¦ path_join }}` |
 #### File: vars/main/main.yml
 
 | Var          | Type         | Value       |
@@ -130,28 +116,18 @@ Description: Install and configure AmneziaWG using amneziawg-go and amneziawg-to
 | Name | Module | Has Conditions |
 | ---- | ------ | -------------- |
 | [Download AmneziaWG go](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/tasks/download.yml#L1) | ansible.builtin.include_role | False |
-| [Download AmneziaWG kernel module](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/tasks/download.yml#L10) | ansible.builtin.include_role | False |
-| [Download AmneziaWG tools](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/tasks/download.yml#L19) | ansible.builtin.include_role | False |
+| [Download AmneziaWG tools](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/tasks/download.yml#L10) | ansible.builtin.include_role | False |
 
 #### File: tasks/install.yml
 
 | Name | Module | Has Conditions |
 | ---- | ------ | -------------- |
 | [Create AmneziaWG directories](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/tasks/install.yml#L1) | ansible.builtin.file | False |
-| [Extract AmneziaWG go archive](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/tasks/install.yml#L11) | ansible.builtin.unarchive | True |
-| [Install AmneziaWG kernel module](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/tasks/install.yml#L22) | block | True |
-| [Check current DKMS status for AmneziaWG module](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/tasks/install.yml#L25) | ansible.builtin.command | False |
-| [Build and register AmneziaWG module in DKMS](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/tasks/install.yml#L31) | block | True |
-| [Create temporary directory for kernel module](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/tasks/install.yml#L34) | ansible.builtin.tempfile | False |
-| [Extract AmneziaWG kernel module archive](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/tasks/install.yml#L40) | ansible.builtin.unarchive | False |
-| [Prepare DKMS sources using Makefile](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/tasks/install.yml#L50) | community.general.make | False |
-| [Register AmneziaWG module in DKMS tree](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/tasks/install.yml#L57) | ansible.builtin.command | False |
-| [Compile AmneziaWG kernel module via DKMS](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/tasks/install.yml#L61) | ansible.builtin.command | False |
-| [Install compiled AmneziaWG module into the kernel](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/tasks/install.yml#L65) | ansible.builtin.command | False |
-| [Install AmneziaWG tools](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/tasks/install.yml#L69) | block | False |
-| [Extract AmneziaWG tools archive](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/tasks/install.yml#L71) | ansible.builtin.unarchive | False |
-| [Install AmneziaWG service](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/tasks/install.yml#L81) | block | False |
-| [Install AmneziaWG service (systemd)](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/tasks/install.yml#L84) | ansible.builtin.template | True |
+| [Extract AmneziaWG go archive](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/tasks/install.yml#L11) | ansible.builtin.unarchive | False |
+| [Install AmneziaWG tools](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/tasks/install.yml#L21) | block | False |
+| [Extract AmneziaWG tools archive](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/tasks/install.yml#L23) | ansible.builtin.unarchive | False |
+| [Install AmneziaWG service](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/tasks/install.yml#L33) | block | False |
+| [Install AmneziaWG service (systemd)](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/tasks/install.yml#L36) | ansible.builtin.template | True |
 
 #### File: tasks/main.yml
 

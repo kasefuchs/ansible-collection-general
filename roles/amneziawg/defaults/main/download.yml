@@ -9,16 +9,6 @@ amneziawg_download_go_architecture_map:
 # URL to download the AmneziaWG go archive.
 amneziawg_download_go_url: https://dl.kasefuchs.net/amneziawg-go/amneziawg-go_{{ download_url_version }}_linux_{{ arch.value }}.tar.gz
 
-# Version of AmneziaWG kernel module to download.
-amneziawg_download_kmod_version: 1.0.20260210
-
-# Mapping from system architecture to AmneziaWG kernel module release architecture naming.
-amneziawg_download_kmod_architecture_map:
-  noarch: ""
-
-# URL to download the AmneziaWG kernel module archive.
-amneziawg_download_kmod_url: https://github.com/amnezia-vpn/amneziawg-linux-kernel-module/archive/refs/tags/v{{ download_url_version }}.tar.gz
-
 # Version of AmneziaWG tools to download.
 amneziawg_download_tools_version: 1.0.20250903
 

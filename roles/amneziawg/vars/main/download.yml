@@ -12,9 +12,3 @@ amneziawg_download_tools_local_dir: "{{ (amneziawg_download_local_dir, 'tools') 
 
 # Path to the AmneziaWG tools for the current architecture.
 amneziawg_download_tools_local_file: "{{ (amneziawg_download_tools_local_dir, 'current', ansible_facts.architecture) | path_join }}"
-
-# Directory path where specific versions of AmneziaWG install tools will be downloaded.
-amneziawg_download_kmod_local_dir: "{{ (amneziawg_download_local_dir, 'kernel') | path_join }}"
-
-# Path to the AmneziaWG tools for the current architecture.
-amneziawg_download_kmod_local_file: "{{ (amneziawg_download_kmod_local_dir, 'current/noarch') | path_join }}"
