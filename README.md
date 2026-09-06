@@ -38,7 +38,7 @@ A collection of common Ansible roles used across my own projects.
 
 # [amneziawg](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg)
 ## amneziawg Description:
-Install and configure AmneziaWG using amneziawg-go and amneziawg-tools with systemd integration. #magic___^_^___line
+Install and configure AmneziaWG using amneziawg-go and amneziawg-tools with systemd integration.
 
 
 
@@ -137,7 +137,7 @@ Install and configure AmneziaWG using amneziawg-go and amneziawg-tools with syst
 
 # [common](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/common)
 ## common Description:
-Common helper role providing shared variables, paths, and handlers used across other roles in the collection. #magic___^_^___line
+Common helper role providing shared variables, paths, and handlers used across other roles in the collection.
 
 
 
@@ -165,7 +165,7 @@ Common helper role providing shared variables, paths, and handlers used across o
 
 # [download_url](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/download_url)
 ## download_url Description:
-Generic reusable download role that fetches and manages versioned binaries and archives with multi-architecture support. #magic___^_^___line
+Generic reusable download role that fetches and manages versioned binaries and archives with multi-architecture support.
 
 
 
@@ -200,7 +200,7 @@ Generic reusable download role that fetches and manages versioned binaries and a
 
 # [k3s](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s)
 ## k3s Description:
-Install and configure K3s Kubernetes distribution, including server and agent modes with download, installation and configuration management. #magic___^_^___line
+Install and configure K3s Kubernetes distribution, including server and agent modes with download, installation and configuration management.
 
 
 
@@ -300,7 +300,7 @@ Install and configure K3s Kubernetes distribution, including server and agent mo
 
 # [nebula](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula)
 ## nebula Description:
-Install and configure Nebula overlay networking, including certificate generation, service setup, and configuration management. #magic___^_^___line
+Install and configure Nebula overlay networking, including certificate generation, service setup, and configuration management.
 
 
 
@@ -427,7 +427,7 @@ Install and configure Nebula overlay networking, including certificate generatio
 
 # [singbox](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox)
 ## singbox Description:
-Install and configure sing-box proxy platform, including service setup and configuration management. #magic___^_^___line
+Install and configure sing-box proxy platform, including service setup and configuration management.
 
 
 
@@ -560,7 +560,7 @@ Install and configure sing-box proxy platform, including service setup and confi
 
 # [tailscale](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale)
 ## tailscale Description:
-Install and configure Tailscale mesh VPN, including automated login, service setup, and runtime configuration. #magic___^_^___line
+Install and configure Tailscale mesh VPN, including automated login, service setup, and runtime configuration.
 
 
 

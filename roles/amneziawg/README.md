@@ -12,7 +12,7 @@ Version - 1.3.1
 Repository - https://codeberg.org/kasefuchs/ansible-collection-general
 ```
 
-Description: Install and configure AmneziaWG using amneziawg-go and amneziawg-tools with systemd integration. #magic___^_^___line
+Description: Install and configure AmneziaWG using amneziawg-go and amneziawg-tools with systemd integration.
 
 
 | Field                | Value           |

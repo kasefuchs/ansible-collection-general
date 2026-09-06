@@ -1,7 +1,7 @@
 galaxy_info:
   author: Kasefuchs
   description: >
-    Common helper role providing shared variables, paths, and handlers used across other roles in the collection. #magic___^_^___line
+    Common helper role providing shared variables, paths, and handlers used across other roles in the collection.
   license: MIT
   galaxy_tags:
     - common

@@ -1,0 +1,37 @@
+- name: Link current version directory
+  block:
+    - name: Create version directory
+      ansible.builtin.file:
+        path: "{{ download_oci_current_dir }}"
+        mode: "0755"
+        state: directory
+
+    - name: Link current version directory
+      ansible.builtin.file:
+        src: "{{ download_oci_current_dir }}"
+        dest: "{{ download_oci_current_dir_link }}"
+        state: link
+
+- name: Download files
+  block:
+    - name: Check if files already downloaded
+      loop: "{{ download_oci_architecture_map | dict2items }}"
+      register: download_oci_files
+      loop_control:
+        label: "{{ arch.key }}"
+        loop_var: arch
+      ansible.builtin.stat:
+        path: "{{ (download_oci_current_dir_link, arch.key) | path_join }}"
+
+    - name: Download files
+      when:
+        - not download_oci_files.results[ansible_loop.index0].stat.exists
+        - arch.key in common_unique_architectures
+      loop: "{{ download_oci_architecture_map | dict2items }}"
+      loop_control:
+        label: "{{ arch.key }}"
+        loop_var: arch
+        extended: true
+      changed_when: true
+      ansible.builtin.command: >-
+        crane export --platform linux/{{ arch.value }} {{ download_oci_image }}:{{ download_oci_version }} {{ (download_oci_current_dir_link, arch.key) | path_join }}

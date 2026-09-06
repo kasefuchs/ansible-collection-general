@@ -12,7 +12,7 @@ Version - 1.3.1
 Repository - https://codeberg.org/kasefuchs/ansible-collection-general
 ```
 
-Description: Install and configure sing-box proxy platform, including service setup and configuration management. #magic___^_^___line
+Description: Install and configure sing-box proxy platform, including service setup and configuration management.
 
 
 | Field                | Value           |

@@ -12,7 +12,7 @@ Version - 1.3.1
 Repository - https://codeberg.org/kasefuchs/ansible-collection-general
 ```
 
-Description: Install and configure K3s Kubernetes distribution, including server and agent modes with download, installation and configuration management. #magic___^_^___line
+Description: Install and configure K3s Kubernetes distribution, including server and agent modes with download, installation and configuration management.
 
 
 | Field                | Value           |

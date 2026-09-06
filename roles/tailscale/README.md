@@ -12,7 +12,7 @@ Version - 1.3.1
 Repository - https://codeberg.org/kasefuchs/ansible-collection-general
 ```
 
-Description: Install and configure Tailscale mesh VPN, including automated login, service setup, and runtime configuration. #magic___^_^___line
+Description: Install and configure Tailscale mesh VPN, including automated login, service setup, and runtime configuration.
 
 
 | Field                | Value           |

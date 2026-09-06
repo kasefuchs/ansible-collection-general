@@ -1,14 +1,15 @@
 galaxy_info:
   author: Kasefuchs
   description: >
-    Install and configure Nebula overlay networking, including certificate generation, service setup, and configuration management.
+    Generic reusable download role that fetches and manages versioned OCI container images as tar archives with multi-architecture support.
   license: MIT
   galaxy_tags:
-    - nebula
-    - vpn
-    - overlay
-    - networking
-    - security
+    - download
+    - artifacts
+    - binaries
+    - versioning
+    - system
+    - utilities
 
   issue_tracker_url: https://codeberg.org/kasefuchs/ansible-collection-general/issues
   min_ansible_version: "2.2"

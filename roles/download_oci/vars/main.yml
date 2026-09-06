@@ -1,0 +1,15 @@
+# Directory containing currently used version.
+download_oci_current_dir: "{{ (download_oci_dir, download_oci_version) | path_join }}"
+
+# Symlink path pointing to the currently used version.
+download_oci_current_dir_link: "{{ (download_oci_dir, 'current') | path_join }}"
+
+# Mapping from system architecture to download architecture naming.
+download_oci_architecture_map:
+  x86_64: amd64
+  aarch64: arm64
+  armv7l: arm
+  armv6l: arm
+  riscv64: riscv64
+  ppc64le: ppc64le
+  s390x: s390x

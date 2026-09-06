@@ -1,7 +1,7 @@
 galaxy_info:
   author: Kasefuchs
   description: >
-    Install and configure K3s Kubernetes distribution, including server and agent modes with download, installation and configuration management. #magic___^_^___line
+    Install and configure K3s Kubernetes distribution, including server and agent modes with download, installation and configuration management.
   license: MIT
   galaxy_tags:
     - kubernetes

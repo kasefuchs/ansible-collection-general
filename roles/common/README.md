@@ -12,7 +12,7 @@ Version - 1.3.1
 Repository - https://codeberg.org/kasefuchs/ansible-collection-general
 ```
 
-Description: Common helper role providing shared variables, paths, and handlers used across other roles in the collection. #magic___^_^___line
+Description: Common helper role providing shared variables, paths, and handlers used across other roles in the collection.
 
 
 | Field                | Value           |

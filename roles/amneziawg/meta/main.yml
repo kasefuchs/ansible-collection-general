@@ -1,7 +1,7 @@
 galaxy_info:
   author: Kasefuchs
   description: >
-    Install and configure AmneziaWG using amneziawg-go and amneziawg-tools with systemd integration. #magic___^_^___line
+    Install and configure AmneziaWG using amneziawg-go and amneziawg-tools with systemd integration.
   license: MIT
   galaxy_tags:
     - amneziawg

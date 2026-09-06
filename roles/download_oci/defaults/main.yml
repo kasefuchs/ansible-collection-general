@@ -1,0 +1,8 @@
+# Directory path where specific versions will be downloaded.
+download_oci_dir: "{{ undef('Download directory must be provided (download_oci_dir)') }}"
+
+# Image ref to download.
+download_oci_source: "{{ undef('Download url must be provided (download_oci_source)') }}"
+
+# Version to download.
+download_oci_version: "{{ undef('Download version must be provided (download_oci_version)') }}"

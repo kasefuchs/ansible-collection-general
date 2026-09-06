@@ -12,7 +12,7 @@ Version - 1.3.1
 Repository - https://codeberg.org/kasefuchs/ansible-collection-general
 ```
 
-Description: Generic reusable download role that fetches and manages versioned binaries and archives with multi-architecture support. #magic___^_^___line
+Description: Generic reusable download role that fetches and manages versioned binaries and archives with multi-architecture support.
 
 
 | Field                | Value           |
