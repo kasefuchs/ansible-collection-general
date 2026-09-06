@@ -1,0 +1,11 @@
+# Directory path where specific versions will be downloaded.
+download_url_dir: "{{ undef('Download directory must be provided (download_url_dir)') }}"
+
+# URL to download.
+download_url_source: "{{ undef('Download url must be provided (download_url_source)') }}"
+
+# Version to download.
+download_url_version: "{{ undef('Download version must be provided (download_url_version)') }}"
+
+# Mapping from system architecture to download architecture naming.
+download_url_architecture_map: "{{ undef('Download architecture mapping must be provided (download_url_architecture_map)') }}"

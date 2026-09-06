@@ -13,4 +13,4 @@ nebula_download_architecture_map:
   aarch64: arm64
 
 # URL to download the Nebula archive.
-nebula_download_url: "https://github.com/{{ nebula_download_github_user }}/{{ nebula_download_github_repository }}/releases/download/v{{ download_version }}/nebula-linux-{{ download_architecture.value }}.tar.gz"
+nebula_download_url: "https://github.com/{{ nebula_download_github_user }}/{{ nebula_download_github_repository }}/releases/download/v{{ download_url_version }}/nebula-linux-{{ arch.value }}.tar.gz"

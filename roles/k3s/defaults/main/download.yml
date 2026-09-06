@@ -14,15 +14,15 @@ k3s_download_binary_architecture_map:
 
 # URL to download the K3s binary.
 k3s_download_binary_url: |-
-  https://github.com/{{ k3s_download_github_user }}/{{ k3s_download_github_repository }}/releases/download/v{{ download_version }}/
-  {%- if download_architecture.key == 'x86_64' -%}
+  https://github.com/{{ k3s_download_github_user }}/{{ k3s_download_github_repository }}/releases/download/v{{ download_url_version }}/
+  {%- if arch.key == 'x86_64' -%}
   k3s
   {%- else -%}
-  k3s-{{ download_architecture.value }}
+  k3s-{{ arch.value }}
   {%- endif -%}
 
 # URL to download the K3s script.
-k3s_download_script_url: https://raw.githubusercontent.com/{{ k3s_download_github_user }}/{{ k3s_download_github_repository }}/refs/tags/v{{ download_version }}/install.sh
+k3s_download_script_url: https://raw.githubusercontent.com/{{ k3s_download_github_user }}/{{ k3s_download_github_repository }}/refs/tags/v{{ download_url_version }}/install.sh
 
 # Mapping from system architecture to K3s script release architecture naming.
 k3s_download_script_architecture_map:

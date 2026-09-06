@@ -15,9 +15,9 @@
 
 - name: Download Tailscale archive
   ansible.builtin.include_role:
-    name: kasefuchs.general.download
+    name: kasefuchs.general.download_url
   vars:
-    download_dir: "{{ tailscale_download_local_dir }}"
-    download_url: "{{ tailscale_download_url }}"
-    download_version: "{{ tailscale_download_version }}"
-    download_architecture_map: "{{ tailscale_download_architecture_map }}"
+    download_url_dir: "{{ tailscale_download_local_dir }}"
+    download_url_source: "{{ tailscale_download_url }}"
+    download_url_version: "{{ tailscale_download_version }}"
+    download_url_architecture_map: "{{ tailscale_download_architecture_map }}"

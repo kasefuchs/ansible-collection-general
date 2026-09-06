@@ -13,4 +13,4 @@ singbox_download_architecture_map:
   aarch64: arm64
 
 # URL to download the sing-box archive.
-singbox_download_url: "https://github.com/{{ singbox_download_github_user }}/{{ singbox_download_github_repository }}/releases/download/v{{ download_version }}/sing-box-{{ download_version }}-linux-{{ download_architecture.value }}.tar.gz"
+singbox_download_url: "https://github.com/{{ singbox_download_github_user }}/{{ singbox_download_github_repository }}/releases/download/v{{ download_url_version }}/sing-box-{{ download_url_version }}-linux-{{ arch.value }}.tar.gz"

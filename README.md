@@ -24,7 +24,7 @@ A collection of common Ansible roles used across my own projects.
 
 ### [common](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/common)
 
-### [download](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/download)
+### [download_url](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/download_url)
 
 ### [k3s](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s)
 
@@ -70,16 +70,16 @@ Install and configure AmneziaWG using amneziawg-go and amneziawg-tools with syst
 | [amneziawg_download_go_architecture_map](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/download.yml#L5)   | dict   | `{}` |
 | [amneziawg_download_go_architecture_map.x86_64](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/download.yml#L6)   | str   | `amd64` |
 | [amneziawg_download_go_architecture_map.aarch64](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/download.yml#L7)   | str   | `arm64` |
-| [amneziawg_download_go_url](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/download.yml#L10)   | str   | `https://dl.kasefuchs.net/amneziawg-go/amneziawg-go_{{ download_version }}_linux_{{ download_architecture.value }}.tar.gz` |
+| [amneziawg_download_go_url](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/download.yml#L10)   | str   | `https://dl.kasefuchs.net/amneziawg-go/amneziawg-go_{{ download_url_version }}_linux_{{ arch.value }}.tar.gz` |
 | [amneziawg_download_kmod_version](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/download.yml#L13)   | str   | `1.0.20260210` |
 | [amneziawg_download_kmod_architecture_map](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/download.yml#L16)   | dict   | `{}` |
 | [amneziawg_download_kmod_architecture_map.noarch](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/download.yml#L17)   | str   |  |
-| [amneziawg_download_kmod_url](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/download.yml#L20)   | str   | `https://github.com/amnezia-vpn/amneziawg-linux-kernel-module/archive/refs/tags/v{{ download_version }}.tar.gz` |
+| [amneziawg_download_kmod_url](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/download.yml#L20)   | str   | `https://github.com/amnezia-vpn/amneziawg-linux-kernel-module/archive/refs/tags/v{{ download_url_version }}.tar.gz` |
 | [amneziawg_download_tools_version](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/download.yml#L23)   | str   | `1.0.20250903` |
 | [amneziawg_download_tools_architecture_map](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/download.yml#L26)   | dict   | `{}` |
 | [amneziawg_download_tools_architecture_map.x86_64](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/download.yml#L27)   | str   | `x86_64` |
 | [amneziawg_download_tools_architecture_map.aarch64](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/download.yml#L28)   | str   | `aarch64` |
-| [amneziawg_download_tools_url](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/download.yml#L31)   | str   | `https://dl.kasefuchs.net/amneziawg-tools/awg-v{{ download_version }}-{{ download_architecture.value }}-linux-musl.tar.gz` |
+| [amneziawg_download_tools_url](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/download.yml#L31)   | str   | `https://dl.kasefuchs.net/amneziawg-tools/awg-v{{ download_url_version }}-{{ arch.value }}-linux-musl.tar.gz` |
 
 #### amneziawg File: [defaults/main/install.yml](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/install.yml)
 
@@ -163,8 +163,8 @@ Common helper role providing shared variables, paths, and handlers used across o
 | [common_binary_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/common/vars/main.yml#L17)   | str   | `/usr/local/bin` |
 | [common_source_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/common/vars/main.yml#L20)   | str   | `/usr/local/src` |
 
-# [download](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/download)
-## download Description:
+# [download_url](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/download_url)
+## download_url Description:
 Generic reusable download role that fetches and manages versioned binaries and archives with multi-architecture support. #magic___^_^___line
 
 
@@ -173,30 +173,30 @@ Generic reusable download role that fetches and manages versioned binaries and a
 
 
 
-### download Defaults
+### download_url Defaults
 
 **These are static variables with lower priority**
 
-#### download File: [defaults/main.yml](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/download/defaults/main.yml)
+#### download_url File: [defaults/main.yml](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/download_url/defaults/main.yml)
 
 | Var          | Type         | Value       |
 |--------------|--------------|-------------|
-| [download_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/download/defaults/main.yml#L2)   | str   | `{{ undef('Download directory must be provided (download_dir)') }}` |
-| [download_url](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/download/defaults/main.yml#L5)   | str   | `{{ undef('Download url must be provided (download_url)') }}` |
-| [download_version](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/download/defaults/main.yml#L8)   | str   | `{{ undef('Download version must be provided (download_version)') }}` |
-| [download_architecture_map](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/download/defaults/main.yml#L11)   | str   | `{{ undef('Download architecture mapping must be provided (download_architecture_map)') }}` |
+| [download_url_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/download_url/defaults/main.yml#L2)   | str   | `{{ undef('Download directory must be provided (download_url_dir)') }}` |
+| [download_url_source](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/download_url/defaults/main.yml#L5)   | str   | `{{ undef('Download url must be provided (download_url_source)') }}` |
+| [download_url_version](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/download_url/defaults/main.yml#L8)   | str   | `{{ undef('Download version must be provided (download_url_version)') }}` |
+| [download_url_architecture_map](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/download_url/defaults/main.yml#L11)   | str   | `{{ undef('Download architecture mapping must be provided (download_url_architecture_map)') }}` |
 
 
-### download Vars
+### download_url Vars
 
 **These are variables with higher priority**
-#### download File: [vars/main.yml](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/download/vars/main.yml)
+#### download_url File: [vars/main.yml](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/download_url/vars/main.yml)
 
 | Var          | Type         | Value       |
 |--------------|--------------|-------------|
-| [download_current_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/download/vars/main.yml#L2)   | str   | `{{ (download_dir, download_version) ¦ path_join }}` |
-| [download_current_dir_link](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/download/vars/main.yml#L5)   | str   | `{{ (download_dir, 'current') ¦ path_join }}` |
-| [download_unique_architectures](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/download/vars/main.yml#L8)   | str   | `{{ common_unique_architectures + ['noarch'] }}` |
+| [download_url_current_dir](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/download_url/vars/main.yml#L2)   | str   | `{{ (download_url_dir, download_url_version) ¦ path_join }}` |
+| [download_url_current_dir_link](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/download_url/vars/main.yml#L5)   | str   | `{{ (download_url_dir, 'current') ¦ path_join }}` |
+| [download_url_unique_architectures](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/download_url/vars/main.yml#L8)   | str   | `{{ common_unique_architectures + ['noarch'] }}` |
 
 # [k3s](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s)
 ## k3s Description:
@@ -243,7 +243,7 @@ Install and configure K3s Kubernetes distribution, including server and agent mo
 | [k3s_download_binary_architecture_map.x86_64](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/defaults/main/download.yml#L12)   | str   | `amd64` |
 | [k3s_download_binary_architecture_map.aarch64](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/defaults/main/download.yml#L13)   | str   | `arm64` |
 | [k3s_download_binary_url](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/defaults/main/download.yml#L16)   | str   | `<multiline value: literal_strip>` |
-| [k3s_download_script_url](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/defaults/main/download.yml#L25)   | str   | `https://raw.githubusercontent.com/{{ k3s_download_github_user }}/{{ k3s_download_github_repository }}/refs/tags/v{{ download_version }}/install.sh` |
+| [k3s_download_script_url](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/defaults/main/download.yml#L25)   | str   | `https://raw.githubusercontent.com/{{ k3s_download_github_user }}/{{ k3s_download_github_repository }}/refs/tags/v{{ download_url_version }}/install.sh` |
 | [k3s_download_script_architecture_map](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/defaults/main/download.yml#L28)   | dict   | `{}` |
 | [k3s_download_script_architecture_map.noarch](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/defaults/main/download.yml#L29)   | str   |  |
 
@@ -376,7 +376,7 @@ Install and configure Nebula overlay networking, including certificate generatio
 | [nebula_download_architecture_map](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/download.yml#L11)   | dict   | `{}` |
 | [nebula_download_architecture_map.x86_64](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/download.yml#L12)   | str   | `amd64` |
 | [nebula_download_architecture_map.aarch64](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/download.yml#L13)   | str   | `arm64` |
-| [nebula_download_url](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/download.yml#L16)   | str   | `https://github.com/{{ nebula_download_github_user }}/{{ nebula_download_github_repository }}/releases/download/v{{ download_version }}/nebula-linux-{{ download_architecture.value }}.tar.gz` |
+| [nebula_download_url](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/download.yml#L16)   | str   | `https://github.com/{{ nebula_download_github_user }}/{{ nebula_download_github_repository }}/releases/download/v{{ download_url_version }}/nebula-linux-{{ arch.value }}.tar.gz` |
 
 #### nebula File: [defaults/main/install.yml](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/install.yml)
 
@@ -518,7 +518,7 @@ Install and configure sing-box proxy platform, including service setup and confi
 | [singbox_download_architecture_map](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/download.yml#L11)   | dict   | `{}` |
 | [singbox_download_architecture_map.x86_64](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/download.yml#L12)   | str   | `amd64` |
 | [singbox_download_architecture_map.aarch64](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/download.yml#L13)   | str   | `arm64` |
-| [singbox_download_url](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/download.yml#L16)   | str   | `https://github.com/{{ singbox_download_github_user }}/{{ singbox_download_github_repository }}/releases/download/v{{ download_version }}/sing-box-{{ download_version }}-linux-{{ download_architecture.value }}.tar.gz` |
+| [singbox_download_url](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/download.yml#L16)   | str   | `https://github.com/{{ singbox_download_github_user }}/{{ singbox_download_github_repository }}/releases/download/v{{ download_url_version }}/sing-box-{{ download_url_version }}-linux-{{ arch.value }}.tar.gz` |
 
 #### singbox File: [defaults/main/install.yml](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/install.yml)
 
@@ -595,7 +595,7 @@ Install and configure Tailscale mesh VPN, including automated login, service set
 | [tailscale_download_architecture_map](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/defaults/main/download.yml#L11)   | dict   | `{}` |
 | [tailscale_download_architecture_map.x86_64](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/defaults/main/download.yml#L12)   | str   | `amd64` |
 | [tailscale_download_architecture_map.aarch64](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/defaults/main/download.yml#L13)   | str   | `arm64` |
-| [tailscale_download_url](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/defaults/main/download.yml#L16)   | str   | `https://pkgs.tailscale.com/stable/tailscale_{{ download_version }}_{{ download_architecture.value }}.tgz` |
+| [tailscale_download_url](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/defaults/main/download.yml#L16)   | str   | `https://pkgs.tailscale.com/stable/tailscale_{{ download_url_version }}_{{ arch.value }}.tgz` |
 
 #### tailscale File: [defaults/main/install.yml](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/defaults/main/install.yml)
 

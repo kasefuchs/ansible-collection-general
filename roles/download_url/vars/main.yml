@@ -1,0 +1,8 @@
+# Directory containing currently used version.
+download_url_current_dir: "{{ (download_url_dir, download_url_version) | path_join }}"
+
+# Symlink path pointing to the currently used version.
+download_url_current_dir_link: "{{ (download_url_dir, 'current') | path_join }}"
+
+# Unique architectures plus 'noarch' placeholder for arch-independent downloads.
+download_url_unique_architectures: "{{ common_unique_architectures + ['noarch'] }}"

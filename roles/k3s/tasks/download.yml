@@ -15,18 +15,18 @@
 
 - name: Download K3s binary
   ansible.builtin.include_role:
-    name: kasefuchs.general.download
+    name: kasefuchs.general.download_url
   vars:
-    download_dir: "{{ k3s_download_binary_local_dir }}"
-    download_url: "{{ k3s_download_binary_url }}"
-    download_version: "{{ k3s_download_version }}"
-    download_architecture_map: "{{ k3s_download_binary_architecture_map }}"
+    download_url_dir: "{{ k3s_download_binary_local_dir }}"
+    download_url_source: "{{ k3s_download_binary_url }}"
+    download_url_version: "{{ k3s_download_version }}"
+    download_url_architecture_map: "{{ k3s_download_binary_architecture_map }}"
 
 - name: Download K3s script
   ansible.builtin.include_role:
-    name: kasefuchs.general.download
+    name: kasefuchs.general.download_url
   vars:
-    download_dir: "{{ k3s_download_script_local_dir }}"
-    download_url: "{{ k3s_download_script_url }}"
-    download_version: "{{ k3s_download_version }}"
-    download_architecture_map: "{{ k3s_download_script_architecture_map }}"
+    download_url_dir: "{{ k3s_download_script_local_dir }}"
+    download_url_source: "{{ k3s_download_script_url }}"
+    download_url_version: "{{ k3s_download_version }}"
+    download_url_architecture_map: "{{ k3s_download_script_architecture_map }}"

@@ -13,4 +13,4 @@ tailscale_download_architecture_map:
   aarch64: arm64
 
 # URL to download the Tailscale archive.
-tailscale_download_url: "https://pkgs.tailscale.com/stable/tailscale_{{ download_version }}_{{ download_architecture.value }}.tgz"
+tailscale_download_url: "https://pkgs.tailscale.com/stable/tailscale_{{ download_url_version }}_{{ arch.value }}.tgz"
