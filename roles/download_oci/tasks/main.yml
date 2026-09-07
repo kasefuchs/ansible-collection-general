@@ -34,4 +34,4 @@
         extended: true
       changed_when: true
       ansible.builtin.command: >-
-        crane export --platform linux/{{ arch.value }} {{ download_oci_image }}:{{ download_oci_version }} {{ (download_oci_current_dir_link, arch.key) | path_join }}
+        crane export --platform linux/{{ arch.value }} {{ download_oci_source }}:{{ download_oci_version }} {{ (download_oci_current_dir_link, arch.key) | path_join }}

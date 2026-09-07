@@ -1,14 +1,16 @@
 # Extra options for extracting the AmneziaWG go archive.
-amneziawg_install_go_extract_options: []
+amneziawg_install_go_extract_options:
+  - --strip-components=3
 
 # Files or directories to include when extracting.
 amneziawg_install_go_extract_include:
-  - amneziawg-go
+  - usr/local/bin/amneziawg-go
 
 # Extra options for extracting the AmneziaWG tools archive.
-amneziawg_install_tools_extract_options: []
+amneziawg_install_tools_extract_options:
+  - --strip-components=3
 
 # Files or directories to include when extracting.
 amneziawg_install_tools_extract_include:
-  - awg
-  - awg-quick
+  - usr/local/bin/awg
+  - usr/local/bin/awg-quick
