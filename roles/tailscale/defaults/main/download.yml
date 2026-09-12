@@ -1,11 +1,6 @@
 # Version of Tailscale to download.
-tailscale_download_version: latest
-
-# GitHub user or organization that maintains the Tailscale repository.
-tailscale_download_github_user: tailscale
-
-# GitHub repository name for Tailscale.
-tailscale_download_github_repository: tailscale
+# renovate: datasource=github-releases depName=tailscale/tailscale
+tailscale_download_version: "1.102.4"
 
 # Mapping from system architecture to Tailscale release architecture naming.
 tailscale_download_architecture_map:

@@ -54,16 +54,14 @@ Description: Install and configure K3s Kubernetes distribution, including server
 
 | Var          | Type         | Value       |
 |--------------|--------------|-------------|
-| [k3s_download_version](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/defaults/main/download.yml#L2)   | str | `latest` |
-| [k3s_download_github_user](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/defaults/main/download.yml#L5)   | str | `k3s-io` |
-| [k3s_download_github_repository](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/defaults/main/download.yml#L8)   | str | `k3s` |
-| [k3s_download_binary_architecture_map](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/defaults/main/download.yml#L11)   | dict | `{}` |
-| [k3s_download_binary_architecture_map.**x86_64**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/defaults/main/download.yml#L12)   | str | `amd64` |
-| [k3s_download_binary_architecture_map.**aarch64**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/defaults/main/download.yml#L13)   | str | `arm64` |
-| [k3s_download_binary_url](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/defaults/main/download.yml#L16)   | str | `<multiline value: literal_strip>` |
-| [k3s_download_script_url](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/defaults/main/download.yml#L25)   | str | `https://raw.githubusercontent.com/{{ k3s_download_github_user }}/{{ k3s_download_github_repository }}/refs/tags/v{{ download_url_version }}/install.sh` |
-| [k3s_download_script_architecture_map](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/defaults/main/download.yml#L28)   | dict | `{}` |
-| [k3s_download_script_architecture_map.**noarch**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/defaults/main/download.yml#L29)   | str |  |
+| [k3s_download_version](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/defaults/main/download.yml#L3)   | str | `1.36.4` |
+| [k3s_download_binary_architecture_map](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/defaults/main/download.yml#L6)   | dict | `{}` |
+| [k3s_download_binary_architecture_map.**x86_64**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/defaults/main/download.yml#L7)   | str | `amd64` |
+| [k3s_download_binary_architecture_map.**aarch64**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/defaults/main/download.yml#L8)   | str | `arm64` |
+| [k3s_download_binary_url](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/defaults/main/download.yml#L11)   | str | `<multiline value: literal_strip>` |
+| [k3s_download_script_url](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/defaults/main/download.yml#L20)   | str | `https://raw.githubusercontent.com/k3s-io/k3s/refs/tags/v{{ download_url_version }}+k3s1/install.sh` |
+| [k3s_download_script_architecture_map](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/defaults/main/download.yml#L23)   | dict | `{}` |
+| [k3s_download_script_architecture_map.**noarch**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/defaults/main/download.yml#L24)   | str |  |
 
 #### File: defaults/main/server/config.yml
 
@@ -143,11 +141,8 @@ Description: Install and configure K3s Kubernetes distribution, including server
 
 | Name | Module | Has Conditions |
 | ---- | ------ | -------------- |
-| [Get latest K3s version](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/tasks/download.yml#L1) | block | True |
-| [Fetch latest K3s release on GitHub](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/tasks/download.yml#L4) | community.general.github_release | False |
-| [Set K3s version fact](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/tasks/download.yml#L12) | ansible.builtin.set_fact | False |
-| [Download K3s binary](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/tasks/download.yml#L16) | ansible.builtin.include_role | False |
-| [Download K3s script](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/tasks/download.yml#L25) | ansible.builtin.include_role | False |
+| [Download K3s binary](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/tasks/download.yml#L1) | ansible.builtin.include_role | False |
+| [Download K3s script](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/tasks/download.yml#L10) | ansible.builtin.include_role | False |
 
 #### File: tasks/install.yml
 

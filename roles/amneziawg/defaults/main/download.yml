@@ -1,10 +1,12 @@
 # Version of AmneziaWG go to download.
+# renovate: datasource=docker depName=ghcr.io/kasefuchs/containers/amneziawg-go
 amneziawg_download_go_version: "3.1.20260828"
 
 # OCI image for AmneziaWG go.
 amneziawg_download_go_image: ghcr.io/kasefuchs/containers/amneziawg-go
 
 # Version of AmneziaWG tools to download.
+# renovate: datasource=docker depName=ghcr.io/kasefuchs/containers/amneziawg-tools
 amneziawg_download_tools_version: "3.1.20260812"
 
 # OCI image for AmneziaWG tools.

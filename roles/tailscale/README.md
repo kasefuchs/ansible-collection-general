@@ -47,13 +47,11 @@ Description: Install and configure Tailscale mesh VPN, including automated login
 
 | Var          | Type         | Value       |
 |--------------|--------------|-------------|
-| [tailscale_download_version](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/defaults/main/download.yml#L2)   | str | `latest` |
-| [tailscale_download_github_user](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/defaults/main/download.yml#L5)   | str | `tailscale` |
-| [tailscale_download_github_repository](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/defaults/main/download.yml#L8)   | str | `tailscale` |
-| [tailscale_download_architecture_map](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/defaults/main/download.yml#L11)   | dict | `{}` |
-| [tailscale_download_architecture_map.**x86_64**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/defaults/main/download.yml#L12)   | str | `amd64` |
-| [tailscale_download_architecture_map.**aarch64**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/defaults/main/download.yml#L13)   | str | `arm64` |
-| [tailscale_download_url](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/defaults/main/download.yml#L16)   | str | `https://pkgs.tailscale.com/stable/tailscale_{{ download_url_version }}_{{ arch.value }}.tgz` |
+| [tailscale_download_version](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/defaults/main/download.yml#L3)   | str | `1.102.4` |
+| [tailscale_download_architecture_map](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/defaults/main/download.yml#L6)   | dict | `{}` |
+| [tailscale_download_architecture_map.**x86_64**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/defaults/main/download.yml#L7)   | str | `amd64` |
+| [tailscale_download_architecture_map.**aarch64**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/defaults/main/download.yml#L8)   | str | `arm64` |
+| [tailscale_download_url](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/defaults/main/download.yml#L11)   | str | `https://pkgs.tailscale.com/stable/tailscale_{{ download_url_version }}_{{ arch.value }}.tgz` |
 
 #### File: defaults/main/install.yml
 
@@ -105,10 +103,7 @@ Description: Install and configure Tailscale mesh VPN, including automated login
 
 | Name | Module | Has Conditions |
 | ---- | ------ | -------------- |
-| [Get latest Tailscale version](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/tasks/download.yml#L1) | block | True |
-| [Fetch latest Tailscale release on GitHub](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/tasks/download.yml#L4) | community.general.github_release | False |
-| [Set Tailscale version fact](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/tasks/download.yml#L12) | ansible.builtin.set_fact | False |
-| [Download Tailscale archive](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/tasks/download.yml#L16) | ansible.builtin.include_role | False |
+| [Download Tailscale archive](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/tailscale/tasks/download.yml#L1) | ansible.builtin.include_role | False |
 
 #### File: tasks/install.yml
 

@@ -103,13 +103,11 @@ Description: Install and configure sing-box proxy platform, including service se
 
 | Var          | Type         | Value       |
 |--------------|--------------|-------------|
-| [singbox_download_version](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/download.yml#L2)   | str | `latest` |
-| [singbox_download_github_user](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/download.yml#L5)   | str | `SagerNet` |
-| [singbox_download_github_repository](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/download.yml#L8)   | str | `sing-box` |
-| [singbox_download_architecture_map](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/download.yml#L11)   | dict | `{}` |
-| [singbox_download_architecture_map.**x86_64**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/download.yml#L12)   | str | `amd64` |
-| [singbox_download_architecture_map.**aarch64**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/download.yml#L13)   | str | `arm64` |
-| [singbox_download_url](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/download.yml#L16)   | str | `https://github.com/{{ singbox_download_github_user }}/{{ singbox_download_github_repository }}/releases/download/v{{ download_url_version }}/sing-box-{{ download_url_version }}-linux-{{ arch.value }}.tar.gz` |
+| [singbox_download_version](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/download.yml#L3)   | str | `1.14.0` |
+| [singbox_download_architecture_map](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/download.yml#L6)   | dict | `{}` |
+| [singbox_download_architecture_map.**x86_64**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/download.yml#L7)   | str | `amd64` |
+| [singbox_download_architecture_map.**aarch64**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/download.yml#L8)   | str | `arm64` |
+| [singbox_download_url](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/download.yml#L11)   | str | `https://github.com/SagerNet/sing-box/releases/download/v{{ download_url_version }}/sing-box-{{ download_url_version }}-linux-{{ arch.value }}.tar.gz` |
 
 #### File: defaults/main/install.yml
 
@@ -163,10 +161,7 @@ Description: Install and configure sing-box proxy platform, including service se
 
 | Name | Module | Has Conditions |
 | ---- | ------ | -------------- |
-| [Get latest sing-box version](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/tasks/download.yml#L1) | block | True |
-| [Fetch latest sing-box release on GitHub](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/tasks/download.yml#L4) | community.general.github_release | False |
-| [Set sing-box version fact](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/tasks/download.yml#L12) | ansible.builtin.set_fact | False |
-| [Download sing-box archive](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/tasks/download.yml#L16) | ansible.builtin.include_role | False |
+| [Download sing-box archive](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/tasks/download.yml#L1) | ansible.builtin.include_role | False |
 
 #### File: tasks/install.yml
 

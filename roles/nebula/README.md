@@ -88,13 +88,11 @@ Description: Install and configure Nebula overlay networking, including certific
 
 | Var          | Type         | Value       |
 |--------------|--------------|-------------|
-| [nebula_download_version](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/download.yml#L2)   | str | `latest` |
-| [nebula_download_github_user](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/download.yml#L5)   | str | `slackhq` |
-| [nebula_download_github_repository](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/download.yml#L8)   | str | `nebula` |
-| [nebula_download_architecture_map](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/download.yml#L11)   | dict | `{}` |
-| [nebula_download_architecture_map.**x86_64**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/download.yml#L12)   | str | `amd64` |
-| [nebula_download_architecture_map.**aarch64**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/download.yml#L13)   | str | `arm64` |
-| [nebula_download_url](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/download.yml#L16)   | str | `https://github.com/{{ nebula_download_github_user }}/{{ nebula_download_github_repository }}/releases/download/v{{ download_url_version }}/nebula-linux-{{ arch.value }}.tar.gz` |
+| [nebula_download_version](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/download.yml#L3)   | str | `1.11.1` |
+| [nebula_download_architecture_map](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/download.yml#L6)   | dict | `{}` |
+| [nebula_download_architecture_map.**x86_64**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/download.yml#L7)   | str | `amd64` |
+| [nebula_download_architecture_map.**aarch64**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/download.yml#L8)   | str | `arm64` |
+| [nebula_download_url](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/download.yml#L11)   | str | `https://github.com/slackhq/nebula/releases/download/v{{ download_url_version }}/nebula-linux-{{ arch.value }}.tar.gz` |
 
 #### File: defaults/main/install.yml
 
@@ -171,10 +169,7 @@ Description: Install and configure Nebula overlay networking, including certific
 
 | Name | Module | Has Conditions |
 | ---- | ------ | -------------- |
-| [Get latest Nebula version](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/tasks/download.yml#L1) | block | True |
-| [Fetch latest Nebula release on GitHub](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/tasks/download.yml#L4) | community.general.github_release | False |
-| [Set Nebula version fact](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/tasks/download.yml#L12) | ansible.builtin.set_fact | False |
-| [Download Nebula archive](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/tasks/download.yml#L16) | ansible.builtin.include_role | False |
+| [Download Nebula archive](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/tasks/download.yml#L1) | ansible.builtin.include_role | False |
 
 #### File: tasks/install.yml
 
