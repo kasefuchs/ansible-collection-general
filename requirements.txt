@@ -1,5 +1,5 @@
 ansible==13.4.0
 ansible-lint==26.3.0
 docsible==0.8.0
-pur==7.3.3
+pur==7.4.0
 antsibull-changelog==0.35.1
