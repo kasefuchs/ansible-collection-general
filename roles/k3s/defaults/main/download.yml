@@ -1,6 +1,6 @@
 # Version of K3s to download.
 # renovate: datasource=github-releases depName=k3s-io/k3s
-k3s_download_version: "1.36.4"
+k3s_download_version: "v1.36.4+k3s1"
 
 # Mapping from system architecture to K3s binary release architecture naming.
 k3s_download_binary_architecture_map:
@@ -9,7 +9,7 @@ k3s_download_binary_architecture_map:
 
 # URL to download the K3s binary.
 k3s_download_binary_url: |-
-  https://github.com/k3s-io/k3s/releases/download/v{{ download_url_version }}+k3s1/
+  https://github.com/k3s-io/k3s/releases/download/{{ download_url_version }}/
   {%- if arch.key == 'x86_64' -%}
   k3s
   {%- else -%}
@@ -17,7 +17,7 @@ k3s_download_binary_url: |-
   {%- endif -%}
 
 # URL to download the K3s script.
-k3s_download_script_url: https://raw.githubusercontent.com/k3s-io/k3s/refs/tags/v{{ download_url_version }}+k3s1/install.sh
+k3s_download_script_url: https://raw.githubusercontent.com/k3s-io/k3s/refs/tags/{{ download_url_version }}/install.sh
 
 # Mapping from system architecture to K3s script release architecture naming.
 k3s_download_script_architecture_map:
