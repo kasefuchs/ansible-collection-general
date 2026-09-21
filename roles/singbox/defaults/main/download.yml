@@ -1,6 +1,6 @@
 # Version of sing-box to download.
 # renovate: datasource=github-releases depName=SagerNet/sing-box
-singbox_download_version: "1.14.0"
+singbox_download_version: "1.14.1"
 
 # Mapping from system architecture to sing-box release architecture naming.
 singbox_download_architecture_map:
