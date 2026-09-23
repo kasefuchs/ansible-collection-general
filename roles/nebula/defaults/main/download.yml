@@ -1,6 +1,6 @@
 # Version of Nebula to download.
 # renovate: datasource=github-releases depName=slackhq/nebula
-nebula_download_version: "1.11.1"
+nebula_download_version: "1.11.2"
 
 # Mapping from system architecture to Nebula release architecture naming.
 nebula_download_architecture_map:
