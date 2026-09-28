@@ -32,6 +32,19 @@
 {% endfor %}
 {% endfor %}
 
+{% for hook in (
+  {
+    'PreUp': amneziawg_config_hook_pre_up,
+    'PostUp': amneziawg_config_hook_post_up,
+    'PreDown': amneziawg_config_hook_pre_down,
+    'PostDown': amneziawg_config_hook_post_down,
+  }
+  | dict2items
+  | selectattr('value', 'truthy')
+) -%}
+{{ hook.key }} = {{ hook.value | join('; ') }}
+{% endfor -%}
+
 {% for item in amneziawg_config_peers %}
 {% if not loop.first %}
 

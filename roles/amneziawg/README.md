@@ -41,6 +41,10 @@ Description: Install and configure AmneziaWG using amneziawg-go and amneziawg-to
 | [amneziawg_config_paddings](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/config.yml#L14)   | list | `[]` |
 | [amneziawg_config_headers](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/config.yml#L17)   | list | `[]` |
 | [amneziawg_config_signatures](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/config.yml#L20)   | list | `[]` |
+| [amneziawg_config_hook_pre_up](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/config.yml#L23)   | list | `[]` |
+| [amneziawg_config_hook_post_up](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/config.yml#L26)   | list | `[]` |
+| [amneziawg_config_hook_pre_down](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/config.yml#L29)   | list | `[]` |
+| [amneziawg_config_hook_post_down](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/config.yml#L32)   | list | `[]` |
 
 #### File: defaults/main/download.yml
 

@@ -18,3 +18,15 @@ amneziawg_config_headers: []
 
 # Custom signature packets.
 amneziawg_config_signatures: []
+
+# Commands executed before interface is brought up.
+amneziawg_config_hook_pre_up: []
+
+# Commands executed after interface is brought up.
+amneziawg_config_hook_post_up: []
+
+# Commands executed before interface is brought down.
+amneziawg_config_hook_pre_down: []
+
+# Commands executed after interface is brought down.
+amneziawg_config_hook_post_down: []

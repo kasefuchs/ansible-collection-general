@@ -63,6 +63,10 @@ Install and configure AmneziaWG using amneziawg-go and amneziawg-tools with syst
 | [amneziawg_config_paddings](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/config.yml#L14)   | list   | `[]` |
 | [amneziawg_config_headers](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/config.yml#L17)   | list   | `[]` |
 | [amneziawg_config_signatures](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/config.yml#L20)   | list   | `[]` |
+| [amneziawg_config_hook_pre_up](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/config.yml#L23)   | list   | `[]` |
+| [amneziawg_config_hook_post_up](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/config.yml#L26)   | list   | `[]` |
+| [amneziawg_config_hook_pre_down](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/config.yml#L29)   | list   | `[]` |
+| [amneziawg_config_hook_post_down](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/config.yml#L32)   | list   | `[]` |
 
 #### amneziawg File: [defaults/main/download.yml](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/amneziawg/defaults/main/download.yml)
 
@@ -261,12 +265,12 @@ Install and configure K3s Kubernetes distribution, including server and agent mo
 
 | Var          | Type         | Value       |
 |--------------|--------------|-------------|
-| [k3s_download_version](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/defaults/main/download.yml#L3)   | str   | `1.36.4` |
+| [k3s_download_version](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/defaults/main/download.yml#L3)   | str   | `v1.37.0+k3s1` |
 | [k3s_download_binary_architecture_map](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/defaults/main/download.yml#L6)   | dict   | `{}` |
 | [k3s_download_binary_architecture_map.x86_64](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/defaults/main/download.yml#L7)   | str   | `amd64` |
 | [k3s_download_binary_architecture_map.aarch64](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/defaults/main/download.yml#L8)   | str   | `arm64` |
 | [k3s_download_binary_url](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/defaults/main/download.yml#L11)   | str   | `<multiline value: literal_strip>` |
-| [k3s_download_script_url](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/defaults/main/download.yml#L20)   | str   | `https://raw.githubusercontent.com/k3s-io/k3s/refs/tags/v{{ download_url_version }}+k3s1/install.sh` |
+| [k3s_download_script_url](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/defaults/main/download.yml#L20)   | str   | `https://raw.githubusercontent.com/k3s-io/k3s/refs/tags/{{ download_url_version }}/install.sh` |
 | [k3s_download_script_architecture_map](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/defaults/main/download.yml#L23)   | dict   | `{}` |
 | [k3s_download_script_architecture_map.noarch](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/k3s/defaults/main/download.yml#L24)   | str   |  |
 
@@ -393,7 +397,7 @@ Install and configure Nebula overlay networking, including certificate generatio
 
 | Var          | Type         | Value       |
 |--------------|--------------|-------------|
-| [nebula_download_version](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/download.yml#L3)   | str   | `1.11.1` |
+| [nebula_download_version](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/download.yml#L3)   | str   | `1.11.2` |
 | [nebula_download_architecture_map](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/download.yml#L6)   | dict   | `{}` |
 | [nebula_download_architecture_map.x86_64](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/download.yml#L7)   | str   | `amd64` |
 | [nebula_download_architecture_map.aarch64](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/download.yml#L8)   | str   | `arm64` |
@@ -533,7 +537,7 @@ Install and configure sing-box proxy platform, including service setup and confi
 
 | Var          | Type         | Value       |
 |--------------|--------------|-------------|
-| [singbox_download_version](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/download.yml#L3)   | str   | `1.14.0` |
+| [singbox_download_version](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/download.yml#L3)   | str   | `1.14.2` |
 | [singbox_download_architecture_map](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/download.yml#L6)   | dict   | `{}` |
 | [singbox_download_architecture_map.x86_64](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/download.yml#L7)   | str   | `amd64` |
 | [singbox_download_architecture_map.aarch64](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/download.yml#L8)   | str   | `arm64` |

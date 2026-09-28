@@ -103,7 +103,7 @@ Description: Install and configure sing-box proxy platform, including service se
 
 | Var          | Type         | Value       |
 |--------------|--------------|-------------|
-| [singbox_download_version](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/download.yml#L3)   | str | `1.14.0` |
+| [singbox_download_version](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/download.yml#L3)   | str | `1.14.2` |
 | [singbox_download_architecture_map](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/download.yml#L6)   | dict | `{}` |
 | [singbox_download_architecture_map.**x86_64**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/download.yml#L7)   | str | `amd64` |
 | [singbox_download_architecture_map.**aarch64**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/singbox/defaults/main/download.yml#L8)   | str | `arm64` |

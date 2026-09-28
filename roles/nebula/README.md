@@ -88,7 +88,7 @@ Description: Install and configure Nebula overlay networking, including certific
 
 | Var          | Type         | Value       |
 |--------------|--------------|-------------|
-| [nebula_download_version](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/download.yml#L3)   | str | `1.11.1` |
+| [nebula_download_version](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/download.yml#L3)   | str | `1.11.2` |
 | [nebula_download_architecture_map](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/download.yml#L6)   | dict | `{}` |
 | [nebula_download_architecture_map.**x86_64**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/download.yml#L7)   | str | `amd64` |
 | [nebula_download_architecture_map.**aarch64**](https://codeberg.org/kasefuchs/ansible-collection-general/src/branch/main/roles/nebula/defaults/main/download.yml#L8)   | str | `arm64` |
